@@ -14,7 +14,4 @@ export class AuthService {
   return Observable.of(Avaliable).delay(1600);
   }
 
-=======
->>>>>>> 9f7584ae4df453e571f340f6454667d0867430e9
 }
-
