@@ -16,8 +16,9 @@ export class AuthService {
       localStorage.setItem('CurrentUser', user);
     }
 
-  verifyPassword(user: string, password:string): boolean {
-      return password === 'password'  ? true : false;
+  verifyPassword(email: string, password:string): boolean {
+      let userindex = users.findIndex(x => x.email === email);
+      return password === users[userindex].password  ? true : false;
     }
 
   logoutUser(): void {
