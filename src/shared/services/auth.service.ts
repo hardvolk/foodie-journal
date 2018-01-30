@@ -17,21 +17,5 @@ export class AuthService {
   return Observable.of(Avaliable).delay(1600);
   }
 
-  getCurrentUser(): string {
-    return localStorage.getItem('CurrentUser');
-  }
-
-  setCurrentUser(user: string): void {
-      localStorage.setItem('CurrentUser', user);
-    }
-
-  verifyPassword(user: string, password: string): boolean {
-      return password === 'password'  ? true : false;
-    }
-
-  logoutUser(): void {
-      localStorage.setItem('CurrentUser', '');
-    }
-
 }
 
