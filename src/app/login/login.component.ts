@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { users } from '../../shared/interfaces/mockusers';
+
 
 @Component({
   selector: 'app-login',
@@ -17,15 +19,16 @@ export class LoginComponent implements OnInit {
   }
 
   setCurrentUser(user: string): void {
-      localStorage.setItem('CurrentUser', user);
-    }
+    localStorage.setItem('CurrentUser', user);
+  }
 
-  verifyPassword(user: string, password: string): boolean {
-      return password === 'password'  ? true : false;
-    }
+  verifyPassword(email: string, password: string): boolean {
+    const userindex = users.findIndex(x => x.email === email);
+    return password === users[userindex].password  ? true : false;
+  }
 
   logoutUser(): void {
-      localStorage.setItem('CurrentUser', '');
-    }
+    localStorage.setItem('CurrentUser', '');
+  }
 
 }

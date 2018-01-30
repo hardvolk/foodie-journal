@@ -4,8 +4,6 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
 import { emails } from './../interfaces/loginMock';
 
-import { users } from './mockusers';
-
 
 @Injectable()
 export class AuthService {
