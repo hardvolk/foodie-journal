@@ -17,8 +17,7 @@ export class AuthService {
     }
 
   verifyPassword(user: string, password:string): boolean {
-      let userpassword = users.find(user).password
-      return password ===  ? true : false;
+      return password === 'password'  ? true : false;
     }
 
   logoutUser(): void {
