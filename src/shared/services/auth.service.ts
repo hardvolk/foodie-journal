@@ -12,7 +12,7 @@ export class AuthService {
   }
 
   setCurrentUser(user: string): void {
-      localStorage.setItem('CurrentUser', user);
+    localStorage.setItem('CurrentUser', user);
   }
 
   logoutUser(): void {
