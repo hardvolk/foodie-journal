@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HomeMainMenuComponent } from './home-main-menu/home-main-menu.component';
 import { LoginComponent } from './login/login.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
