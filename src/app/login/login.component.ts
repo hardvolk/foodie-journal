@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { users } from '../../shared/interfaces/mockusers';
 import { User } from '../../shared/interfaces/user';
-import { AuthService } from '../../shared/services/auth.service';
+import { UserService } from '../../shared/services/user.service';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   password: string;
   user: User;
 
-  constructor(private _authService: AuthService) { }
+  constructor(private _userService: UserService) { }
 
   verifyPassword(query: string, pwd: string): boolean {
     if (users.find(x => x.email === query || x.name === query)) {
@@ -30,13 +30,13 @@ export class LoginComponent implements OnInit {
   }
 
   logoutUser(): void {
-    this._authService.logout();
+    this._userService.logout();
   }
 
   loginUser(query: string, pwd: string): boolean {
     if (this.verifyPassword(query, pwd)) {
       console.log('password verified');
-      this._authService.login(users.find(x => x.email === query || x.name === query));
+      this._userService.login(users.find(x => x.email === query || x.name === query));
       return true;
     } else {
       console.log('failed to log in');
@@ -45,12 +45,12 @@ export class LoginComponent implements OnInit {
   }
 
   changeDish(journey: number, dish: number) {
-    this._authService.updateProgress(journey, dish);
+    this._userService.updateProgress(journey, dish);
   }
 
   ngOnInit() {
-    this._authService.checkInitialUser();
-    this._authService.LoggedUser.subscribe(user => this.user = user);
+    this._userService.checkInitialUser();
+    this._userService.LoggedUser.subscribe(user => this.user = user);
     if (this.user.name.length > 0) {
       console.log('Currently logged in as: ' + this.user.name);
     } else {
