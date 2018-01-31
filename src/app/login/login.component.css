@@ -1,4 +1,32 @@
+ body {
+     padding-top: 70px;
+ }
+ 
  .button-login {
-     max-width: 33%;
-     height: auto;
+    width: 30%;
+    height: auto;
     }
+
+ .login-container {
+    /* position: absolute; */
+    background: #333;
+
+    /* max-height: 100%;
+    max-width: 100%;
+    z-index: 1031;
+    right: 0;
+    padding: 3%;
+    margin-top: 14%; */
+    }
+
+ /* input {
+    margin-right: 5%;
+    } */
+
+    @media screen and (max-width: 560px){
+        .login-container{
+            margin: 0 auto;
+        }
+    }
+
+

@@ -1,16 +1,12 @@
-<div>
-<br>
-<br>
-<br>
-<input class='input' placeholder=' Email or Username ' type='text' [(ngModel)]='username'>
-<br>
-<input class='input' placeholder=' Password ' type='text' [(ngModel)]='password'>
-<br>
-<button (click)='verifyPassword(username, password)'> Login </button> 
-<br>
-<br>
-<button class='button-login'>face</button>
-<button class='button-login'>twit</button>
-<button class='button-login'>goog</button>
+<div class="row">
+    <div class="login-container container col-xs-11 col-md-3" content="width=device-width, initial-scale=1">
+        <br>
+        <input class='form-control' placeholder=' Email or Username ' type='text' [(ngModel)]='username'>
+        <input class='form-control' placeholder=' Password ' type='text' [(ngModel)]='password'>
+        <button class='btn form-control' (click)='verifyPassword(username, password)'> Login </button> 
+        <br>
+        <a class='button-login'>facebook</a>
+        <a class='button-login'>twitter</a>
+        <a class='button-login'>google</a>
+    </div>
 </div>
-
