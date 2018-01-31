@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { users } from '../../shared/interfaces/mockusers';
+import { User } from '../../shared/interfaces/user';
+import { AuthService } from '../../shared/services/auth.service';
 
 
 @Component({
@@ -13,34 +15,42 @@ export class LoginComponent implements OnInit {
 
   username: string;
   password: string;
+  user: User;
 
-  constructor() { }
+  constructor(private _authService: AuthService) { }
 
-  getCurrentUser(): string {
-    return localStorage.getItem('CurrentUser');
-  }
-
-  setCurrentUser(user: string): void {
-    localStorage.setItem('CurrentUser', user);
-  }
-
-  verifyPassword(email: string, pwd: string): boolean {
-    if (users.find(x => x.email === email)) {
-      const password = users.find(x => x.email === email).password;
-      console.log('user: ' + email);
-      console.log('pwd: ' + pwd);
-      console.log(pwd === password);
-      return pwd === password  ? true : false;
+  verifyPassword(query: string, pwd: string): boolean {
+    if (users.find(x => x.email === query || x.name === query)) {
+      console.log('user found');
+      return pwd === users.find(x => x.email === query || x.name === query).password;
     } else {
-      console.log('undefined');
+      console.log('user not found');
       return false;
     }
   }
 
   logoutUser(): void {
-    localStorage.setItem('CurrentUser', '');
+    this._authService.logout();
+  }
+
+  loginUser(query: string, pwd: string): boolean {
+    if (this.verifyPassword(query, pwd)) {
+      console.log('password verified');
+      this._authService.login(users.find(x => x.email === query || x.name === query));
+      return true;
+    } else {
+      console.log('failed to log in');
+      return false;
+    }
   }
 
   ngOnInit() {
+    this._authService.checkInitialUser();
+    this._authService.LoggedUser.subscribe(user => this.user = user);
+    if (this.user.IsLoggedIn === true) {
+      console.log('Currently logged in as: ' + this.user.name);
+    } else {
+      console.log('Currently not logged in.');
+    }
   }
 }

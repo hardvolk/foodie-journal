@@ -1,7 +1,7 @@
 import { User } from '../interfaces/user';
 
 export const users: User[] = [
-    {email: 'example1', password: 'example1'},
-    {email: 'example2@example.com', password: 'example2'},
-    {email: 'example3@example.com', password: 'example3'}
+    {name: 'exampleone', email: 'example1', password: 'example1', IsLoggedIn: false},
+    {name: 'exampletwo', email: 'example2', password: 'example2', IsLoggedIn: false},
+    {name: 'examplethree', email: 'example3', password: 'example3', IsLoggedIn: false}
 ];
