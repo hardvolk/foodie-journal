@@ -44,10 +44,14 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  changeDish(journey: number, dish: number) {
+    this._authService.updateProgress(journey, dish);
+  }
+
   ngOnInit() {
     this._authService.checkInitialUser();
     this._authService.LoggedUser.subscribe(user => this.user = user);
-    if (this.user.IsLoggedIn === true) {
+    if (this.user.name.length > 0) {
       console.log('Currently logged in as: ' + this.user.name);
     } else {
       console.log('Currently not logged in.');
