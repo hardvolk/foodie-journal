@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* FONT: Proxima Nova  (https://github.com/elliakou/proxima-nova-web-fonts)*/
+@import './assets/fonts/fonts.css';
+
+
+html,body{
+    height: 100%;
+    font-family: 'Proxima Nova', Georgia, sans-serif;
+}
+
+/* THEME */
+.orange{
+    background-color: #fe5240 !important;
+}
