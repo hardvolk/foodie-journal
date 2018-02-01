@@ -1,3 +1,11 @@
-export const emails = [
-    { email: 'gerardo@gmail.com'}
-];
+// export const loginMock = [{
+//     name: 'randomName',
+//     email: 'randomEmail@gmail.com',
+//     password: 'randomPassword'
+//   }];
+
+// {
+//     name: 'randomName',
+//     email: 'randomEmail@gmail.com',
+//     password: 'randomPassword
+// }

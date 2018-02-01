@@ -7,6 +7,9 @@ h1 {
 
 }
 
-.mainNav {
-    background-color: #fc634b;
+.cursor {
+    cursor: pointer;
+    position: fixed;
+    margin-right: 5%;
+    right: 0; 
 }

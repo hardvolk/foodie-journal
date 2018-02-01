@@ -3,7 +3,6 @@ import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
-import { emails } from './../interfaces/loginMock';
 import { User } from '../interfaces/user';
 
 @Injectable()
@@ -27,7 +26,7 @@ export class UserService {
       } else {
         localStorage.setItem(user.name, JSON.stringify(user));
       }
-      console.log('User ' + this.user.name + ' has logged in.');
+      console.log('User ' + user.name + ' has logged in.');
     }
     this.LoggedUser.next(this.user);
   }

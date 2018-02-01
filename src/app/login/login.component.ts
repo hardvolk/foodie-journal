@@ -4,7 +4,6 @@ import { users } from '../../shared/interfaces/mockusers';
 import { User } from '../../shared/interfaces/user';
 import { UserService } from '../../shared/services/user.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,6 +17,16 @@ export class LoginComponent implements OnInit {
   user: User;
 
   constructor(private _userService: UserService) { }
+
+  ngOnInit() {
+    this._userService.checkInitialUser();
+    this._userService.LoggedUser.subscribe(user => this.user = user);
+    if (this.user.name.length > 0) {
+      console.log('Currently logged in as: ' + this.user.name);
+    } else {
+      console.log('Currently not logged in.');
+    }
+  }
 
   verifyPassword(query: string, pwd: string): boolean {
     if (users.find(x => x.email === query || x.name === query)) {
@@ -48,13 +57,4 @@ export class LoginComponent implements OnInit {
     this._userService.updateProgress(journey, dish);
   }
 
-  ngOnInit() {
-    this._userService.checkInitialUser();
-    this._userService.LoggedUser.subscribe(user => this.user = user);
-    if (this.user.name.length > 0) {
-      console.log('Currently logged in as: ' + this.user.name);
-    } else {
-      console.log('Currently not logged in.');
-    }
-  }
 }
