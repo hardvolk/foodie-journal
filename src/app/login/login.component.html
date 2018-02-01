@@ -1,12 +1,21 @@
 <div class="row">
-    <div class="login-container container col-xs-11 col-md-3" content="width=device-width, initial-scale=1">
-        <br>
-        <input class='form-control' placeholder=' Email or Username ' type='text' [(ngModel)]='username'>
+    <div class="container col-xs-11 col-sm-3 col-md-3 col-lg-2 container-right" content="width=device-width, initial-scale=1">
+        <input id="input-top" class='form-control' placeholder=' Email or Username ' type='text' [(ngModel)]='username'>
         <input class='form-control' placeholder=' Password ' type='text' [(ngModel)]='password'>
-        <button class='btn form-control' (click)='verifyPassword(username, password)'> Login </button> 
-        <br>
-        <a class='button-login'>facebook</a>
-        <a class='button-login'>twitter</a>
-        <a class='button-login'>google</a>
+        <button class='btn form-control button-background' (click)='verifyPassword(username, password)'> Login </button> 
+        <div>
+            <p> or log in with </p>
+        </div>
+        <div class='row' align='center'>
+            <a class='offset-1 col-3' href="https://www.facebook.com">
+                <img class='' src="/assets/icons/fb_icon.png"> 
+            </a>
+            <a class='col-4' href="https://www.twitter.com">
+                <img class='' src="/assets/icons/twitter_icon.png"> 
+            </a>
+            <a class='col-3 push-1' href="https://www.googleplus.com">
+                <img class='' src="/assets/icons/gplus_icon.png"> 
+            </a>
+        </div>
     </div>
 </div>

@@ -1,32 +1,25 @@
- body {
-     padding-top: 70px;
- }
- 
- .button-login {
-    width: 30%;
-    height: auto;
-    }
-
- .login-container {
-    /* position: absolute; */
-    background: #333;
-
-    /* max-height: 100%;
-    max-width: 100%;
-    z-index: 1031;
+ .container-right {
     right: 0;
-    padding: 3%;
-    margin-top: 14%; */
+    position: absolute;
+ }
+
+ button {
+    margin-bottom: 5px;
+ }
+
+ input {
+    margin-bottom: 5px;
     }
 
- /* input {
-    margin-right: 5%;
-    } */
+ .background {
+     background-color: #fc634b;
+     color: white;
+ }
 
-    @media screen and (max-width: 560px){
-        .login-container{
-            margin: 0 auto;
-        }
-    }
-
-
+ #top-input {
+    padding-top: 20%;
+    background: #fc634b;
+ }
+ p {
+     text-align: center;
+ }
