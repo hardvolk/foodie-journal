@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
-import { emails } from './../interfaces/loginMock';
 import { User } from '../interfaces/user';
 
 @Injectable()
 export class UserService {
-  LoggedUser = new ReplaySubject<User>();
+  LoggedUser = new BehaviorSubject<User>({name: '', email: '', password: ''});
   user: User;
 
   constructor() {}
@@ -27,7 +26,7 @@ export class UserService {
       } else {
         localStorage.setItem(user.name, JSON.stringify(user));
       }
-      console.log('User ' + this.user.name + ' has logged in.');
+      console.log('User ' + user.name + ' has logged in.');
     }
     this.LoggedUser.next(this.user);
   }
