@@ -43,8 +43,7 @@ export class UserService {
   }
 
   checkProgress (journeyid: number): number {
-    console.log(this.LoggedUser.value['journey' + journeyid].array.filter( x => x === true).length);
-    return this.LoggedUser.value['journey' + journeyid].array.filter( x => x === true).length;
+    return this.LoggedUser.value['journey' + journeyid].filter( x => x === true).length;
   }
 
 }
