@@ -16,16 +16,6 @@ export class LoginComponent implements OnInit {
 
   constructor(private _userService: UserService) { }
 
-  ngOnInit() {
-    this._userService.checkInitialUser();
-    this._userService.LoggedUser.subscribe(user => this.user = user);
-    if (this.user.name.length > 0) {
-      console.log('Currently logged in as: ' + this.user.name);
-    } else {
-      console.log('Currently not logged in.');
-    }
-  }
-
   verifyPassword(query: string, pwd: string): boolean {
     if (users.find(x => x.email === query || x.name === query)) {
       console.log('user found');
@@ -45,11 +35,8 @@ export class LoginComponent implements OnInit {
     this._userService.logout();
   }
 
-<<<<<<< HEAD
   ngOnInit() {
     this._userService.checkInitialUser().subscribe(user => this.user = user);
     this.user.name.length > 0 ? console.log('Currently logged in as: ' + this.user.name) : console.log('Currently not logged in.');
   }
-=======
->>>>>>> 74fde68da0c80b69c96879543b39e412bf7a2683
 }

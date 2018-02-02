@@ -1,14 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-<<<<<<< HEAD
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-=======
-import { ReplaySubject } from 'rxjs/ReplaySubject';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/delay';
->>>>>>> 74fde68da0c80b69c96879543b39e412bf7a2683
-import { User } from '../interfaces/user';
 import { last } from 'rxjs/operators/last';
+import { User } from '../interfaces/user';
 
 @Injectable()
 export class UserService {
@@ -32,10 +26,6 @@ export class UserService {
       } else {
         localStorage.setItem(user.name, JSON.stringify(user));
       }
-<<<<<<< HEAD
-=======
-      console.log('User ' + user.name + ' has logged in.');
->>>>>>> 74fde68da0c80b69c96879543b39e412bf7a2683
     }
     this.LoggedUser.next(this.user);
   }
