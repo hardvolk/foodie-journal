@@ -9,7 +9,21 @@ export class HomeMainMenuComponent implements OnInit {
 
   constructor() { }
 
+  show = false;
+  showHamburguer = false;
+
+  toggleShowLogin() {
+    this.show = !this.show;
+  }
+
+  toggleShowHamburguer() {
+    if (!!localStorage.getItem('CurrentUser')) {
+      this.showHamburguer = true;
+    }
+  }
+
   ngOnInit() {
+    this.toggleShowHamburguer();
   }
 
 }
