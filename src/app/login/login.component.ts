@@ -13,8 +13,6 @@ import { UserService } from '../../shared/services/user.service';
 
 export class LoginComponent implements OnInit {
 
-  username: string;
-  password: string;
   user: User;
 
   constructor(private _userService: UserService) { }
@@ -23,14 +21,7 @@ export class LoginComponent implements OnInit {
     if (users.find(x => x.email === query || x.name === query)) {
       console.log('user found');
       return pwd === users.find(x => x.email === query || x.name === query).password;
-    } else {
-      console.log('user not found');
-      return false;
-    }
-  }
-
-  logoutUser(): void {
-    this._userService.logout();
+    } else { console.log('user not found'); return false; }
   }
 
   loginUser(query: string, pwd: string): boolean {
@@ -38,23 +29,15 @@ export class LoginComponent implements OnInit {
       console.log('password verified');
       this._userService.login(users.find(x => x.email === query || x.name === query));
       return true;
-    } else {
-      console.log('failed to log in');
-      return false;
-    }
+    } else { console.log('failed to log in'); return false; }
   }
 
-  changeDish(journey: number, dish: number) {
-    this._userService.updateProgress(journey, dish);
+  logoutUser(): void {
+    this._userService.logout();
   }
 
   ngOnInit() {
-    this._userService.checkInitialUser();
-    this._userService.LoggedUser.subscribe(user => this.user = user);
-    if (this.user.name.length > 0) {
-      console.log('Currently logged in as: ' + this.user.name);
-    } else {
-      console.log('Currently not logged in.');
-    }
+    this._userService.checkInitialUser().subscribe(user => this.user = user);
+    this.user.name.length > 0 ? console.log('Currently logged in as: ' + this.user.name) : console.log('Currently not logged in.');
   }
 }

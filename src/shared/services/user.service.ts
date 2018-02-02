@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/delay';
 import { User } from '../interfaces/user';
+import { last } from 'rxjs/operators/last';
 
 @Injectable()
 export class UserService {
@@ -12,10 +11,11 @@ export class UserService {
 
   constructor() {}
 
-  checkInitialUser() {
+  checkInitialUser(): BehaviorSubject<User> {
     if (!!localStorage.getItem('CurrentUser')) {
       this.login(JSON.parse(localStorage.getItem(localStorage.getItem('CurrentUser'))));
       } else { this.LoggedUser.next({name: '', email: '', password: ''}); }
+    return this.LoggedUser;
   }
 
   login (user: User) {
@@ -37,11 +37,15 @@ export class UserService {
   }
 
   updateProgress (journeyid: number, dishid: number): void {
-    this.LoggedUser.subscribe(user => (this.user = user));
+    this.LoggedUser.pipe(last()).subscribe(user => (this.user = user));
     this.user['journey' + journeyid][dishid - 1] = !this.user['journey' + journeyid][dishid - 1];
     this.LoggedUser.next(this.user);
     localStorage.setItem(this.user.name, JSON.stringify(this.user));
     console.log('Changed journey ' + journeyid + ' , dish ' + dishid + ' to value: ' + this.user['journey' + journeyid][dishid - 1]);
+  }
+
+  checkProgress (journeyid: number): number {
+    return this.LoggedUser.value['journey' + journeyid].array.filter( x => x === true).length;
   }
 
 }
