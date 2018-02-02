@@ -26,14 +26,12 @@ export class UserService {
       } else {
         localStorage.setItem(user.name, JSON.stringify(user));
       }
-      console.log('User ' + user.name + ' has logged in.');
     }
     this.LoggedUser.next(this.user);
   }
 
   logout (): void {
     localStorage.removeItem('CurrentUser');
-    console.log('User has logged out.');
   }
 
   updateProgress (journeyid: number, dishid: number): void {
@@ -45,6 +43,7 @@ export class UserService {
   }
 
   checkProgress (journeyid: number): number {
+    console.log(this.LoggedUser.value['journey' + journeyid].array.filter( x => x === true).length);
     return this.LoggedUser.value['journey' + journeyid].array.filter( x => x === true).length;
   }
 
