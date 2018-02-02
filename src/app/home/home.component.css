@@ -1,0 +1,48 @@
+.container-fluid {
+    position: relative;
+    top: 55px;
+}
+
+h1 {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+h4 {
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    position: relative;
+    left: 20%;
+    right: 20%;
+    border-radius: 0%;
+    background-color: #fd6914 !important;
+    border-color: #fd6914 !important;
+    padding: 10px 55px 10px 55px;
+    box-shadow: 4px 4px 18px #888888;
+    margin-bottom: 120px;
+}
+
+.down {
+    padding: 10px 0 10px 0;
+    opacity: 0.6;
+    background-color: #000000;
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    clear: none;
+}
+
+.paragraph {
+    color: #d6d6c2;
+}
+
+footer {
+    background-color: aliceblue;
+    padding: 20px;
+}
