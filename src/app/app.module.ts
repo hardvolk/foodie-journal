@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 import { UserService } from '../shared/services/user.service';
 import { JourneyOverviewComponent } from './journey-overview/journey-overview.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

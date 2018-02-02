@@ -1,0 +1,19 @@
+ #div-containing-header {
+     padding-top: 3%; 
+ }
+
+ #inside-dropdown-button {
+    margin-left: 10%;
+    text-align: left;
+    max-width: 50%;
+ }
+
+ #elements-inside-dropdown {
+     text-align: center;
+     padding: 20px;
+ }
+
+ #dropdown-menu-width {
+     width: 95%;
+     margin-right: 1%;
+ }
