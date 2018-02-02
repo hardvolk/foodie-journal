@@ -17,3 +17,13 @@
      width: 95%;
      margin-right: 1%;
  }
+
+ #contain-image {
+     height: 100%;
+     width: 100%;
+ }
+
+ #move-row {
+     padding-top: 15px;
+     padding-left: 15px;
+ }
