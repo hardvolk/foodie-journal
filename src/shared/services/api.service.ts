@@ -17,13 +17,21 @@ export class ApiService {
     constructor (private http: HttpClient) {}
 
     getRestaurantInfo(id: string): AsyncSubject<Restaurant> {
-        this.http.get(this.yelpURL + id, this.yelpheader)
-          .pipe(finalize(() => { this.CurrentRestaurant.next(this.rest); this.CurrentRestaurant.complete(); }))
-          .subscribe(x => {
-            this.rest = x as Restaurant;
-            this.rest.gmapsurl =  this.gmapsURL + this.rest.coordinates.latitude + ', '
-            + this.rest.coordinates.longitude + '&q=' + this.rest.name;
-          });
-        return this.CurrentRestaurant;
-      }
+      this.http.get(this.yelpURL + id, this.yelpheader)
+        .pipe(finalize(() => { this.CurrentRestaurant.next(this.rest); this.CurrentRestaurant.complete(); }))
+        .subscribe(x => {
+          this.rest = x as Restaurant;
+          this.rest.gmapsurl =  this.gmapsURL + this.rest.coordinates.latitude + ', '
+          + this.rest.coordinates.longitude + '&q=' + this.rest.name;
+        });
+      return this.CurrentRestaurant;
+    }
+
+    /* funcion ejemplo para llamar info del restaurante:
+
+    sampleGet(id: string): Restaurant {
+      this.getRestaurantInfo(id).subscribe( x => { this.rest = x as Restaurant; this.loading = false; });
+    }
+
+    */
 }
