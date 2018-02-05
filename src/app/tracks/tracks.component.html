@@ -1,24 +1,12 @@
 <div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-xs-8">
-            <p class="principal">Welcome!</p>
-            <p class="secondary">Choose a track to get started.</p>
-        </div>
+
+  <div class="row justify-content-center">
+    <div class="col-xs-8">
+      <p class="principal">Welcome!</p>
+      <p class="secondary">Choose a track to get started.</p>
     </div>
-    <section class="row" id="track">
-        <div class="col-1 offset-1" style="background-color: yellow">
-            
-        </div>
-        <div class="col-3" style="background-color: red">
-            <p class="icon">Icon</p>
-        </div>
-        <div class="col-6" style="background-color: red">
-            <p class="country">American</p>
-            <p class="percentage">10%</p>
-        </div>
-         <div class="col-10 offset-1" style="background-color: green">
-             <p class="description">One characteristic of American cooking is the fusion of multiple ethnic or regional approaches into completely new cooking styles.</p>
-             <p class="duration">Duration: 3 weeks</p>
-         </div>
-    </section>
+  </div>
+
+  <app-track *ngFor="let track of tracks" [track]="track"></app-track>
+
 </div>

@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { HomeMainMenuComponent } from './home-main-menu/home-main-menu.component';
 import { TracksComponent } from './tracks/tracks.component';
 import { HomeComponent } from './home/home.component';
+import { ProgressbarModule } from 'ngx-bootstrap';
+import { TrackComponent } from './tracks/track/track.component';
 
 
 @NgModule({
@@ -12,10 +14,14 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     HomeMainMenuComponent,
     TracksComponent,
-    HomeComponent
+    HomeComponent,
+    TrackComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+
+    // Bootstrap v4 components.
+    ProgressbarModule.forRoot(),
   ],
   providers: [AuthService],
   bootstrap: [ HomeMainMenuComponent ]
