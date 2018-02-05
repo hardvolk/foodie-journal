@@ -7,6 +7,7 @@ import { TracksComponent } from './tracks/tracks.component';
 import { HomeComponent } from './home/home.component';
 import { ProgressbarModule } from 'ngx-bootstrap';
 import { TrackComponent } from './tracks/track/track.component';
+import { ProgressBoxComponent } from './tracks/progress-box/progress-box.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { TrackComponent } from './tracks/track/track.component';
     TracksComponent,
     HomeComponent,
     TrackComponent,
+    ProgressBoxComponent
   ],
   imports: [
     BrowserModule,
