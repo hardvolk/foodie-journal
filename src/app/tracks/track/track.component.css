@@ -1,0 +1,28 @@
+.icon {
+  padding-top: 40px;
+  text-align: right;
+}
+
+.country {
+  color: white;
+  font-size: 20px;
+  /* padding-left: 20px; */
+  padding-top: 40px;
+  margin-bottom: 0;
+}
+
+.percentage {
+  color: gray;
+  font-size: 20px;
+  padding-left: 20px;
+  margin-top: 0;
+  padding-bottom: 10px;
+}
+
+.description {
+  padding-top: 30px;
+}
+
+.duration {
+  padding-bottom: 30px;
+}

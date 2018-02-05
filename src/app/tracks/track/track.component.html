@@ -1,0 +1,18 @@
+<section class="row">
+  <div class="col-1 offset-1" style="background-color: yellow">
+  </div>
+
+  <div class="col-3" style="background-color: red">
+    <p class="icon">{{track.iconUrl}}</p>
+  </div>
+
+  <div class="col-6" style="background-color: red">
+    <p class="country">{{track.title}}</p>
+    <p class="percentage">{{track.unitsCcompleted / track.unitsTotal | percent}}</p>
+  </div>
+
+  <div class="col-10 offset-1" style="background-color: green">
+    <p class="description">{{track.description}}</p>
+    <p class="duration">Duration: {{track.duration}}</p>
+  </div>
+</section>

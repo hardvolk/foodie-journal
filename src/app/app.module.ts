@@ -15,7 +15,7 @@ import { TrackComponent } from './tracks/track/track.component';
     HomeMainMenuComponent,
     TracksComponent,
     HomeComponent,
-    TrackComponent
+    TrackComponent,
   ],
   imports: [
     BrowserModule,
