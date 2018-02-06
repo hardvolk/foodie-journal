@@ -8,21 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../shared/services/api.service';
 import { SafePipe } from '../shared/pipes/safe.pipe';
 import { UserService } from '../shared/services/user.service';
-<<<<<<< HEAD
-=======
 import { JourneyOverviewComponent } from './journey-overview/journey-overview.component';
->>>>>>> 07dbe7fd41e41de8eced6bb2bd1b1f4d05a0d8c4
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeMainMenuComponent,
     LoginComponent,
-<<<<<<< HEAD
-    SafePipe
-=======
+    SafePipe,
     JourneyOverviewComponent
->>>>>>> 07dbe7fd41e41de8eced6bb2bd1b1f4d05a0d8c4
   ],
   imports: [
     BrowserModule,
@@ -30,7 +24,7 @@ import { JourneyOverviewComponent } from './journey-overview/journey-overview.co
     HttpClientModule
   ],
   providers: [
-    ApiService, 
+    ApiService,
     UserService],
   bootstrap: [ HomeMainMenuComponent ]
 })
