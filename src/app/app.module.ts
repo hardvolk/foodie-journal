@@ -1,19 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AuthService } from '../shared/services/auth.service'
+import { AuthService } from '../shared/services/auth.service';
 import { AppComponent } from './app.component';
 import { HomeMainMenuComponent } from './home-main-menu/home-main-menu.component';
+import { TracksListComponent } from './tracks/tracks-list/tracks-list.component';
 import { HomeComponent } from './home/home.component';
+import { ProgressbarModule } from 'ngx-bootstrap';
+import { TrackComponent } from './tracks/track/track.component';
+import { ProgressBoxComponent } from './tracks/progress-box/progress-box.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeMainMenuComponent,
-    HomeComponent
+    TracksListComponent,
+    HomeComponent,
+    TrackComponent,
+    ProgressBoxComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+
+    // Bootstrap v4 components.
+    ProgressbarModule.forRoot(),
   ],
   providers: [AuthService],
   bootstrap: [ HomeMainMenuComponent ]

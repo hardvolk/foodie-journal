@@ -1,0 +1,10 @@
+/* Needed classes to make the progressbar act as the background. */
+.parent-container {
+  position: relative;
+}
+.child-background {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
