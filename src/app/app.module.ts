@@ -14,6 +14,7 @@ import { TracksListComponent } from './tracks/tracks-list/tracks-list.component'
 import { ProgressbarModule } from 'ngx-bootstrap';
 import { TrackComponent } from './tracks/track/track.component';
 import { ProgressBoxComponent } from './tracks/progress-box/progress-box.component';
+import { DishDetailComponent } from './dish/dish-detail/dish-detail.component';
 
 
 @NgModule({
@@ -25,7 +26,9 @@ import { ProgressBoxComponent } from './tracks/progress-box/progress-box.compone
     JourneyOverviewComponent,
     HomeComponent,
     TrackComponent,
-    ProgressBoxComponent
+    ProgressBoxComponent,
+    TracksListComponent,
+    DishDetailComponent
   ],
   imports: [
     BrowserModule,
