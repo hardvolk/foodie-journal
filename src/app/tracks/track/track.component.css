@@ -1,0 +1,55 @@
+:host {
+  display: block;
+}
+:host.card {
+  /* Override track BS card round border. */
+  border-radius: 0;
+}
+
+/* Card progress bar --------------------- */
+
+/* Set height of progress bar content rows. */
+app-progress-box .row-title {
+  height: 6em;
+}
+app-progress-box .row-percentage {
+  height: 4em;
+}
+
+/* Style progress bar content elements. */
+app-progress-box .icon {
+  height: 2em;
+}
+app-progress-box span {
+  /* Reset margin applied due BS h# styles. */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+app-progress-box span.country {
+  color: white;
+}
+app-progress-box span.percentage {
+  color: white;
+  opacity: 0.5;
+}
+
+/* Card body ---------------------------- */
+
+.card-body .description {
+}
+
+.card-body .duration {
+}
+
+/* Misc BS overrides -------------------- */
+
+/* TODO: Either use ::ng-deep and set the overrides here, or override BS properties globally
+(e.g. set new progress-bar-footype & bg-footype classes). */
+::ng-deep .progress {
+  border-radius: 0;
+  background-color: rgb(203, 55, 41);
+}
+::ng-deep .progress-bar {
+  background-color: rgb(254, 81, 64);
+}
