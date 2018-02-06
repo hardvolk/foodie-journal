@@ -1,6 +1,10 @@
 :host {
   display: block;
 }
+:host.card {
+  /* Override track BS card round border. */
+  border-radius: 0;
+}
 
 /* Card progress bar --------------------- */
 

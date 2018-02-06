@@ -24,9 +24,3 @@
   font-size: 20px;
   margin-bottom: 30px;
 }
-
-
-/* Override track BS card round border. */
-.card {
-  border-radius: 0;
-}

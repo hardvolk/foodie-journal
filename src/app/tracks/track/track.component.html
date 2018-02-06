@@ -9,7 +9,9 @@
     </div>
   </div>
   <div class="row row-percentage justify-content-center align-items-start">
-    <span class="col percentage h5 d-block text-center">{{track.unitsCcompleted / track.unitsTotal | percent}}</span>
+    <span class="col percentage h5 d-block text-center" *ngIf="track.unitsCcompleted > 0">
+      {{track.unitsCcompleted / track.unitsTotal | percent}}
+    </span>
   </div>
 </app-progress-box>
 

@@ -7,8 +7,13 @@
     </div>
   </div>
 
-  <div class="card-deck">
-    <app-track class="card" *ngFor="let track of tracks" [track]="track"></app-track>
+  <!-- NOTE: the h-100 makes all tracks of the same height on the same row. Remove if not desired -->
+  <div class="mx-md-5 mx-lg-3">
+    <div class="row">
+      <div class="col-md-6 col-lg-4 col-xl-3  mb-3 mb-md-4" *ngFor="let track of tracks">
+        <app-track class="h-100" [track]="track"></app-track>
+      </div>
+    </div>
   </div>
 
 </div>
