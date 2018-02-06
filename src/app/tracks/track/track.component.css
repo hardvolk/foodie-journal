@@ -1,28 +1,51 @@
-.icon {
-  padding-top: 40px;
-  text-align: right;
+:host {
+  display: block;
 }
 
-.country {
-  color: white;
-  font-size: 20px;
-  /* padding-left: 20px; */
-  padding-top: 40px;
+/* Card progress bar --------------------- */
+
+/* Set height of progress bar content rows. */
+app-progress-box .row-title {
+  height: 6em;
+}
+app-progress-box .row-percentage {
+  height: 4em;
+}
+
+/* Style progress bar content elements. */
+app-progress-box .icon {
+  height: 2em;
+}
+app-progress-box span {
+  /* Reset margin applied due BS h# styles. */
+  margin-top: 0;
   margin-bottom: 0;
 }
 
-.percentage {
-  color: gray;
-  font-size: 20px;
-  padding-left: 20px;
-  margin-top: 0;
-  padding-bottom: 10px;
+app-progress-box span.country {
+  color: white;
+}
+app-progress-box span.percentage {
+  color: white;
+  opacity: 0.5;
 }
 
-.description {
-  padding-top: 30px;
+/* Card body ---------------------------- */
+
+.card-body .description {
 }
 
-.duration {
-  padding-bottom: 30px;
+.card-body .duration {
+}
+
+/* Misc BS overrides -------------------- */
+
+/* TODO: Either use ::ng-deep and set the overrides here, or override BS properties globally
+(e.g. set new progress-bar-footype & bg-footype classes). */
+::ng-deep .progress {
+  border-radius: 0;
+  background-color: rgb(203, 55, 41);
+}
+::ng-deep .progress-bar {
+  background-color: rgb(254, 81, 64);
 }

@@ -11,7 +11,7 @@ export class TracksComponent implements OnInit {
     {
       unitsCcompleted: 1,
       unitsTotal: 10,
-      iconUrl: 'foo',
+      iconUrl: '../../../assets/icons/tracks/burger.png',
       title: 'American',
       description: 'One characteristic of American cooking is the fusion of multiple ethnic or regional approaches into completely new cooking styles.',
       duration: '3 weeks',
@@ -19,7 +19,7 @@ export class TracksComponent implements OnInit {
     {
       unitsCcompleted: 4,
       unitsTotal: 13,
-      iconUrl: 'foo 2',
+      iconUrl: '../../../assets/icons/tracks/taco.png',
       title: 'Mexican',
       description: 'One characteristic of Mexican cooking is the fusion of multiple ethnic or regional approaches into completely new cooking styles.',
       duration: '4 weeks',
