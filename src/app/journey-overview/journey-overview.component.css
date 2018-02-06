@@ -1,0 +1,103 @@
+ #div-containing-header {
+     padding-top: 3%; 
+ }
+
+ #inside-dropdown-button {
+    margin-left: 10%;
+    text-align: left;
+    max-width: 50%;
+ }
+
+ #elements-inside-dropdown {
+     text-align: center;
+     padding: 20px;
+ }
+
+ #dropdown-menu-width {
+     width: 95%;
+     margin-right: 1%;
+ }
+
+ /* -------------------------- */
+
+.body {
+    background-color: gray;
+}
+
+.food {
+    margin: 15px 0 3px 0;
+    padding-top: 15px;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    color: aqua;
+    background-color: grey;
+    padding: 3px 0;
+}
+
+.ranked {
+    font-size: 13px;
+    color: white;
+    text-align: center;
+}
+
+.name {
+    font-size: 13px;
+    padding: 3px 0;
+}
+
+.detail {
+    font-size: 11px;
+    padding-top: 10px;
+    margin: 0 0; 
+    background-color: aquamarine;
+    padding-bottom: 10px;
+}
+
+.detail-name {
+    padding-bottom: 0;
+    margin-bottom: 0; 
+}
+
+.detail-rating {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.detail-review {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.detail-available {
+    padding-top: 5px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    color: green;
+}
+
+.detail-telephone {
+    color: aquamarine;
+}
+
+.detail-email {
+    color: aquamarine;
+}
+
+.detail-address {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    color: grey;
+}
+
+.detail-direction {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.detail-contact {
+
+}

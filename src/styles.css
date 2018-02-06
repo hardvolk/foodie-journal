@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* FONT: Proxima Nova  (https://github.com/elliakou/proxima-nova-web-fonts)*/
+@import './assets/fonts/fonts.css';
+
+
+html,body{
+    padding-top: 10px;
+    height: 100%;
+    font-family: 'Proxima Nova', Georgia, sans-serif;
+}
+
+body{
+    padding-top: 50px;
+}
+
+/* THEME */
+.orange{
+    background-color: #fe5240 !important;
+}
+
+.btn{
+    border-radius: 0 !important;
+    border-color: transparent !important;
+}
+
+.btn-primary{
+    background-color: #fe5240 !important;
+    color: #FFF !important;
+}
+
+.form-control{
+    border-radius: 0 !important;
+}
