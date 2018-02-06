@@ -6,13 +6,15 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../shared/services/user.service';
 import { JourneyOverviewComponent } from './journey-overview/journey-overview.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeMainMenuComponent,
     LoginComponent,
-    JourneyOverviewComponent
+    JourneyOverviewComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -22,3 +24,4 @@ import { JourneyOverviewComponent } from './journey-overview/journey-overview.co
   bootstrap: [ HomeMainMenuComponent ]
 })
 export class AppModule { }
+
