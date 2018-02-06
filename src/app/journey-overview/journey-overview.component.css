@@ -25,8 +25,8 @@
 }
 
 .food {
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin: 15px 0 3px 0;
+    padding-top: 15px;
 }
 
 .circle {
@@ -39,12 +39,65 @@
 }
 
 .ranked {
-    font-size: 15px;
+    font-size: 13px;
     color: white;
     text-align: center;
 }
 
 .name {
-    font-size: 15px;
+    font-size: 13px;
     padding: 3px 0;
+}
+
+.detail {
+    font-size: 11px;
+    padding-top: 10px;
+    margin: 0 0; 
+    background-color: aquamarine;
+    padding-bottom: 10px;
+}
+
+.detail-name {
+    padding-bottom: 0;
+    margin-bottom: 0; 
+}
+
+.detail-rating {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.detail-review {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.detail-available {
+    padding-top: 5px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    color: green;
+}
+
+.detail-telephone {
+    color: aquamarine;
+}
+
+.detail-email {
+    color: aquamarine;
+}
+
+.detail-address {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    color: grey;
+}
+
+.detail-direction {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.detail-contact {
+
 }
