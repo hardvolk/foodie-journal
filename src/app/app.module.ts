@@ -10,6 +10,11 @@ import { SafePipe } from '../shared/pipes/safe.pipe';
 import { UserService } from '../shared/services/user.service';
 import { JourneyOverviewComponent } from './journey-overview/journey-overview.component';
 import { HomeComponent } from './home/home.component';
+import { TracksListComponent } from './tracks/tracks-list/tracks-list.component';
+import { ProgressbarModule } from 'ngx-bootstrap';
+import { TrackComponent } from './tracks/track/track.component';
+import { ProgressBoxComponent } from './tracks/progress-box/progress-box.component';
+
 
 @NgModule({
   declarations: [
@@ -18,12 +23,15 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     SafePipe,
     JourneyOverviewComponent,
-    HomeComponent
+    HomeComponent,
+    TrackComponent,
+    ProgressBoxComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ProgressbarModule.forRoot(),
   ],
   providers: [
     ApiService,
@@ -31,4 +39,3 @@ import { HomeComponent } from './home/home.component';
   bootstrap: [ HomeMainMenuComponent ]
 })
 export class AppModule { }
-
