@@ -49,14 +49,14 @@
     margin-top: 15px;
 }
 
-.circle {
+/* .circle {
     border-radius: 50%;
     width: 30px;
     height: 30px;
     color: aqua;
     background-color: grey;
     padding: 3px 0;
-}
+} */
 
 .ranked {
     font-size: 15px;
@@ -68,3 +68,87 @@
     font-size: 15px;
     padding: 3px 0;
 }
+/*-----------------------------------*/
+.overview-container{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.track-description p{
+    line-height: 1.2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.track-title strong{
+    font-size: 1.2em;
+}
+.track-description small{
+    color: #CCC;
+}
+/********** PROGRESS CIRCLE *******************/
+#timer {
+	height:60px;
+    /* margin:auto; */
+	position:relative;
+	width:60px;
+}
+#timer img{
+    width: 50px;
+    height: 50px;
+    z-index: 5;
+}
+.circle {
+	border-radius:50%;
+	bottom:1px;
+	left:1px;
+	position:absolute;
+	right:1px;
+	top:1px;
+}
+
+/* z-index */
+#color-left {z-index:2;}
+#color-right {z-index:3;}
+#cover {z-index:4;}
+
+/* backgrounds */
+/* #cover {
+    background:-webkit-linear-gradient(left, transparent 0, transparent 50%, #fe5240 50%, #fe5240 100%);
+    
+} */
+
+.color {
+	background:-webkit-linear-gradient(left, transparent 0, transparent 50%, #fe5240 50%, #fe5240 100%);
+}
+
+#cover {
+	bottom:0;
+	left:0;
+	right:0;
+	top:0;
+	visibility:hidden;
+}
+
+#color-left {-webkit-transform:rotate(180deg);}
+
+@-webkit-keyframes firstspin {
+ 0% {visibility:visible;-webkit-transform:rotate(0);}
+ 50% {visibility:visible;-webkit-transform:rotate(180deg);}
+ 50% {visibility:hidden;-webkit-transform:rotate(180deg);}
+ 100% {visibility:hidden;-webkit-transform:rotate(180deg);}
+}
+
+@-webkit-keyframes secondspin {
+ 0% {visibility:hidden;-webkit-transform:rotate(0);}
+ 50% {visibility:hidden;-webkit-transform:rotate(0);}
+ 50% {visibility:visible;-webkit-transform:rotate(0);}
+ 100% {visibility:visible;-webkit-transform:rotate(180deg);}
+}
+
+#cover, #color-left {
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count:1;
+	-webkit-animation-timing-function: linear;
+}
+
+#cover {-webkit-animation-name: firstspin;}
+#color-left {-webkit-animation-name: secondspin;}
