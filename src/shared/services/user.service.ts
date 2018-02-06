@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/delay';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { last } from 'rxjs/operators/last';
 import { User } from '../interfaces/user';
 
 @Injectable()
 export class UserService {
-  LoggedUser = new ReplaySubject<User>();
+  LoggedUser = new BehaviorSubject<User>({name: '', email: '', password: ''});
   user: User;
 
   constructor() {}
 
-  checkInitialUser() {
+  checkInitialUser(): BehaviorSubject<User> {
     if (!!localStorage.getItem('CurrentUser')) {
       this.login(JSON.parse(localStorage.getItem(localStorage.getItem('CurrentUser'))));
       } else { this.LoggedUser.next({name: '', email: '', password: ''}); }
+    return this.LoggedUser;
   }
 
   login (user: User) {
@@ -26,22 +26,24 @@ export class UserService {
       } else {
         localStorage.setItem(user.name, JSON.stringify(user));
       }
-      console.log('User ' + user.name + ' has logged in.');
     }
     this.LoggedUser.next(this.user);
   }
 
   logout (): void {
     localStorage.removeItem('CurrentUser');
-    console.log('User has logged out.');
   }
 
   updateProgress (journeyid: number, dishid: number): void {
-    this.LoggedUser.subscribe(user => (this.user = user));
+    this.LoggedUser.pipe(last()).subscribe(user => (this.user = user));
     this.user['journey' + journeyid][dishid - 1] = !this.user['journey' + journeyid][dishid - 1];
     this.LoggedUser.next(this.user);
     localStorage.setItem(this.user.name, JSON.stringify(this.user));
     console.log('Changed journey ' + journeyid + ' , dish ' + dishid + ' to value: ' + this.user['journey' + journeyid][dishid - 1]);
+  }
+
+  checkProgress (journeyid: number): number {
+    return this.LoggedUser.value['journey' + journeyid].filter( x => x === true).length;
   }
 
 }

@@ -4,13 +4,17 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HomeMainMenuComponent } from './home-main-menu/home-main-menu.component';
-import { TracksListComponent } from './tracks/tracks-list/tracks-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from '../shared/services/api.service';
+import { SafePipe } from '../shared/pipes/safe.pipe';
+import { UserService } from '../shared/services/user.service';
+import { JourneyOverviewComponent } from './journey-overview/journey-overview.component';
 import { HomeComponent } from './home/home.component';
+import { TracksListComponent } from './tracks/tracks-list/tracks-list.component';
 import { ProgressbarModule } from 'ngx-bootstrap';
 import { TrackComponent } from './tracks/track/track.component';
 import { ProgressBoxComponent } from './tracks/progress-box/progress-box.component';
-import { JourneyOverviewComponent } from './journey-overview/journey-overview.component';
-import { UserService } from '../shared/services/user.service';
+import { DishDetailComponent } from './dish/dish-detail/dish-detail.component';
 
 
 @NgModule({
@@ -18,21 +22,25 @@ import { UserService } from '../shared/services/user.service';
     AppComponent,
     HomeMainMenuComponent,
     LoginComponent,
+    SafePipe,
     JourneyOverviewComponent,
     HomeComponent,
     TracksListComponent,
     HomeComponent,
     TrackComponent,
-    ProgressBoxComponent
+    ProgressBoxComponent,
+    TracksListComponent,
+    DishDetailComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
-
-    // Bootstrap v4 components.
-    ProgressbarModule.forRoot(),],
-  providers: [ UserService],
+    FormsModule,
+    HttpClientModule,
+    ProgressbarModule.forRoot(),
+  ],
+  providers: [
+    ApiService,
+    UserService],
   bootstrap: [ HomeMainMenuComponent ]
 })
 export class AppModule { }
-

@@ -1,3 +1,4 @@
+// tslint:disable:max-line-length
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -14,7 +15,7 @@ export class TracksListComponent implements OnInit {
       iconUrl: '../../../assets/icons/tracks/burger.png',
       title: 'American',
       description: 'One characteristic of American cooking is the fusion of multiple ethnic or regional approaches into completely new cooking styles.',
-      duration: '3 weeks',
+     duration: '3 weeks',
     },
     {
       unitsCcompleted: 0,

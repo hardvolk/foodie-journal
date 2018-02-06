@@ -1,0 +1,30 @@
+<div class="dish-details" *ngIf=!loading>
+  <div class="container-fluid">
+    <div class="h-50 row">
+        <div class="col-6"> 
+          <div class="restaurant-image" [ngStyle]="{'background-image': 'url(' + this.rest.image_url + ')'}">
+            <span class="restaurant-name">{{ this.rest.name }}</span>
+            <span class="restaurant-line-1">{{ this.rest.rating }} stars {{ this.rest.review_count }} reviews</span>
+            <span class="restaurant-line-2">{{ this.rest.price }} - {{ this.rest.categories[0].title }}</span>
+            <span class="yelp-link"><a [href]="'https://www.yelp.com/biz_photos/'+[this.rest.id]">See more photos on Yelp</a></span>
+          </div>  
+        </div>
+        <div class="col-6">
+          <iframe class="google-map" [src]="[this.rest.gmapsurl] | safe"></iframe>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <span><b>Instructions:</b></span>
+        <span>Order the Cheeseburger!</span> <br>
+        <span>A cheeseburger is a hamburger topped with cheese. Traditionally, the slice of cheese is placed on top of the meat patty, but the burger can include many variations in structure, ingredients, and composition. The cheese is normally added to the cooking hamburger patty shortly before serving, which allows the cheese to melt.</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">  
+        <span class="restaurant-hours"><b>Today:</b> {{this.rest.is_closed ? 'Closed' : 'Open'}}</span>
+        <span class="review"></span>
+      </div>
+    </div>
+  </div>
+</div>
