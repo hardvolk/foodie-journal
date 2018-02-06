@@ -9,6 +9,7 @@ import { ApiService } from '../shared/services/api.service';
 import { SafePipe } from '../shared/pipes/safe.pipe';
 import { UserService } from '../shared/services/user.service';
 import { JourneyOverviewComponent } from './journey-overview/journey-overview.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { JourneyOverviewComponent } from './journey-overview/journey-overview.co
     HomeMainMenuComponent,
     LoginComponent,
     SafePipe,
-    JourneyOverviewComponent
+    JourneyOverviewComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -29,3 +31,4 @@ import { JourneyOverviewComponent } from './journey-overview/journey-overview.co
   bootstrap: [ HomeMainMenuComponent ]
 })
 export class AppModule { }
+
