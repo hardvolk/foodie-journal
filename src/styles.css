@@ -5,6 +5,7 @@
 
 
 html,body{
+    padding-top: 10px;
     height: 100%;
     font-family: 'Proxima Nova', Georgia, sans-serif;
 }

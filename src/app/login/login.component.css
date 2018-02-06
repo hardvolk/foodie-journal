@@ -1,0 +1,27 @@
+ .container-right {
+    right: 0;
+    position: absolute;
+ }
+
+ button {
+    margin-bottom: 5px;
+ }
+
+ input {
+    margin-bottom: 5px;
+    }
+
+ .background {
+     background-color: #fc634b;
+     color: white;
+ }
+
+ p {
+     text-align: center;
+ }
+
+ .groove-border {
+    border-style: groove;
+    background-color: white;
+    padding: 20px;  
+ }
