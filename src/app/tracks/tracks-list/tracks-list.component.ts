@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tracks',
-  templateUrl: './tracks.component.html',
-  styleUrls: ['./tracks.component.css']
+  templateUrl: './tracks-list.component.html',
+  styleUrls: ['./tracks-list.component.css']
 })
-export class TracksComponent implements OnInit {
+export class TracksListComponent implements OnInit {
 
   public tracks = [
     {
