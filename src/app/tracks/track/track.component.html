@@ -1,4 +1,4 @@
-<app-progress-box [value]="(track.unitsCcompleted / track.unitsTotal) * 100">
+<app-progress-box [value]="(track.unitsCompleted / track.unitsTotal) * 100">
   <div class="row row-title justify-content-center align-items-end mx-auto">
     <div class="col-2 text-center">
       <img class="icon" [src]="track.iconUrl" [alt]="track.title" />
@@ -9,8 +9,8 @@
     </div>
   </div>
   <div class="row row-percentage justify-content-center align-items-start">
-    <span class="col percentage h5 d-block text-center" *ngIf="track.unitsCcompleted > 0">
-      {{track.unitsCcompleted / track.unitsTotal | percent}}
+    <span class="col percentage h5 d-block text-center" *ngIf="track.unitsCompleted > 0">
+      {{track.unitsCompleted / track.unitsTotal | percent}}
     </span>
   </div>
 </app-progress-box>

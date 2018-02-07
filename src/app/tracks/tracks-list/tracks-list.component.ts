@@ -10,14 +10,16 @@ export class TracksListComponent implements OnInit {
 
   public tracks = [
     {
-      unitsCcompleted: 1,
+      id: 1,
+      unitsCompleted: 1,
       unitsTotal: 10,
       iconUrl: '../../../assets/icons/tracks/burger.png',
       title: 'American',
       description: 'One characteristic of American cooking is the fusion of multiple ethnic or regional approaches into completely new cooking styles.',
-     duration: '3 weeks',
+      duration: '3 weeks',
     },
     {
+      id: 2,
       unitsCcompleted: 0,
       unitsTotal: 4,
       iconUrl: '../../../assets/icons/tracks/pizza.png',
@@ -26,6 +28,7 @@ export class TracksListComponent implements OnInit {
       duration: '1 week',
     },
     {
+      id: 3,
       unitsCcompleted: 0,
       unitsTotal: 7,
       iconUrl: '../../../assets/icons/tracks/taco.png',
@@ -34,6 +37,7 @@ export class TracksListComponent implements OnInit {
       duration: '2 weeks',
     },
     {
+      id: 4,
       unitsCcompleted: 0,
       unitsTotal: 8,
       iconUrl: '../../../assets/icons/tracks/sushi.png',

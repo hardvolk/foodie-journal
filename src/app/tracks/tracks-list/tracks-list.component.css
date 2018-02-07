@@ -14,3 +14,11 @@
   font-size: 20px;
   margin-bottom: 30px;
 }
+
+/* Remove the <a> color and decorations. */
+a {
+  color: unset;
+}
+a:hover {
+  text-decoration: unset;
+}
