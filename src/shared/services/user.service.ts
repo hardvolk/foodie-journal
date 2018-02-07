@@ -3,13 +3,18 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { last } from 'rxjs/operators/last';
 import { User } from '../interfaces/user';
+import { map } from 'rxjs/operator/map';
 
 @Injectable()
 export class UserService {
   LoggedUser = new BehaviorSubject<User>({name: '', email: '', password: ''});
-  user: User;
+  user: User = {name: '', email: '', password: ''};
 
   constructor() {}
+
+  isAuthenticated(): boolean {
+    return localStorage.getItem('CurrentUser') !== null;
+  }
 
   checkInitialUser(): BehaviorSubject<User> {
     if (!!localStorage.getItem('CurrentUser')) {
