@@ -15,6 +15,8 @@ import { ProgressbarModule } from 'ngx-bootstrap';
 import { TrackComponent } from './tracks/track/track.component';
 import { ProgressBoxComponent } from './tracks/progress-box/progress-box.component';
 import { DishDetailComponent } from './dish/dish-detail/dish-detail.component';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './app.routes';
 
 
 @NgModule({
@@ -26,7 +28,6 @@ import { DishDetailComponent } from './dish/dish-detail/dish-detail.component';
     JourneyOverviewComponent,
     HomeComponent,
     TracksListComponent,
-    HomeComponent,
     TrackComponent,
     ProgressBoxComponent,
     TracksListComponent,
@@ -36,11 +37,15 @@ import { DishDetailComponent } from './dish/dish-detail/dish-detail.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    RouterModule.forRoot(appRoutes, {}),
+
     ProgressbarModule.forRoot(),
   ],
   providers: [
     ApiService,
     UserService],
-  bootstrap: [ HomeMainMenuComponent ]
+  bootstrap: [
+    AppComponent
+  ],
 })
 export class AppModule { }
