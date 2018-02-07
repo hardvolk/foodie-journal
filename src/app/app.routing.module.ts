@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
   { path: 'tracks', component: TracksListComponent, canActivate: [AuthGuardService], children: [
-      { path: ':trackId', component: JourneyOverviewComponent}
+  { path: ':trackId', component: JourneyOverviewComponent}
   ]}
 ];
 
@@ -33,5 +33,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routingComponents = [DishDetailComponent, HomeComponent, 
+export const routingComponents = [DishDetailComponent, HomeComponent,
   JourneyOverviewComponent, LoginComponent, ProgressBoxComponent, TracksListComponent, TrackComponent];
