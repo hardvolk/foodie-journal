@@ -25,11 +25,15 @@
   <div *ngIf="showHamburguer"
        class="collapse navbar-collapse ml-3" id="navbarsExampleDefault">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Home <span class="sr-only" *ngIf="router.url === '/'">(current)</span>
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="">Link</a>
+        <a class="nav-link" routerLink="/tracks" routerLinkActive="active">
+          Tracks <span class="sr-only" *ngIf="router.url === '/tracks'">(current)</span>
+        </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="">About</a>
