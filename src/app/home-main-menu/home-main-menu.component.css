@@ -1,15 +1,3 @@
-h1 {
-    color: white;
-}
-
-.hamburger-menu-btn {
-    float: right;
-
-}
-
-.cursor {
-    cursor: pointer;
-    position: fixed;
-    margin-right: 5%;
-    right: 0; 
+:host {
+  display: block;
 }

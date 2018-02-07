@@ -1,4 +1,8 @@
- .container-right {
+:host {
+  display: block;
+}
+
+  .container-right {
     right: 0;
     position: absolute;
  }
@@ -23,5 +27,5 @@
  .groove-border {
     border-style: groove;
     background-color: white;
-    padding: 20px;  
+    padding: 20px;
  }

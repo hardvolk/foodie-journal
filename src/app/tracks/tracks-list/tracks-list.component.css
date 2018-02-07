@@ -1,3 +1,7 @@
+:host {
+  display: block;
+}
+
 .principal {
   text-align: center;
   margin-top: 40px;
