@@ -50,7 +50,7 @@
 }
 
 .detail {
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .detail-name {
@@ -61,32 +61,19 @@
 .detail-rating {
     margin-bottom: 0;
     padding-bottom: 0;
+    color: #C0C0C0;
 }
 
-.detail-review {
+.detail-price {
+    color: #C0C0C0;
     margin-bottom: 0;
     padding-bottom: 0;
-}
-
-.detail-available {
-    color: green;
-    padding-top: 5px;
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
-
-.detail-telephone {
-    color: aquamarine;
-}
-
-.detail-email {
-    color: aquamarine;
 }
 
 .detail-address {
     padding-bottom: 0;
     margin-bottom: 0;
-    color: grey;
+    color: #C0C0C0;
 }
 
 .detail-direction {
@@ -95,12 +82,54 @@
 }
 
 .detail-contact {
-    background-color: grey;
+    background-color: lightgray;
  }
+
+.detail-available {
+    color: green;
+    padding-top: 7px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.detail-telephone {
+    color: aquamarine;
+    padding-top: 0;
+    margin-bottom: 7px;
+}
+
+hr {
+    margin: 5px 5px;
+}
+
+.detail-email {
+    color: aquamarine;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
 
 .detail-next {
     color: grey;
     font-size: 15px;
     padding-left: 12px;
     padding-top: 35px;
+}
+
+::ng-deep .card {
+    
+}
+
+::ng-deep .card-header {
+    background-color: white;
+  }
+
+::ng-deep .card-header > a {
+    color: black;
+    text-decoration: none;
+  }
+
+::ng-deep .card-body {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
 }
