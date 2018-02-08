@@ -8,7 +8,7 @@ import { UserService } from '../shared/services/user.service';
 import { ProgressbarModule } from 'ngx-bootstrap';
 import { HomeMainMenuComponent } from './home-main-menu/home-main-menu.component';
 import { AppRoutingModule, routingComponents } from './app.routing.module';
-
+import { AccordionModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,6 +21,7 @@ import { AppRoutingModule, routingComponents } from './app.routing.module';
     FormsModule,
     HttpClientModule,
     ProgressbarModule.forRoot(),
+    AccordionModule.forRoot(),
     AppRoutingModule
   ],
   providers: [

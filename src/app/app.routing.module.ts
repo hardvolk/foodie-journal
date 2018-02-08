@@ -9,15 +9,15 @@ import { LoginComponent } from './login/login.component';
 import { ProgressBoxComponent } from './tracks/progress-box/progress-box.component';
 import { TracksListComponent } from './tracks/tracks-list/tracks-list.component';
 import { TrackComponent } from './tracks/track/track.component';
-// AuthGuard
+// Guards
 import { AuthGuardService } from './auth/auth-guard.service';
+import { HomeGuardService } from './auth/home-guard.service';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: 'home', component: HomeComponent },
-  { path: 'tracks', component: TracksListComponent, canActivate: [AuthGuardService], children: [
-  { path: ':trackId', component: JourneyOverviewComponent}
-  ]}
+  { path: 'home', component: HomeComponent, canActivate: [HomeGuardService] },
+  { path: 'tracks', component: TracksListComponent, canActivate: [AuthGuardService]},
+  { path: 'tracks/:trackId', component: JourneyOverviewComponent}
 ];
 
 @NgModule({
@@ -26,7 +26,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
-    AuthGuardService
+    AuthGuardService,
+    HomeGuardService
   ],
   exports: [RouterModule],
   declarations: []
