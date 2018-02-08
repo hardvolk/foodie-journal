@@ -2,6 +2,7 @@ export interface User {
     name: string;
     email: string;
     password: string;
+    currentJourney?: string;
     journey1?: boolean[];
     journey2?: boolean[];
     journey3?: boolean[];
