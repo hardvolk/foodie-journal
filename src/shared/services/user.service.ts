@@ -26,16 +26,14 @@ export class UserService {
   login (user: User) {
     if (user.name.length > 0) {
       localStorage.setItem('CurrentUser', user.name);
-      if (!!localStorage.getItem(user.name)) {
-        this.user = JSON.parse(localStorage.getItem(user.name));
-      } else {
-        localStorage.setItem(user.name, JSON.stringify(user));
-      }
+      localStorage.setItem(user.name, JSON.stringify(user));
+      this.user = user;
     }
     this.LoggedUser.next(this.user);
   }
 
   logout (): void {
+    localStorage.removeItem(this.user.name); // We need to delete the user info from localStorage
     localStorage.removeItem('CurrentUser');
   }
 
