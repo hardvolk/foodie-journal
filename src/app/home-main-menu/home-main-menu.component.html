@@ -4,7 +4,8 @@
     </button>
 
     <a class="navbar-brand" href="#">Foodie Journal</a>
-    <a class="btn-primary cursor" (click)="toggleShowLogin()">Login</a>
+    <ng-template #applogin><app-login></app-login></ng-template>
+    <button class="btn-primary cursor" [popover]="applogin">Login</button>
 
     <div *ngIf="showHamburguer" class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
@@ -21,5 +22,5 @@
     </div>
   </nav>
 
-  <app-login *ngIf="show"></app-login>
-  <app-home></app-home>
+  <app-login id="login-panel" *ngIf="show"></app-login>
+  <app-dish-detail></app-dish-detail>

@@ -1,3 +1,7 @@
+ #login-panel {
+     z-index: 1000;
+ }
+ 
  .container-right {
     right: 0;
     position: absolute;

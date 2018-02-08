@@ -35,15 +35,14 @@ export class UserService {
   }
 
   updateProgress (journeyid: number, dishid: number): void {
-    this.LoggedUser.pipe(last()).subscribe(user => (this.user = user));
-    this.user['journey' + journeyid][dishid - 1] = !this.user['journey' + journeyid][dishid - 1];
-    this.LoggedUser.next(this.user);
-    localStorage.setItem(this.user.name, JSON.stringify(this.user));
-    console.log('Changed journey ' + journeyid + ' , dish ' + dishid + ' to value: ' + this.user['journey' + journeyid][dishid - 1]);
+      this.LoggedUser.value.journeys[journeyid][dishid] = !this.LoggedUser.value.journeys[journeyid][dishid];
+      localStorage.setItem(this.LoggedUser.value.name, JSON.stringify(this.LoggedUser.value));
+      this.LoggedUser.next(this.LoggedUser.value);
+      console.log('Changed ' + journeyid + ', ' + dishid + ' to value: ' + this.user.journeys[journeyid][dishid]); /* }); */
   }
 
   checkProgress (journeyid: number): number {
-    return this.LoggedUser.value['journey' + journeyid].filter( x => x === true).length;
+    return this.LoggedUser.value.journeys[journeyid].filter( x => x === true).length;
   }
 
 }

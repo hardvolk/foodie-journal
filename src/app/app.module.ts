@@ -15,6 +15,7 @@ import { ProgressbarModule } from 'ngx-bootstrap';
 import { TrackComponent } from './tracks/track/track.component';
 import { ProgressBoxComponent } from './tracks/progress-box/progress-box.component';
 import { DishDetailComponent } from './dish/dish-detail/dish-detail.component';
+import { PopoverModule } from 'ngx-bootstrap/popover';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { DishDetailComponent } from './dish/dish-detail/dish-detail.component';
     FormsModule,
     HttpClientModule,
     ProgressbarModule.forRoot(),
+    PopoverModule.forRoot()
   ],
   providers: [
     ApiService,
