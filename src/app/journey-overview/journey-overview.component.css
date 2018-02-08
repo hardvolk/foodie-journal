@@ -30,17 +30,17 @@
 }
 
 .circle {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    color: aqua;
     background-color: grey;
+    border-radius: 50%;
+    color: aqua;
+    height: 30px;
     padding: 3px 0;
+    width: 30px;
 }
 
 .ranked {
-    font-size: 13px;
     color: white;
+    font-size: 13px;
     text-align: center;
 }
 
@@ -51,32 +51,28 @@
 
 .detail {
     font-size: 11px;
-    padding-top: 10px;
-    margin: 0 0; 
-    background-color: aquamarine;
-    padding-bottom: 10px;
 }
 
 .detail-name {
-    padding-bottom: 0;
-    margin-bottom: 0; 
+    margin-bottom: 0;
+    padding-bottom: 0; 
 }
 
 .detail-rating {
-    padding-bottom: 0;
     margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .detail-review {
-    padding-bottom: 0;
     margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .detail-available {
+    color: green;
     padding-top: 5px;
     padding-bottom: 0;
     margin-bottom: 0;
-    color: green;
 }
 
 .detail-telephone {
@@ -94,10 +90,17 @@
 }
 
 .detail-direction {
-    padding-bottom: 0;
     margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .detail-contact {
+    background-color: grey;
+ }
 
+.detail-next {
+    color: grey;
+    font-size: 15px;
+    padding-left: 12px;
+    padding-top: 35px;
 }

@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./journey-overview.component.css']
 })
 export class JourneyOverviewComponent implements OnInit {
-
+  customClass: string = 'customClass';
+  isFirstOpen: boolean = true;
+  
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }
+
+// export class NgbdAccordionToggle {
+
+// }

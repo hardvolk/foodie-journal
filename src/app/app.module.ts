@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../shared/services/user.service';
 import { JourneyOverviewComponent } from './journey-overview/journey-overview.component';
+// import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { JourneyOverviewComponent } from './journey-overview/journey-overview.co
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    NgbModule.forRoot()
+    // AccordionModule.forRoot()
   ],
   providers: [ UserService],
   bootstrap: [ HomeMainMenuComponent ]

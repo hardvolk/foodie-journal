@@ -8,8 +8,7 @@
     <a class="dropdown-item" id="elements-inside-dropdown" href="#">Link 3</a>
   </div>
 </div>
-<div class="container-fluid">
-  <div class="row food">
+  <!-- <div class="row food">
     <div class="col-1 offset-1 circle">
       <p class="ranked">1</p>
     </div>
@@ -31,6 +30,58 @@
       <p class="detail-telephone">(510) 653-3394</p>
       <p class="detail-email">frankiesburgers.com</p>
     </div>
+  </div> -->
+<div class="container-fluid">
+  <div class="row detail">
+    <div class="col-12">
+        <ngb-accordion #acc="ngbAccordion">
+            <ngb-panel id="toggle-1" title="All-American Bacon Cheese Burger">
+              <ng-template ngbPanelContent class="accordion">
+                  <div class="row detail">
+                      <div class="col-6">
+                        <p class="detail-name">Frankie's</p>
+                        <p class="detail-rating">&#9733; &#9733; &#9733; &#9733; &#9733; 1256 reviews</p>
+                        <p class="detail-address">66 Mint St,</p>
+                        <p class="detail-direction">San Francisco, CA 94103</p>
+                      </div>
+                  
+                      <div class="col-5 detail-contact">
+                        <p class="detail-available">Open Now</p>
+                        <hr>
+                        <p class="detail-telephone">(510) 653-3394</p>
+                        <p class="detail-email">frankiesburgers.com</p>
+                      </div>
+                      <div class="col-1 detail-next">
+                          >
+                      </div>
+                  </div>
+              </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
+    </div>
+    
   </div>
-
 </div>
+
+  <!-- <ngb-accordion #acc="ngbAccordion">
+      <ngb-panel id="toggle-1" title="First panel">
+        <ng-template ngbPanelContent>
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+          aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+          sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+          craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+          occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+          labore sustainable VHS.
+        </ng-template>
+      </ngb-panel>
+      <ngb-panel id="toggle-2" title="Second">
+        <ng-template ngbPanelContent>
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+          aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+          sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+          craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+          occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+          labore sustainable VHS.
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion> -->
