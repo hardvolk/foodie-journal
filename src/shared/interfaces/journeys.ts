@@ -1,5 +1,11 @@
 // tslint:disable:max-line-length
-export const journeys = [
+export interface Journey {
+    name: string;
+    description: string;
+    dish: any[];
+    dishrest: any[];
+}
+export const journeys: Journey[] = [
     {
         name: 'American',
         description: 'The cuisine of the United States reflects its history. The European colonization of the Americas yielded the introduction of a number of ingredients and cooking styles to the latter. The various styles continued expanding well into the 19th and 20th centuries, proportional to the influx of immigrants from many different nations; such influx developed a rich diversity in food preparation throughout the country.',
