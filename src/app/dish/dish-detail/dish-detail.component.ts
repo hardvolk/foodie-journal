@@ -6,6 +6,7 @@ import { Restaurant } from '../../../shared/interfaces/restaurant';
 import { journeys } from '../../../shared/interfaces/journeys';
 import { users } from '../../../shared/interfaces/mockusers';
 import { User } from '../../../shared/interfaces/user';
+import { Review } from '../../../shared/interfaces/review';
 
 @Component({
   selector: 'app-dish-detail',
@@ -15,9 +16,9 @@ import { User } from '../../../shared/interfaces/user';
 export class DishDetailComponent implements OnInit {
 
   rest: Restaurant;
-  review: Object;
+  review: Review;
   loading = true;
-  loading2 = true;
+  loadingreview = true;
   journeylist = journeys;
   user: User = this._userService.LoggedUser.value;
 
@@ -31,8 +32,8 @@ export class DishDetailComponent implements OnInit {
 
   getReview(journey: number, dish: number) {
     this._apiService.getRestaurantReview(journeys[journey].dishrest[dish]).subscribe( x => {
-      this.review = x;
-      this.loading2 = false;
+      this.review = x as Review;
+      if (this.review.reviews[0] !== undefined) { this.loadingreview = false; }
     });
   }
 
@@ -42,7 +43,7 @@ export class DishDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getDishDetail(0, 0);
-    this.getReview(1, 1);
+    this.getReview(0, 0);
   }
 
 }

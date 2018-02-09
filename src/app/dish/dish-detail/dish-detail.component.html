@@ -5,7 +5,7 @@
       <!-- <div id="dish-status">{{this.user.journey[0][0] ? 'COMPLETED' : ''}}</div> -->
     </div>
 </div>
-<div class="container-fluid" id="dish-details" *ngIf="!loading && !loading2">
+<div class="container-fluid" id="dish-details" *ngIf="!loading">
   <div class="row">
       <div class="col-6 text-left" id="restaurant-info"> 
         <div id="restaurant-img"><img [src]=[this.rest.image_url]></div>
@@ -35,7 +35,7 @@
       <span><b>Website:</b> www.google.com</span><br>
     </div>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="loadingReview">
     <div class="col-5 text-right" id="review-img">
       <img [src]=[this.review.reviews[0].user.image_url]>
     </div>
