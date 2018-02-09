@@ -26,14 +26,19 @@ export class UserService {
   login (user: User) {
     if (user.name.length > 0) {
       localStorage.setItem('CurrentUser', user.name);
-      localStorage.setItem(user.name, JSON.stringify(user));
-      this.user = user;
+      if (!!localStorage.getItem(user.name)) {
+        this.user = JSON.parse(localStorage.getItem(user.name));
+      } else {
+        localStorage.setItem(user.name, JSON.stringify(user));
+        this.user = user;
+      }
     }
     this.LoggedUser.next(this.user);
   }
 
   logout (): void {
-    // localStorage.removeItem(this.user.name); // We need to delete the user info from localStorage // no, we need to track user progress
+    // localStorage.removeItem(this.user.name); // We need to delete the user info from localStorage
+    // no, we need it in localstorage to track user progress
     localStorage.removeItem('CurrentUser');
   }
 
