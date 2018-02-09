@@ -1,0 +1,92 @@
+/* .container-fluid {
+    position: relative;
+    height: 100%;
+} */
+.home-header{
+    height: 100%;
+    text-align: center;
+    background-image: url("/assets/images/home_header_background.png");
+    background-size: cover;
+    background-position-x: 50%;
+}
+
+    .home-header h1{
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .home-header p{
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .home-header .btn{
+        padding: 3% 15%;
+        box-shadow: 1px 3px 5px #444;
+    }
+
+    .home-header-description *{
+        margin-bottom: 20%;
+    }
+
+.down{
+    background-color: rgba(0,0,0,0.3);
+    padding: 3%;
+    color: #FFF;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.home-discover{
+    background-image: url("/assets/images/home_layer2.png");
+    background-size: cover;
+}
+    .home-discover .item-discover{
+        margin: 5% 0;
+    }
+    .home-discover .item-discover p{
+        padding: 0 5%;
+    }
+    .home-discover .circle-icon-container{
+        width:  20%;
+        margin: 0 auto;
+        margin-bottom: 5%;
+        height:  auto;
+        padding-top: 20%;
+        position:  relative;
+        border-radius: 50%;
+    }
+    .home-discover .circle-icon-container .icon-container{
+        position:  absolute;
+        top: 50%;
+        margin-top: -25%;
+        left: 0;
+        right: 0;
+    }
+    .home-discover .circle-icon-container .icon-container img{
+        width: 20px;
+    }
+
+footer{
+    padding: 5%;
+    text-align: center;
+    color: #BCBCBC;   
+}
+    footer img{
+        margin: 0 15px;
+    }
+
+/* Tablet & Desktop Styles */
+@media screen and (min-width: 760px){
+    .home-header .btn{
+        padding: 10px 50px;
+    }
+    .home-header .down{
+        padding: 10px;
+    }
+    .home-header-description *{
+        margin-bottom: 40px;
+    }
+    
+}

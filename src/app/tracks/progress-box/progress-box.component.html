@@ -1,0 +1,13 @@
+<div class="parent-container">
+  <progressbar class="child-background"
+               [animate]="animate"
+               [max]="max"
+               [striped]="striped"
+               [type]="type"
+               [value]="value">
+  </progressbar>
+
+  <!-- NOTE: There is a drawback for components inside, they need position set to something,
+   Otherwise they will NOT be rendered. -->
+  <ng-content></ng-content>
+</div>
