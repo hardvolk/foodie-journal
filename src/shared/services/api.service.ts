@@ -19,20 +19,38 @@ export class ApiService {
     constructor (private http: HttpClient) {}
 
     getRestaurantInfo(id: string): AsyncSubject<Restaurant> {
-      this.http.get(this.yelpURL + id, this.yelpheader)
-        .pipe(finalize(() => { this.CurrentRestaurant.next(this.rest); this.CurrentRestaurant.complete(); }))
-        .subscribe(x => {
-          this.rest = x as Restaurant;
-          this.rest.gmapsurl =  this.gmapsURL + this.rest.coordinates.latitude + ', '
-          + this.rest.coordinates.longitude + '&q=' + this.rest.name;
-        });
+      if (!!localStorage.getItem(id)) {
+          this.rest = JSON.parse(localStorage.getItem(id));
+          this.CurrentRestaurant.next(this.rest);
+          this.CurrentRestaurant.complete();
+        } else {
+          this.http.get(this.yelpURL + id, this.yelpheader)
+            .pipe(finalize(() => {
+              localStorage.setItem(id, JSON.stringify(this.rest));
+              this.CurrentRestaurant.next(this.rest);
+              this.CurrentRestaurant.complete(); }))
+            .subscribe(x => {
+              this.rest = x as Restaurant;
+              this.rest.gmapsurl =  this.gmapsURL + this.rest.coordinates.latitude + ', '
+              + this.rest.coordinates.longitude + '&q=' + this.rest.name;
+            });
+        }
       return this.CurrentRestaurant;
     }
 
     getRestaurantReview(id: string): AsyncSubject<any> {
-      this.http.get(this.yelpURL + id + '/reviews', this.yelpheader)
-      .pipe(finalize(() => { this.Review.next(this.rev); this.Review.complete(); }))
-      .subscribe(x => this.rev = x);
+      if (!!localStorage.getItem(id + 'review')) {
+        this.rev = JSON.parse(localStorage.getItem(id + 'review'));
+        this.Review.next(this.rev);
+        this.Review.complete();
+      } else {
+        this.http.get(this.yelpURL + id + '/reviews', this.yelpheader)
+        .pipe(finalize(() => {
+          localStorage.setItem(id + 'review', JSON.stringify(this.rev));
+          this.Review.next(this.rev);
+          this.Review.complete(); }))
+        .subscribe(x => this.rev = x);
+      }
     return this.Review;
     }
 
