@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Restaurant } from '../interfaces/restaurant';
 import { AsyncSubject} from 'rxjs/AsyncSubject';
 import { finalize } from 'rxjs/operators/finalize';
+import { Review } from '../interfaces/review';
 
 @Injectable()
 export class ApiService {
@@ -10,7 +11,7 @@ export class ApiService {
     rest: Restaurant;
     rev: Object;
     CurrentRestaurant = new AsyncSubject<Restaurant>();
-    Review = new AsyncSubject<any>();
+    Review = new AsyncSubject<Review>();
     // tslint:disable-next-line:max-line-length
     yelpheader = { headers: new HttpHeaders({ Authorization: 'Bearer lVKLoqjeYs5PhMd7VpdKoXriT650qjoNpL_rfNvIxzi1fds2vG_MuOPBZFP1AgZ4RiHeePGoAEfl9-duuWvx7ZPaAGhD2DienR7Z9FRCQHmyNySd5_oOBaBfLupxWnYx'})};
     yelpURL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/';

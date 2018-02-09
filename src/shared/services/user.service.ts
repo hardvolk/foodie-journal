@@ -33,7 +33,7 @@ export class UserService {
   }
 
   logout (): void {
-    localStorage.removeItem(this.user.name); // We need to delete the user info from localStorage
+    // localStorage.removeItem(this.user.name); // We need to delete the user info from localStorage // no, we need to track user progress
     localStorage.removeItem('CurrentUser');
   }
 
@@ -41,7 +41,6 @@ export class UserService {
       this.LoggedUser.value.journeys[journeyid][dishid] = !this.LoggedUser.value.journeys[journeyid][dishid];
       localStorage.setItem(this.LoggedUser.value.name, JSON.stringify(this.LoggedUser.value));
       this.LoggedUser.next(this.LoggedUser.value);
-      console.log('Changed ' + journeyid + ', ' + dishid + ' to value: ' + this.user.journeys[journeyid][dishid]); /* }); */
   }
 
   checkProgress (journeyid: number): number {

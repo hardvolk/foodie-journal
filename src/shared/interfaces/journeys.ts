@@ -1,10 +1,6 @@
 // tslint:disable:max-line-length
-export interface Journey {
-    name: string;
-    description: string;
-    dish: any[];
-    dishrest: any[];
-}
+import { Journey } from '../interfaces/journey';
+
 export const journeys: Journey[] = [
     {
         name: 'American',
