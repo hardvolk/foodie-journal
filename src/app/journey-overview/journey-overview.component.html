@@ -1,7 +1,7 @@
 <div class="container-fluid">
 <div class="dropdown" id="div-containing-header">
-  <div class="row">
-    <button id="inside-dropdown-button" type="button" class="btn btn-primary dropdown-toggle col-12" data-toggle="dropdown">
+  <div class="row border-bottom-1" id="div-dropdown-row">
+    <button id="inside-dropdown-button" type="button" class="btn btn-primary dropdown-toggle col-5" data-toggle="dropdown">
       American
     </button>
     <div class="dropdown-menu" id="dropdown-menu-width">
@@ -43,14 +43,18 @@
   </div>
 
 
-<div *ngFor="let journeys of journey.dish; let i = index">
-<accordion>
-  <accordion-group>
-    <div accordion-heading class="clearfix">
-        {{journey.dish[i]}}
-      </div>
-    
-  </accordion-group>
-</accordion>
-</div>
+  <div *ngFor="let journeys of journey.dish; let i = index">
+    <accordion>
+      <accordion-group>
+          <div accordion-heading class="clearfix">
+              {{journey.dish[i]}}
+            </div>
+          <!-- (click)="getDishDetail(this.journey.name,i)"  -->
+          <a [routerLink]="['./', 2]">
+          {{journey.dish[i]}}
+          </a>
+          <!-- {{res[i].name}} -->
+      </accordion-group>
+    </accordion>
+  </div>
 </div>
