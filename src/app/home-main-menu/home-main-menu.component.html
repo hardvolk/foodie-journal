@@ -21,13 +21,8 @@
     </div>
   </nav>
 
-<<<<<<< HEAD
-  <app-login id="login-panel" *ngIf="show"></app-login>
-  <app-dish-detail></app-dish-detail>
-=======
   <app-login *ngIf="showAccountLogin" 
   (loginSuccess)="updateAccountPanel()"
   (logoutSuccess)="updateAccountPanel()">
   </app-login>
   <router-outlet></router-outlet>
->>>>>>> 9ebe9cad59cd97c4761231b85c53cfb604784c3d

@@ -24,11 +24,7 @@ import { AppRoutingModule, routingComponents } from './app.routing.module';
     FormsModule,
     HttpClientModule,
     ProgressbarModule.forRoot(),
-<<<<<<< HEAD
-    PopoverModule.forRoot()
-=======
     AppRoutingModule
->>>>>>> 9ebe9cad59cd97c4761231b85c53cfb604784c3d
   ],
   providers: [
     ApiService,
