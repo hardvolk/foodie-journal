@@ -48,8 +48,8 @@ export class UserService {
       this.LoggedUser.next(this.LoggedUser.value);
   }
 
-  checkProgress (journeyid: number): number {
-    return this.LoggedUser.value.journeys[journeyid].filter( x => x === true).length;
+  checkProgress (journey: number): number {
+    return this.LoggedUser.value.journeys[journey].filter(x => x === true).length;
   }
 
 }
