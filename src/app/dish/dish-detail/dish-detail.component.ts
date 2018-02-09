@@ -39,7 +39,7 @@ export class DishDetailComponent implements OnInit {
   getReview(journey: number, dish: number) {
     this._apiService.getRestaurantReview(journeys[journey].dishrest[dish]).subscribe( x => {
       this.review = x as Review;
-      if (this.review.reviews !== undefined) { this.loadingreview = true; }
+      if (this.review.reviews[0] !== undefined) { this.loadingreview = false; }
     });
   }
 
