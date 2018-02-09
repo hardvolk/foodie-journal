@@ -1,57 +1,56 @@
 <div class="container-fluid">
-  <div class="dropdown" id="div-containing-header">
-    <div class="row" id="dropdown-menu-button">
-      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-        American
-      </button>
-      <div class="dropdown-menu col-12" id="dropdown-menu-elements">
-        <a class="dropdown-item" id="elements-inside-dropdown">Link 1</a>
-        <a class="dropdown-item" id="elements-inside-dropdown">Link 2</a>
-        <a class="dropdown-item" id="elements-inside-dropdown">Link 3</a>
+<div class="dropdown" id="div-containing-header">
+  <div class="row">
+    <button id="inside-dropdown-button" type="button" class="btn btn-primary dropdown-toggle col-12" data-toggle="dropdown">
+      American
+    </button>
+    <div class="dropdown-menu" id="dropdown-menu-width">
+      <a class="dropdown-item" id="elements-inside-dropdown" href="#">Link 1</a>
+      <a class="dropdown-item" id="elements-inside-dropdown" href="#">Link 2</a>
+      <a class="dropdown-item" id="elements-inside-dropdown" href="#">Link 3</a>
+    </div>
+  </div>
+
+<div class="row" id="move-row">
+  <div class="col-3">
+    <div class="charts-container">
+        <div class="pie-wrapper"
+            style="
+                --bg-color: #fe5240;
+                --cover-color: #f86a5a;
+                --rotation: 118deg
+            ">
+            
+            <span class="label">
+                <img id="contain-image" src="/assets/icons/burger.svg">  
+            </span>
+        </div>
+    </div>
+  </div>
+  <div class="col-9">
+    <header>
+      American
+    </header>
+    <main>
+      One Characteristic of american cooking is the fusion
+      of multiple ethnic or regional approaches into completely
+      new cooking styles.
+    </main>
+  </div>
+</div>
+  <div class="row follow"> 
+    <button class="offset-6 col-6 btn-primary inside-follow"> Follow </button>
+  </div>
+
+
+<div *ngFor="let journeys of journey.dish; let i = index">
+<accordion>
+  <accordion-group>
+    <div accordion-heading class="clearfix">
+        {{journey.dish[i]}}
       </div>
-    </div>
-  </div>
-
-  <div class="row" id="move-row">
-    <div class="col-3">
-      <div class="charts-container">
-          <div class="pie-wrapper"
-              style="
-                  --bg-color: #fe5240;
-                  --cover-color: #f86a5a;
-                  --rotation: 118deg
-              ">
-              
-              <span class="label">
-                  <img id="contain-image" src="/assets/icons/burger.svg">  
-              </span>
-          </div>
-      </div>
-    </div>
-    <div class="col-9">
-      <header>
-        American
-      </header>
-      <main>
-        One Characteristic of american cooking is the fusion
-        of multiple ethnic or regional approaches into completely
-        new cooking styles.
-      </main>
-    </div>
-  </div>
-    <div class="row follow"> 
-      <button class="offset-6 col-6 btn-primary inside-follow"> Follow </button>
-    </div>
-
-
-  <div *ngFor="let journeys of journey.dish; let i = index">
-    <accordion>
-      <accordion-group>
-        <div accordion-heading class="clearfix">
-            {{journey.dish[i]}}
-          </div>
-        
-      </accordion-group>
-    </accordion>
-  </div>
+    
+  </accordion-group>
+</accordion>
+</div>
 </div>

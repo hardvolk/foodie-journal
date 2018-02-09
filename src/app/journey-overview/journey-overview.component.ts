@@ -25,3 +25,4 @@ export class JourneyOverviewComponent implements OnInit {
     // this._apiService.getRestaurantInfo()
   }
 }
+

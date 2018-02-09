@@ -29,27 +29,27 @@
 }
 
 .food {
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin: 15px 0 3px 0;
+    padding-top: 15px;
 }
 
 .circle {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    color: aqua;
     background-color: grey;
+    border-radius: 50%;
+    color: aqua;
+    height: 30px;
     padding: 3px 0;
+    width: 30px;
 }
 
 .ranked {
-    font-size: 15px;
     color: white;
+    font-size: 13px;
     text-align: center;
 }
 
 .name {
-    font-size: 15px;
+    font-size: 13px;
     padding: 3px 0;
 }
 
