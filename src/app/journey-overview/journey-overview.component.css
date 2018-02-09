@@ -1,21 +1,29 @@
  #div-containing-header {
-     padding-top: 3%; 
+     padding: 3% 5%;
  }
 
- #inside-dropdown-button {
-    margin-left: 10%;
+ #div-dropdown-row {
+    border-bottom: 1px solid lightgray;
     text-align: left;
-    max-width: 50%;
+    padding-bottom: 3%;
  }
 
- #elements-inside-dropdown {
-     text-align: center;
-     padding: 20px;
+ #contain-image {
+    height: 40%;
+    width: 40%;
  }
 
- #dropdown-menu-width {
-     width: 95%;
-     margin-right: 1%;
+ #move-row {
+    padding-top: 15px;
+    padding-left: 15px;
+ }
+
+ #dropdown-menu-elements {
+     width: 100%;
+ }
+
+ #dropdown-menu-button {
+     padding-left: 5%;
  }
 
  /* -------------------------- */
@@ -25,39 +33,39 @@
 }
 
 .food {
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin: 15px 0 3px 0;
+    padding-top: 15px;
 }
 
 .circle {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    color: aqua;
     background-color: grey;
+    border-radius: 50%;
+    color: aqua;
+    height: 30px;
     padding: 3px 0;
+    width: 30px;
 }
 
 .ranked {
-    font-size: 15px;
     color: white;
+    font-size: 13px;
     text-align: center;
 }
 
 .name {
-    font-size: 15px;
+    font-size: 13px;
     padding: 3px 0;
 }
- #contain-image {
-     height: 100%;
-     width: 100%;
-     background-color: red;
- }
 
- #move-row {
-     padding-top: 15px;
-     padding-left: 15px;
- }
+.follow {
+    padding-top: 5%;
+    padding-right: 3%;
+}
+
+.inside-follow {
+    padding: 3% 0;
+    border: 0;
+}
 
  header {
      font-size: 20px;
@@ -67,4 +75,103 @@
  main {
      font-size: 12px;
  }
+
+ /* Cirle with hamburguer style */
+ .pie-wrapper {
+    height: 1em;
+    width: 1em;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(to right, var(--bg-color) 50%, var(--cover-color) 50%);
+    }
+    .pie-wrapper .label {
+    border-radius: 50%;
+    bottom: 0.4em;
+    color: #ecf0f1;
+    cursor: default;
+    display: block;
+    font-size: 0.25em;
+    left: 0.4em;
+    line-height: 2.6em;
+    position: absolute;
+    right: 0.4em;
+    text-align: center;
+    top: 0.4em;
+    }
+    .pie-wrapper .label .smaller {
+    color: #bdc3c7;
+    font-size: .45em;
+    padding-bottom: 20px;
+    vertical-align: super;
+    }
+    
+    .pie-wrapper:before {
+    border-radius: 0 100% 100% 0%;
+    content: '';
+    display: block;
+    height: 100%;
+    margin-left: 50%;
+    transform-origin: left;
+    background: #f86a5a;
+    transform: rotate(var(--rotation));
+    }
+    
+    .charts-container{
+        font-size: 5em;
+    }
  
+    /* Clases de Carlos */
+
+    .dish-details, .container-fluid {
+        height: 100%;
+        width: 100%;
+    }
+    
+    .restaurant-image {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .google-map{
+        width: 100%; 
+        height: 100%; 
+        border: 0;
+    }
+    
+    .restaurant-image span {
+        left: 20px;
+        position: absolute;
+        color:white;
+        text-shadow:
+            -1px -1px 0 black,
+            -1px 1px 0 black,
+            1px -1px 0 black,
+            1px 1px 0 black,
+            -1px 0px 0 black,
+            0px 1px 0 black,
+            1px 0px 0 black,
+            0px 1px 0 black;
+    }
+    
+    .restaurant-name {
+        top: 5px;
+    }
+    
+    .restaurant-line-1 {
+        font-size: 12px;
+        top: 25px;
+    }
+    
+    .restaurant-line-2 {
+        font-size: 12px;
+        top: 40px;
+    }
+    
+    .yelp-link {
+        font-size: 12px;
+        bottom: 5px;
+    }

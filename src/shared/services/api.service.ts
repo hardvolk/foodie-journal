@@ -8,7 +8,9 @@ import { finalize } from 'rxjs/operators/finalize';
 export class ApiService {
 
     rest: Restaurant;
+    rev: Object;
     CurrentRestaurant = new AsyncSubject<Restaurant>();
+    Review = new AsyncSubject<any>();
     // tslint:disable-next-line:max-line-length
     yelpheader = { headers: new HttpHeaders({ Authorization: 'Bearer lVKLoqjeYs5PhMd7VpdKoXriT650qjoNpL_rfNvIxzi1fds2vG_MuOPBZFP1AgZ4RiHeePGoAEfl9-duuWvx7ZPaAGhD2DienR7Z9FRCQHmyNySd5_oOBaBfLupxWnYx'})};
     yelpURL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/';
@@ -25,6 +27,13 @@ export class ApiService {
           + this.rest.coordinates.longitude + '&q=' + this.rest.name;
         });
       return this.CurrentRestaurant;
+    }
+
+    getRestaurantReview(id: string): AsyncSubject<any> {
+      this.http.get(this.yelpURL + id + '/reviews', this.yelpheader)
+      .pipe(finalize(() => { this.Review.next(this.rev); this.Review.complete(); }))
+      .subscribe(x => this.rev = x);
+    return this.Review;
     }
 
     /* funcion ejemplo para llamar info del restaurante:
