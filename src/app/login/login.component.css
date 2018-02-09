@@ -1,10 +1,15 @@
+<<<<<<< HEAD
  #login-panel {
      z-index: 1000;
  }
  
  .container-right {
+=======
+ #login-container, #account-container{
+    z-index: 1;
+>>>>>>> 9ebe9cad59cd97c4761231b85c53cfb604784c3d
     right: 0;
-    position: absolute;
+    position: fixed;
  }
 
  button {
@@ -29,3 +34,7 @@
     background-color: white;
     padding: 20px;  
  }
+
+.list-group-item{
+    border-radius: 0;
+}

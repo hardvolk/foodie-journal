@@ -1,13 +1,17 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top orange">
-    <button *ngIf="showHamburguer" class="navbar-toggler hamburger-menu-btn" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <button *ngIf="userLogged" class="navbar-toggler hamburger-menu-btn" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <a class="navbar-brand" href="#">Foodie Journal</a>
+<<<<<<< HEAD
     <ng-template #applogin><app-login></app-login></ng-template>
     <button class="btn-primary cursor" [popover]="applogin">Login</button>
+=======
+    <a id="btn-login" class="btn-primary" (click)="toggleShowLogin()">{{ userLogged ? 'Hi, ' + userName : 'Login' }}</a>
+>>>>>>> 9ebe9cad59cd97c4761231b85c53cfb604784c3d
 
-    <div *ngIf="showHamburguer" class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <div *ngIf="userLogged" class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -22,5 +26,13 @@
     </div>
   </nav>
 
+<<<<<<< HEAD
   <app-login id="login-panel" *ngIf="show"></app-login>
   <app-dish-detail></app-dish-detail>
+=======
+  <app-login *ngIf="showAccountLogin" 
+  (loginSuccess)="updateAccountPanel()"
+  (logoutSuccess)="updateAccountPanel()">
+  </app-login>
+  <router-outlet></router-outlet>
+>>>>>>> 9ebe9cad59cd97c4761231b85c53cfb604784c3d

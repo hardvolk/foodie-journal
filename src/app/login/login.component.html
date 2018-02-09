@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 <div class="row" id="login-panel">
     <div class="groove-border container col-xs-11 col-sm-3 col-md-3 col-lg-2 container-right" content="width=device-width, initial-scale=1">
+=======
+<div class="row">
+    <div id="login-container"
+    *ngIf="!isLoggedIn"
+    class="groove-border container col-xs-11 col-sm-3 col-md-3 col-lg-2 container-right" >
+>>>>>>> 9ebe9cad59cd97c4761231b85c53cfb604784c3d
         <input class='form-control' placeholder=' Email or Username ' type='text' [(ngModel)]='username'>
-        <input class='form-control' placeholder=' Password ' type='text' [(ngModel)]='password'>
+        <input class='form-control' placeholder="Password" type='password' [(ngModel)]='password'>
         <button class='btn form-control btn-primary' (click)='loginUser(username, password)'> Login </button> 
         <p> or log in with </p>
         <div class='row' align='center'>
@@ -15,5 +22,11 @@
                 <img class='' src="/assets/icons/gplus_icon.png"> 
             </a>
         </div>
+    </div>
+    <div id="account-container" class="col-6 col-md-4" *ngIf="isLoggedIn">
+        <ul class="list-group">
+            <li class="list-group-item">My Account</li>
+            <li class="list-group-item" (click)="logoutUser()">Logout</li>
+        </ul>
     </div>
 </div>
