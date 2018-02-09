@@ -4,12 +4,7 @@
     </button>
 
     <a class="navbar-brand" href="#">Foodie Journal</a>
-<<<<<<< HEAD
-    <ng-template #applogin><app-login></app-login></ng-template>
-    <button class="btn-primary cursor" [popover]="applogin">Login</button>
-=======
     <a id="btn-login" class="btn-primary" (click)="toggleShowLogin()">{{ userLogged ? 'Hi, ' + userName : 'Login' }}</a>
->>>>>>> 9ebe9cad59cd97c4761231b85c53cfb604784c3d
 
     <div *ngIf="userLogged" class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
