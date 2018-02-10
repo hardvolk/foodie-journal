@@ -1,5 +1,5 @@
  #div-containing-header {
-     padding: 3% 5%;
+    padding: 5% 10%;
  }
 
  #div-dropdown-row {
@@ -26,11 +26,15 @@
      padding-left: 5%;
  }
 
- /* -------------------------- */
+ /* .gray-body {
+    background-color: #ebebeb;
+} */
 
-.body {
-    background-color: gray;
+.white {
+    background-color: white;
 }
+
+ /* -------------------------- */
 
 .food {
     margin: 15px 0 3px 0;
@@ -58,8 +62,8 @@
 }
 
 .follow {
-    padding-top: 5%;
-    padding-right: 3%;
+    padding: 5% 4%;
+
 }
 
 .inside-follow {
@@ -174,4 +178,67 @@
     .yelp-link {
         font-size: 12px;
         bottom: 5px;
+    }
+
+    /* Clases de Mike */
+    .detail-name {
+        margin-bottom: 0;
+        padding-bottom: 0; 
+    }
+
+    .detail-rating {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        color: #C0C0C0;
+    }
+
+    .detail-price {
+        color: #C0C0C0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .detail-address {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        color: #C0C0C0;
+    }
+
+    .detail-direction {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .detail-contact {
+        background-color: lightgray;
+     }
+    
+    .detail-available {
+        color: green;
+        padding-top: 7px;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+    
+    .detail-telephone {
+        color: aquamarine;
+        padding-top: 0;
+        margin-bottom: 7px;
+    }
+    
+    hr {
+        margin: 5px 5px;
+    }
+    
+    .detail-email {
+        color: aquamarine;
+        margin-top: 7px;
+        margin-bottom: 7px;
+    }
+    
+    .detail-next {
+        color: grey;
+        font-size: 15px;
+        padding-left: 12px;
+        padding-top: 35px;
     }

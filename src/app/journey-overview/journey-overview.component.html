@@ -1,60 +1,77 @@
-<div class="container-fluid">
-<div class="dropdown" id="div-containing-header">
-  <div class="row border-bottom-1" id="div-dropdown-row">
-    <button id="inside-dropdown-button" type="button" class="btn btn-primary dropdown-toggle col-5" data-toggle="dropdown">
-      American
-    </button>
-    <div class="dropdown-menu" id="dropdown-menu-width">
-      <a class="dropdown-item" id="elements-inside-dropdown" href="#">Link 1</a>
-      <a class="dropdown-item" id="elements-inside-dropdown" href="#">Link 2</a>
-      <a class="dropdown-item" id="elements-inside-dropdown" href="#">Link 3</a>
+<div class="container">
+  <div class="white">
+  <div class="dropdown" id="div-containing-header">
+    <div class="row border-bottom-1" id="div-dropdown-row">
+      <button id="inside-dropdown-button" type="button" class="btn btn-primary dropdown-toggle col-5" data-toggle="dropdown">
+        American
+      </button>
+      <div class="dropdown-menu" id="dropdown-menu-width">
+        <a class="dropdown-item" id="elements-inside-dropdown" href="#">Link 1</a>
+        <a class="dropdown-item" id="elements-inside-dropdown" href="#">Link 2</a>
+        <a class="dropdown-item" id="elements-inside-dropdown" href="#">Link 3</a>
+      </div>
     </div>
   </div>
 
-<div class="row" id="move-row">
-  <div class="col-3">
-    <div class="charts-container">
-        <div class="pie-wrapper"
-            style="
-                --bg-color: #fe5240;
-                --cover-color: #f86a5a;
-                --rotation: 118deg
-            ">
-            
-            <span class="label">
-                <img id="contain-image" src="/assets/icons/burger.svg">  
-            </span>
-        </div>
+  <div class="row" id="move-row">
+    <div class="col-3">
+      <div class="charts-container">
+          <div class="pie-wrapper"
+              style="
+                  --bg-color: #fe5240;
+                  --cover-color: #f86a5a;
+                  --rotation: 118deg
+              ">
+              
+              <span class="label">
+                  <img id="contain-image" src="/assets/icons/burger.svg">  
+              </span>
+          </div>
+      </div>
+    </div>
+    <div class="col-9">
+      <header>
+        American
+      </header>
+      <main>
+        One Characteristic of american cooking is the fusion
+        of multiple ethnic or regional approaches into completely
+        new cooking styles.
+      </main>
     </div>
   </div>
-  <div class="col-9">
-    <header>
-      American
-    </header>
-    <main>
-      One Characteristic of american cooking is the fusion
-      of multiple ethnic or regional approaches into completely
-      new cooking styles.
-    </main>
+  <div class="row follow ">
+      <button class="col-6 btn"> Duration: 3 weeks </button>
+      <button class="col-6 btn-primary inside-follow"> Follow </button>
   </div>
 </div>
-  <div class="row follow"> 
-    <button class="offset-6 col-6 btn-primary inside-follow"> Follow </button>
-  </div>
 
 
-  <div *ngFor="let journeys of journey.dish; let i = index">
-    <accordion>
-      <accordion-group>
-          <div accordion-heading class="clearfix">
-              {{journey.dish[i]}}
+      <div *ngFor="let journeys of journey.dish; let i = index">
+        <accordion>
+          <accordion-group>
+              <div accordion-heading class="clearfix">
+                  {{journey.dish[i]}}
+                </div>
+              <div class="row detail">
+                    <div class="col-6">
+                      <p class="detail-name" [routerLink]="['./', 2]">Frankie's</p>
+                      <p class="detail-rating">&#9733; &#9733; &#9733; &#9733; &#9733; 1256 reviews</p>
+                      <p class="detail-price">$$ - Burgers</p>
+                      <p class="detail-address">66 Mint St,</p>
+                      <p class="detail-direction">San Francisco, CA 94103</p>
+                    </div>
+                
+                    <div class="col-5 detail-contact">
+                      <p class="detail-available">Open Now</p>
+                      <hr>
+                      <p class="detail-telephone">(510) 653-3394</p>
+                      <p class="detail-email">frankiesburgers.com</p>
+                    </div>
+                  <div class="col-1 detail-next">
+                </div>
             </div>
-          <!-- (click)="getDishDetail(this.journey.name,i)"  -->
-          <a [routerLink]="['./', 2]">
-          {{journey.dish[i]}}
-          </a>
-          <!-- {{res[i].name}} -->
-      </accordion-group>
-    </accordion>
-  </div>
+          </accordion-group>
+        </accordion>
+      </div>
 </div>
