@@ -1,8 +1,15 @@
-.navbar{
-    justify-content: flex-start;
+h1 {
+    color: white;
 }
 
-#btn-login {
+.hamburger-menu-btn {
+    float: right;
+
+}
+
+.cursor {
     cursor: pointer;
-    margin-left: auto;
+    position: fixed;
+    margin-right: 5%;
+    right: 0; 
 }
