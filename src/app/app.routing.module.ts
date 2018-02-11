@@ -43,4 +43,5 @@ export const routingComponents = [
   ProgressBoxComponent,
   TracksListComponent,
   TrackComponent,
-  DishDetailComponent];
+  DishDetailComponent
+];

@@ -11,6 +11,7 @@ import { ProgressBoxComponent } from './tracks/progress-box/progress-box.compone
 import { DishDetailComponent } from './dish/dish-detail/dish-detail.component';
 import { HomeMainMenuComponent } from './home-main-menu/home-main-menu.component';
 import { AppRoutingModule, routingComponents } from './app.routing.module';
+import { AccordionModule } from 'ngx-bootstrap';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { AppRoutingModule, routingComponents } from './app.routing.module';
     FormsModule,
     HttpClientModule,
     ProgressbarModule.forRoot(),
+    AccordionModule.forRoot(),
     AppRoutingModule
   ],
   providers: [
