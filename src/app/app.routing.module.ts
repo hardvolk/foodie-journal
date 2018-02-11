@@ -17,8 +17,8 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent, canActivate: [HomeGuardService] },
   { path: 'tracks', component: TracksListComponent, canActivate: [AuthGuardService]},
-  { path: 'tracks/:trackId', component: JourneyOverviewComponent},
-  { path: 'tracks/:trackId/:dishID', component: DishDetailComponent}
+  { path: 'tracks/:trackId', component: JourneyOverviewComponent, canActivate: [AuthGuardService]},
+  { path: 'tracks/:trackId/:dishId', component: DishDetailComponent, canActivate: [AuthGuardService]}
 ];
 
 @NgModule({
@@ -35,5 +35,13 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routingComponents = [DishDetailComponent, HomeComponent,
-  JourneyOverviewComponent, LoginComponent, ProgressBoxComponent, TracksListComponent, TrackComponent];
+export const routingComponents = [
+  DishDetailComponent,
+  HomeComponent,
+  JourneyOverviewComponent,
+  LoginComponent,
+  ProgressBoxComponent,
+  TracksListComponent,
+  TrackComponent,
+  DishDetailComponent
+];

@@ -26,14 +26,19 @@ export class UserService {
   login (user: User) {
     if (user.name.length > 0) {
       localStorage.setItem('CurrentUser', user.name);
-      localStorage.setItem(user.name, JSON.stringify(user));
-      this.user = user;
+      if (!!localStorage.getItem(user.name)) {
+        this.user = JSON.parse(localStorage.getItem(user.name));
+      } else {
+        localStorage.setItem(user.name, JSON.stringify(user));
+        this.user = user;
+      }
     }
     this.LoggedUser.next(this.user);
   }
 
   logout (): void {
-    localStorage.removeItem(this.user.name); // We need to delete the user info from localStorage
+    // localStorage.removeItem(this.user.name); // We need to delete the user info from localStorage
+    // no, we need it in localstorage to track user progress
     localStorage.removeItem('CurrentUser');
   }
 
@@ -41,11 +46,10 @@ export class UserService {
       this.LoggedUser.value.journeys[journeyid][dishid] = !this.LoggedUser.value.journeys[journeyid][dishid];
       localStorage.setItem(this.LoggedUser.value.name, JSON.stringify(this.LoggedUser.value));
       this.LoggedUser.next(this.LoggedUser.value);
-      console.log('Changed ' + journeyid + ', ' + dishid + ' to value: ' + this.user.journeys[journeyid][dishid]); /* }); */
   }
 
-  checkProgress (journeyid: number): number {
-    return this.LoggedUser.value.journeys[journeyid].filter( x => x === true).length;
+  checkProgress (journey: number): number {
+    return this.LoggedUser.value.journeys[journey].filter(x => x === true).length;
   }
 
 }
