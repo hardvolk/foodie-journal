@@ -16,7 +16,7 @@ export const journeys: Journey[] = [
     },
     {
         name: 'French',
-        iconUrl: '../../../assets/icons/burger.svg',
+        iconUrl: '../../../assets/icons/fork_and_spoon.svg',
         description: 'French food and cooking is generally considered the backbone or the underpinning of many cuisines across the Western World. Typical French foods rely heavily on local products. Fresh apples, berries, haricot verts, leeks, mushrooms, and various squash and stone fruits are among the most commonly used products. Poultry, beef, lamb, and veal are readily available year round; game meat is especially popular.',
         duration: '4 weeks',
         dish: ['Cheese Souffle', 'Steak Tartare', 'Foie Gras', 'Bouillabaise', 'Ratatouille', 'Coq au Vin',
@@ -28,7 +28,7 @@ export const journeys: Journey[] = [
     },
     {
         name: 'Italian',
-        iconUrl: '../../../assets/icons/burger.svg',
+        iconUrl: '../../../assets/icons/pizza.svg',
         description: 'Italian cuisine is characterized by its simplicity, with many dishes having only two to four main ingredients. Italian cooks rely chiefly on the quality of the ingredients rather than on elaborate preparation. Ingredients and dishes vary by region. Many dishes that were once regional, have proliferated with variations throughout the country. Pasta, vegetables, olive oil and fish are a major part of the Italian cuisine.',
         duration: '3 weeks',
         dish: ['Lasagna', 'Risotto', 'Pizza', 'Spaghetti', 'Calzone', 'Arancini',
@@ -39,7 +39,7 @@ export const journeys: Journey[] = [
     },
     {
         name: 'Mexican',
-        iconUrl: '../../../assets/icons/burger.svg',
+        iconUrl: '../../../assets/icons/taco.svg',
         description: 'Mexican cuisine is as complex as other ancient cuisines, such as those of China and Japan, with techniques and skills developed over thousands of years of history. It is created mostly with ingredients native to Mexico, as well as those brought over by the Spanish conquistadors, with some new influences since then.',
         duration: '2 weeks',
         dish: ['Tacos', 'Pozole', 'Huevos Rancheros', 'Enchiladas', 'Tamales', 'Chile Relleno',
@@ -50,7 +50,7 @@ export const journeys: Journey[] = [
     },
     {
         name: 'Japanese',
-        iconUrl: '../../../assets/icons/burger.svg',
+        iconUrl: '../../../assets/icons/sushi.svg',
         description: 'The traditional cuisine of Japan (和食 washoku) is based on rice with miso soup and other dishes; there is an emphasis on seasonal ingredients. Side dishes often consist of fish, pickled vegetables, and vegetables cooked in broth. Seafood is common, often grilled, but also served raw as sashimi or in sushi.',
         duration: '2 weeks',
         dish: ['Sushi', 'Miso Soup', 'Tempura', 'Teppanyaki', 'Ramen', 'Yakitori', 'Yakisoba',
