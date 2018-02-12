@@ -11,7 +11,7 @@ export class TrackComponent implements OnInit {
 
   @HostBinding('class.card') true;
   @Input() journey;
-
+  
   constructor(private _userService: UserService) { }
 
   checkProgress(journeyname: string): number {

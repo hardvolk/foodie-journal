@@ -1,5 +1,5 @@
 export interface Review {
-    reviews?: {
+        reviews?: {
         id: string;
     }[];
 }

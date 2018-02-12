@@ -30,7 +30,8 @@ import { AccordionModule } from 'ngx-bootstrap';
   ],
   providers: [
     ApiService,
-    UserService],
+    UserService
+  ],
   bootstrap: [ HomeMainMenuComponent ]
 })
 export class AppModule { }

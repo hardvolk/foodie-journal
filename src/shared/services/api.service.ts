@@ -10,8 +10,6 @@ export class ApiService {
 
     rest: Restaurant;
     rev: Object;
-    CurrentRestaurant = new AsyncSubject<Restaurant>();
-    Review = new AsyncSubject<Review>();
     // tslint:disable-next-line:max-line-length
     yelpheader = { headers: new HttpHeaders({ Authorization: 'Bearer lVKLoqjeYs5PhMd7VpdKoXriT650qjoNpL_rfNvIxzi1fds2vG_MuOPBZFP1AgZ4RiHeePGoAEfl9-duuWvx7ZPaAGhD2DienR7Z9FRCQHmyNySd5_oOBaBfLupxWnYx'})};
     yelpURL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/';
@@ -20,39 +18,41 @@ export class ApiService {
     constructor (private http: HttpClient) {}
 
     getRestaurantInfo(id: string): AsyncSubject<Restaurant> {
+      const CurrentRestaurant = new AsyncSubject<Restaurant>();
       if (!!localStorage.getItem(id)) {
           this.rest = JSON.parse(localStorage.getItem(id));
-          this.CurrentRestaurant.next(this.rest);
-          this.CurrentRestaurant.complete();
+          CurrentRestaurant.next(this.rest);
+          CurrentRestaurant.complete();
         } else {
           this.http.get(this.yelpURL + id, this.yelpheader)
             .pipe(finalize(() => {
               localStorage.setItem(id, JSON.stringify(this.rest));
-              this.CurrentRestaurant.next(this.rest);
-              this.CurrentRestaurant.complete(); }))
+              CurrentRestaurant.next(this.rest);
+              CurrentRestaurant.complete(); }))
             .subscribe(x => {
               this.rest = x as Restaurant;
               this.rest.gmapsurl =  this.gmapsURL + this.rest.coordinates.latitude + ', '
               + this.rest.coordinates.longitude + '&q=' + this.rest.name;
             });
         }
-      return this.CurrentRestaurant;
+      return CurrentRestaurant;
     }
 
     getRestaurantReview(id: string): AsyncSubject<any> {
+      const CurrentReview = new AsyncSubject<Review>();
       if (!!localStorage.getItem(id + 'review')) {
         this.rev = JSON.parse(localStorage.getItem(id + 'review'));
-        this.Review.next(this.rev);
-        this.Review.complete();
+        CurrentReview.next(this.rev);
+        CurrentReview.complete();
       } else {
         this.http.get(this.yelpURL + id + '/reviews', this.yelpheader)
         .pipe(finalize(() => {
           localStorage.setItem(id + 'review', JSON.stringify(this.rev));
-          this.Review.next(this.rev);
-          this.Review.complete(); }))
+          CurrentReview.next(this.rev);
+          CurrentReview.complete(); }))
         .subscribe(x => this.rev = x);
       }
-    return this.Review;
+    return CurrentReview;
     }
 
     /* funcion ejemplo para llamar info del restaurante:

@@ -5,7 +5,9 @@
     </div>
     <div id="dish-title">
       <div id="dish-name"> {{journeylist[trackId].dish[dishId]}}</div>
-      <!-- <div id="dish-status">{{user.journey[0][0] ? 'COMPLETED' : ''}}</div> -->
+      <div id="dish-status" *ngIf="dishstatus">
+        <button>Leave Feedback</button>
+      </div>
     </div>
 </div>
 <div class="container-fluid" id="dish-details" *ngIf="!loading">
@@ -15,7 +17,7 @@
         <span id="restaurant-name">{{ rest.name }}</span>
         <span id="restaurant-line-1"><img [src]=[getYelpStars()]> {{ rest.review_count }} reviews</span>
         <span id="restaurant-line-2">{{ rest.price }} - {{ rest.categories[0].title }}</span>
-        <span id="yelp-link"><a [href]="'https://www.yelp.com/biz_photos/'+[rest.id]">See more photos on Yelp</a></span>
+        <span id="yelp-link"><a [href]="'https://www.yelp.com/biz_photos/'+[rest.id]" target="_blank" rel="noopener noreferrer">See more photos on Yelp</a></span>
       </div>
       <div class="col-6 text-right">
         <iframe id="google-map" [src]="[rest.gmapsurl] | safe"></iframe>
