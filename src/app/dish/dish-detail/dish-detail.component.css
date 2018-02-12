@@ -137,7 +137,21 @@
 }
 
 .blue {
-    background-color: lightskyblue;
+    background-color: lightskyblue !important;
+}
+
+.circled {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    text-align: center;
+    line-height: 25px;
+    vertical-align: middle;
+    font-size: 14px;
+    display: inline-block;
+    background-color: black;
+    color: white;
 }
 
 #spacer {

@@ -51,6 +51,8 @@
         <accordion>
           <accordion-group id="accordion-design">
               <div accordion-heading class="clearfix" (click)="getDishDetail(journey.name,i)">
+                  <span class="circled" *ngIf="!user.journeys[journeyId][i]">{{(1 + i)}}</span>
+                  <span class="circled blue" *ngIf="user.journeys[journeyId][i]">&#10003;</span> 
                   {{journey.dish[i]}}
                 </div>
               <div class="row detail">
