@@ -3,12 +3,14 @@
   <div class="dropdown" id="div-containing-header">
     <div class="row border-bottom-1" id="div-dropdown-row">
       <button id="inside-dropdown-button" type="button" class="btn btn-primary dropdown-toggle col-5" data-toggle="dropdown">
-        American
+        {{journey.name}}
       </button>
-      <div class="dropdown-menu" id="dropdown-menu-width">
-        <a class="dropdown-item" id="elements-inside-dropdown" href="#">Link 1</a>
-        <a class="dropdown-item" id="elements-inside-dropdown" href="#">Link 2</a>
-        <a class="dropdown-item" id="elements-inside-dropdown" href="#">Link 3</a>
+      <div class="dropdown-menu">
+        <div *ngFor="let journey of viajes; let i = index">
+          <a class="dropdown-item" id="elements-inside-dropdown" [routerLink]="['../', journey.name ]">
+            {{journey.name}}
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -19,12 +21,10 @@
     </div>
     <div class="col-9">
       <header>
-        American
+        {{journey.name}}
       </header>
       <main>
-        One Characteristic of american cooking is the fusion
-        of multiple ethnic or regional approaches into completely
-        new cooking styles.
+        {{journey.description}}
       </main>
     </div>
   </div>
@@ -37,18 +37,20 @@
 
       <div *ngFor="let journeys of journey.dish; let i = index">
         <accordion>
-          <accordion-group>
-              <div accordion-heading class="clearfix">
+          <accordion-group id="accordion-design">
+              <div accordion-heading class="clearfix" (click)="getDishDetail(journey.name,i)">
                   {{journey.dish[i]}}
                 </div>
               <div class="row detail">
                     <div class="col-6">
-                      <p class="detail-name" [routerLink]="['./', 2]">Frankie's</p>
-                      <p class="detail-rating">&#9733; &#9733; &#9733; &#9733; &#9733; 1256 reviews</p>
+                      <div *ngIf="loading[i]">
+                      <p class="detail-name" [routerLink]="['./', journey.dish[i]]">{{res[i].name}}</p>
+                      <p class="detail-rating"><img [src]=[getYelpStars(i)]> 1256 reviews</p>
                       <p class="detail-price">$$ - Burgers</p>
                       <p class="detail-address">66 Mint St,</p>
                       <p class="detail-direction">San Francisco, CA 94103</p>
                     </div>
+                  </div>
                 
                     <div class="col-5 detail-contact">
                       <p class="detail-available">Open Now</p>

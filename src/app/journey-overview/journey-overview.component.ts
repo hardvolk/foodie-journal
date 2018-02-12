@@ -3,8 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { journeys as JourneyDS, journeys } from '../../shared/interfaces/journeys';
 import { ApiService } from '../../shared/services/api.service';
 import { Restaurant } from '../../shared/interfaces/restaurant';
-import { users } from '../../shared/interfaces/mockusers';
-import { User } from '../../shared/interfaces/user';
 import { UserService } from '../../shared/services/user.service';
 
 @Component({
@@ -17,23 +15,22 @@ export class JourneyOverviewComponent implements OnInit {
   constructor(private _activatedRoute: ActivatedRoute, private _apiService: ApiService, private _userService: UserService) { }
   journeyParams: any;
   journey: any;
-  res: Restaurant[];
-  // rest: Restaurant;
-  journeyInput: String;
+  res: Restaurant[] = new Array<Restaurant>();
+  rest: Restaurant;
+  viajes = journeys;
   dish: number;
-  user: User = this._userService.LoggedUser.value;
+  loading: boolean[] = [false, false, false, false, false, false, false, false, false, false];
 
-  // getDishDetail(journey: String, dish: number) {
-  //   this._apiService.getRestaurantInfo(journeys.find(x => x.name === journey).dishrest[dish]).subscribe(x => {
-  //     this.res[dish] = x as Restaurant;
-  //    });
-  // }
+  getDishDetail(journey: String, dish: number) {
+    this._apiService.getRestaurantInfo(journeys.find(x => x.name === journey).dishrest[dish]).subscribe(x => {
+      this.res[dish] = x as Restaurant;
+      this.loading[dish] = true;
+     });
+    }
 
-  // getDishDetail2(journey: number, dish: number) {
-  //   this._apiService.getRestaurantInfo(journeys[journey].dishrest[dish]).subscribe(x => {
-  //     this.rest = x as Restaurant;
-  //    });
-  // }
+  getYelpStars(dish: number): string {
+    return '/assets/images/yelp-stars/' + String(Math.round(this.res[dish].rating * 2) / 2) + '.png';
+    }
 
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
@@ -41,5 +38,6 @@ export class JourneyOverviewComponent implements OnInit {
       this.journey = JourneyDS.find( j => j.name === params.trackId);
       console.log('Current Journey: ', this.journey);
     });
+
   }
 }

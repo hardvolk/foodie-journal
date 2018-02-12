@@ -37,7 +37,7 @@ export class DishDetailComponent implements OnInit {
   }
 
   getReview(journey: number, dish: number) {
-    this._apiService.getRestaurantReview(journeys[journey].dishrest[dish]).subscribe( x => {
+    const obs2 = this._apiService.getRestaurantReview(journeys[journey].dishrest[dish]).subscribe( x => {
       this.review = x as Review;
       if (this.review.reviews[0] !== undefined) { this.loadingreview = false; }
     });
@@ -55,7 +55,7 @@ export class DishDetailComponent implements OnInit {
     this._activatedRoute.params.subscribe(params => {
       this.trackId = journeys.findIndex(x => x.name === params.trackId);
       this.dishId = journeys[this.trackId].dish.findIndex(x => x === params.dishId);
-      if (this.trackId === -1 || this.dishId === -1) { this._router.navigateByUrl('/tracks'); return; }
+      if (this.trackId === -1 || this.dishId === -1 ) { this._router.navigateByUrl('/tracks'); return; }
       this.getDishDetail(this.trackId, this.dishId);
       this.getReview(this.trackId, this.dishId);
       this.checkDishStatus(this.trackId, this.dishId);

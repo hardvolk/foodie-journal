@@ -27,6 +27,15 @@
      padding-left: 5%;
  }
 
+ #elements-inside-dropdown {
+     text-align: center;
+     width: 290px !important;
+     padding: 20px !important;
+ }
+
+ #accordion-design {
+     margin-bottom: 3%;
+ }
  /* .gray-body {
     background-color: #ebebeb;
 } */
