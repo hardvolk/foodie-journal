@@ -14,3 +14,8 @@
 .gray-body {
   background-color: #ebebeb;
 }
+
+.row {
+  margin-right: -5px;
+  margin-left: -5px;
+}
