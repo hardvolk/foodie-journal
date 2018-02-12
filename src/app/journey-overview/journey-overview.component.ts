@@ -39,6 +39,7 @@ export class JourneyOverviewComponent implements OnInit {
 
   setCurrentJourney(journey: string) {
     this._userService.setCurrentJourney(journey);
+    this.user = this._userService.LoggedUser.value;
   }
 
   ngOnInit() {

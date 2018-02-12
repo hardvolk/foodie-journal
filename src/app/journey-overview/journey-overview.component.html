@@ -41,8 +41,12 @@
     </div>
   </div>
   <div class="row follow ">
-      <button class="col-6 btn"> Duration: 3 weeks </button>
-      <button class="col-6 btn-primary inside-follow" (click)="setCurrentJourney(journey.name)"> Follow </button>
+      <button class="col-6 btn"> {{journey.duration}} </button>
+      <button class="col-6 inside-follow" 
+              [ngClass]="user.currentJourney === journey.name ? 'blue' : 'orange'" 
+              (click)="setCurrentJourney(journey.name)"> 
+          {{user.currentJourney === journey.name ? 'Following' : 'Follow'}} 
+      </button>
   </div>
 </div>
 

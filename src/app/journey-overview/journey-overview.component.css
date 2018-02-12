@@ -251,6 +251,10 @@
     .blue {
         background-color: lightskyblue !important;
     }
+
+    .orange {
+        background-color: #fe5240 !important;
+    }
     
     .circled {
         border-radius: 50%;
