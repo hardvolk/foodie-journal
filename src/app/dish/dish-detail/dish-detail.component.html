@@ -4,7 +4,11 @@
       <a [routerLink]="['../../', journeylist[trackId].name ]">{{journeylist[trackId].name}}</a>
     </div>
     <div id="dish-title">
-      <div id="dish-name"> {{journeylist[trackId].dish[dishId]}}</div>
+      <div id="dish-name">
+        <span class="circled" *ngIf="!dishstatus">{{(1 + dishId)}}</span>
+        <span class="circled blue" *ngIf="dishstatus">&#10003;</span> 
+        {{journeylist[trackId].dish[dishId]}}
+      </div>
     </div>
 </div>
 <div class="container-fluid" id="loading-message" *ngIf="loading">Loading, please wait...</div>
