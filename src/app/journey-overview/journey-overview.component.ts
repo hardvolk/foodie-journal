@@ -22,6 +22,7 @@ export class JourneyOverviewComponent implements OnInit {
   journeyInput: String;
   dish: number;
   user: User = this._userService.LoggedUser.value;
+  viajes = journeys;
 
   // getDishDetail(journey: String, dish: number) {
   //   this._apiService.getRestaurantInfo(journeys.find(x => x.name === journey).dishrest[dish]).subscribe(x => {
