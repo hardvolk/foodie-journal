@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { ProgressBoxComponent } from './tracks/progress-box/progress-box.component';
 import { TracksListComponent } from './tracks/tracks-list/tracks-list.component';
 import { TrackComponent } from './tracks/track/track.component';
+import { ProgressCircleComponent } from './progress-circle/progress-circle.component';
 // Guards
 import { AuthGuardService } from './auth/auth-guard.service';
 import { HomeGuardService } from './auth/home-guard.service';
@@ -43,5 +44,6 @@ export const routingComponents = [
   ProgressBoxComponent,
   TracksListComponent,
   TrackComponent,
-  DishDetailComponent
+  DishDetailComponent,
+  ProgressCircleComponent
 ];

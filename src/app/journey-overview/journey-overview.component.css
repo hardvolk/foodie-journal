@@ -8,10 +8,11 @@
     padding-bottom: 3%;
  }
 
- #contain-image {
+ /* Este estilo se ha movido al component progress-circle */
+ /* #contain-image {
     height: 40%;
     width: 40%;
- }
+ } */
 
  #move-row {
     padding-top: 15px;
@@ -80,8 +81,9 @@
      font-size: 12px;
  }
 
+ /* ¡¡¡¡Estos estilos se ha movido al component progress-circle!!!!! */
  /* Cirle with hamburguer style */
- .pie-wrapper {
+ /* .pie-wrapper {
     height: 1em;
     width: 1em;
     position: relative;
@@ -123,7 +125,7 @@
     
     .charts-container{
         font-size: 5em;
-    }
+    } */
  
     /* Clases de Carlos */
 
