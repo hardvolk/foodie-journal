@@ -12,7 +12,7 @@ export class ApiService {
     rev: Object;
     // tslint:disable-next-line:max-line-length
     yelpheader = { headers: new HttpHeaders({ Authorization: 'Bearer lVKLoqjeYs5PhMd7VpdKoXriT650qjoNpL_rfNvIxzi1fds2vG_MuOPBZFP1AgZ4RiHeePGoAEfl9-duuWvx7ZPaAGhD2DienR7Z9FRCQHmyNySd5_oOBaBfLupxWnYx'})};
-    yelpURL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/';
+    yelpURL = 'https://fj-cors.herokuapp.com/https://api.yelp.com/v3/businesses/';
     gmapsURL = 'https://www.google.com/maps/embed/v1/search?key=AIzaSyDEulyL6VtHbfKDtGnFxs6FM6FlkowMptM&zoom=14&center=';
 
     constructor (private http: HttpClient) {}
