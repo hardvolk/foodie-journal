@@ -22,6 +22,7 @@ export class JourneyOverviewComponent implements OnInit {
   loading: boolean[] = [false, false, false, false, false, false, false, false, false, false];
 
   getDishDetail(journey: String, dish: number) {
+    this.loading[dish] = false;
     this._apiService.getRestaurantInfo(journeys.find(x => x.name === journey).dishrest[dish]).subscribe(x => {
       this.res[dish] = x as Restaurant;
       this.loading[dish] = true;
