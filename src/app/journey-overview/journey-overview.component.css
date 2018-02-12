@@ -196,8 +196,8 @@
     }
 
     .detail-rating {
-        margin-bottom: 0;
-        padding-bottom: 0;
+        font-size: 12px;
+        top: 25px;
         color: #C0C0C0;
     }
 

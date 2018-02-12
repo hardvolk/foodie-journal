@@ -57,7 +57,7 @@
                     <div class="col-6">
                       <div *ngIf="loading[i]">
                       <p class="detail-name" [routerLink]="['./', journey.dish[i]]">{{res[i].name}}</p>
-                      <p class="detail-rating"><img [src]=[getYelpStars(i)]> 1256 reviews</p>
+                      <p class="detail-rating"><img [src]=[getYelpStars(i)]> {{res[i].review_count}} reviews</p>
                       <p class="detail-price">$$ - Burgers</p>
                       <p class="detail-address">66 Mint St,</p>
                       <p class="detail-direction">San Francisco, CA 94103</p>
