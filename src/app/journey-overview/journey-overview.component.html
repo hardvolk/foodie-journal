@@ -49,18 +49,20 @@
 
       <div *ngFor="let journeys of journey.dish; let i = index">
         <accordion>
-          <accordion-group>
-              <div accordion-heading class="clearfix">
+          <accordion-group id="accordion-design">
+              <div accordion-heading class="clearfix" (click)="getDishDetail(journey.name,i)">
                   {{journey.dish[i]}}
                 </div>
               <div class="row detail">
                     <div class="col-6">
-                      <p class="detail-name" [routerLink]="['./', journey.dish[i]]">Frankie's</p>
+                      <div *ngIf="loading[i]">
+                      <p class="detail-name" [routerLink]="['./', journey.dish[i]]">{{res[i].name}}</p>
                       <p class="detail-rating">&#9733; &#9733; &#9733; &#9733; &#9733; 1256 reviews</p>
                       <p class="detail-price">$$ - Burgers</p>
                       <p class="detail-address">66 Mint St,</p>
                       <p class="detail-direction">San Francisco, CA 94103</p>
                     </div>
+                  </div>
                 
                     <div class="col-5 detail-contact">
                       <p class="detail-available">Open Now</p>
