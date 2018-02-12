@@ -25,16 +25,21 @@ export class JourneyOverviewComponent implements OnInit {
   user: User = this._userService.LoggedUser.value;
 
   getDishDetail(journey: String, dish: number) {
-    this.loading[dish] = false;
-    this._apiService.getRestaurantInfo(journeys.find(x => x.name === journey).dishrest[dish]).subscribe(x => {
+      this.loading[dish] = false;
+      this._apiService.getRestaurantInfo(journeys.find(x => x.name === journey).dishrest[dish]).subscribe(x => {
       this.res[dish] = x as Restaurant;
       this.loading[dish] = true;
+      console.log(this.res);
      });
     }
 
   getYelpStars(dish: number): string {
     return '/assets/images/yelp-stars/' + String(Math.round(this.res[dish].rating * 2) / 2) + '.png';
     }
+
+  setCurrentJourney(journey: string) {
+    this._userService.setCurrentJourney(journey);
+  }
 
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {

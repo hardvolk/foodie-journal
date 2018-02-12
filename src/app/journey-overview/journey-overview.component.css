@@ -219,7 +219,7 @@
     }
 
     .detail-contact {
-        background-color: lightgray;
+        background-color: #ebebeb
      }
     
     .detail-available {
@@ -230,17 +230,13 @@
     }
     
     .detail-telephone {
-        color: aquamarine;
+        color: blue;
         padding-top: 0;
         margin-bottom: 7px;
     }
     
-    hr {
-        margin: 5px 5px;
-    }
-    
     .detail-email {
-        color: aquamarine;
+        color: blue;
         margin-top: 7px;
         margin-bottom: 7px;
     }
