@@ -26,7 +26,11 @@ export class JourneyOverviewComponent implements OnInit {
       this.res[dish] = x as Restaurant;
       this.loading[dish] = true;
      });
-  }
+    }
+
+  getYelpStars(dish: number): string {
+    return '/assets/images/yelp-stars/' + String(Math.round(this.res[dish].rating * 2) / 2) + '.png';
+    }
 
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
