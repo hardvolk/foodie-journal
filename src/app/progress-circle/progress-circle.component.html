@@ -1,0 +1,8 @@
+<div class="charts-container" 
+    [attr.style]="this._sanitizer.bypassSecurityTrustStyle('--bg-color:' + bgColor + '; --cover-color: ' + coverColor + '; --progress-color: ' + progressColor +  '; --rotation:' + rotation + 'deg' )">
+  <div class="pie-wrapper">      
+      <span class="label">
+          <img id="contain-image" src="{{ iconUrl }}">  
+      </span>
+  </div>
+</div>
