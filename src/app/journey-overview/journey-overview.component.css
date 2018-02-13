@@ -8,10 +8,11 @@
     padding-bottom: 3%;
  }
 
- #contain-image {
+ /* Este estilo se ha movido al component progress-circle */
+ /* #contain-image {
     height: 40%;
     width: 40%;
- }
+ } */
 
  #move-row {
     padding-top: 15px;
@@ -175,8 +176,9 @@ hr {
      font-size: 12px;
  }
 
+ /* ¡¡¡¡Estos estilos se ha movido al component progress-circle!!!!! */
  /* Cirle with hamburguer style */
- .pie-wrapper {
+ /* .pie-wrapper {
     height: 1em;
     width: 1em;
     position: relative;
@@ -218,7 +220,7 @@ hr {
     
     .charts-container{
         font-size: 5em;
-    }
+    } */
  
     /* Clases de Carlos */
 
@@ -305,7 +307,7 @@ hr {
     }
 
     .detail-contact {
-        background-color: lightgray;
+        background-color: #ebebeb
      }
     
     .detail-available {
@@ -316,17 +318,13 @@ hr {
     }
     
     .detail-telephone {
-        color: aquamarine;
+        color: blue;
         padding-top: 0;
         margin-bottom: 7px;
     }
     
-    hr {
-        margin: 5px 5px;
-    }
-    
     .detail-email {
-        color: aquamarine;
+        color: blue;
         margin-top: 7px;
         margin-bottom: 7px;
     }
@@ -337,4 +335,29 @@ hr {
         padding-left: 12px;
         padding-top: 35px;
     }
+<<<<<<< HEAD
 >>>>>>> a901a7e6e7dfd4f6255ee6b521e6ebf4f60431c3
+=======
+
+    .blue {
+        background-color: lightskyblue !important;
+    }
+
+    .orange {
+        background-color: #fe5240 !important;
+    }
+    
+    .circled {
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        padding: 0;
+        text-align: center;
+        line-height: 25px;
+        vertical-align: middle;
+        font-size: 14px;
+        display: inline-block;
+        background-color: black;
+        color: white;
+    }
+>>>>>>> 846593ee6f7b66332e9f926fce8d532bad43c98e

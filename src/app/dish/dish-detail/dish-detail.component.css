@@ -6,9 +6,13 @@
     z-index: 100;
 }
 
+#letter-color {
+    color: gray;
+}
+
 #footer {
     position: fixed;
-    bottom: 0px;
+    bottom: -1px;
     left: 0px;
     right: 0px;
     padding: 0;
@@ -16,8 +20,15 @@
     font-size: 20px;
 }
 
+#loading-message {
+    position: fixed;
+    bottom: 50%;
+    text-align: center;
+    font-size: 20px;
+}
+
 #navigation {
-    background-color: lightgrey;
+    background-color: lightgray;
     padding: 10px;
 }
 
@@ -130,7 +141,21 @@
 }
 
 .blue {
-    background-color: lightskyblue;
+    background-color: lightskyblue !important;
+}
+
+.circled {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    text-align: center;
+    line-height: 25px;
+    vertical-align: middle;
+    font-size: 14px;
+    display: inline-block;
+    background-color: black;
+    color: white;
 }
 
 #spacer {

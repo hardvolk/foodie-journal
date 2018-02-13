@@ -1,15 +1,17 @@
 <div class="container-fluid" id="header" *ngIf="!loading">
     <div id="navigation">
-      <a [routerLink]="['../../']">Journeys</a> / 
-      <a [routerLink]="['../../', journeylist[trackId].name ]">{{journeylist[trackId].name}}</a>
+      <a id="letter-color" [routerLink]="['../../']">←Journeys</a> / 
+      <a id="letter-color" [routerLink]="['../../', journeylist[trackId].name ]">{{journeylist[trackId].name}}</a>
     </div>
     <div id="dish-title">
-      <div id="dish-name"> {{journeylist[trackId].dish[dishId]}}</div>
-      <div id="dish-status" *ngIf="dishstatus">
-        <button>Leave Feedback</button>
+      <div id="dish-name">
+        <span class="circled" *ngIf="!dishstatus">{{(1 + dishId)}}</span>
+        <span class="circled blue" *ngIf="dishstatus">&#10003;</span> 
+        {{journeylist[trackId].dish[dishId]}}
       </div>
     </div>
 </div>
+<div class="container-fluid" id="loading-message" *ngIf="loading">Loading, please wait...</div>
 <div class="container-fluid" id="dish-details" *ngIf="!loading">
   <div class="row">
       <div class="col-6 text-left" id="restaurant-info"> 
@@ -51,5 +53,5 @@
 <div id="spacer">&nbsp;</div>
 <div class="container-fluid" id="footer">
   <div [ngClass]="dishstatus ? 'blue' : 'orange'" id="dish-status-button" (click)="this._userService.updateProgress(trackId, dishId)">
-    {{dishstatus ? 'Way to go! Swipe left to take the next challenge' : 'Mark Completed'}} </div>
+    {{dishstatus ? 'Completed! Way to go!' : 'Mark Completed'}} </div>
 </div>

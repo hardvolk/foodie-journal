@@ -37,8 +37,6 @@ export class UserService {
   }
 
   logout (): void {
-    // localStorage.removeItem(this.user.name); // We need to delete the user info from localStorage
-    // no, we need it in localstorage to track user progress
     localStorage.removeItem('CurrentUser');
   }
 
@@ -46,6 +44,12 @@ export class UserService {
       this.LoggedUser.value.journeys[journeyid][dishid] = !this.LoggedUser.value.journeys[journeyid][dishid];
       localStorage.setItem(this.LoggedUser.value.name, JSON.stringify(this.LoggedUser.value));
       this.LoggedUser.next(this.LoggedUser.value);
+  }
+
+  setCurrentJourney(journeyName: string): void {
+    this.LoggedUser.value.currentJourney = journeyName;
+    localStorage.setItem(this.LoggedUser.value.name, JSON.stringify(this.LoggedUser.value));
+    this.LoggedUser.next(this.LoggedUser.value);
   }
 
   checkProgress (journey: number): number {

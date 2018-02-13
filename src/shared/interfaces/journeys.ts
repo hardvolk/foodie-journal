@@ -24,7 +24,7 @@ export const journeys: Journey[] = [
         dishrest: ['crêpe-de-paris-monterrey', 'pangea-san-pedro-garza-garcía-2', 'pangea-san-pedro-garza-garcía-2',
             'amadeus-restaurant-san-pedro-garza-garcía', 'tierra-libre-monterrey',
             'gaston-brasserie-san-pedro-garza-garcía', 'amelie-peche-san-pedro-garza-garcía',
-            'la-petite-bretonne-monterrey', 'crêpe-de-paris-residencial-chipinque', 'el-antojito-francés-monterrey']
+            'la-petite-bretonne-monterrey', 'crêpe-de-paris-residencial-chipinque', 'bread-san-pedro-garza-garcía-2']
     },
     {
         name: 'Italian',
