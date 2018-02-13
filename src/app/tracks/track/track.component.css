@@ -8,6 +8,14 @@
 
 /* Card progress bar --------------------- */
 
+/* Remove the <a> color and decorations. */
+a {
+  color: unset;
+}
+a:hover {
+  text-decoration: unset;
+}
+
 /* Set height of progress bar content rows. */
 app-progress-box .row-title {
   height: 6em;

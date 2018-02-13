@@ -3,13 +3,18 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { last } from 'rxjs/operators/last';
 import { User } from '../interfaces/user';
+import { map } from 'rxjs/operator/map';
 
 @Injectable()
 export class UserService {
   LoggedUser = new BehaviorSubject<User>({name: '', email: '', password: ''});
-  user: User;
+  user: User = {name: '', email: '', password: ''};
 
   constructor() {}
+
+  isAuthenticated(): boolean {
+    return localStorage.getItem('CurrentUser') !== null;
+  }
 
   checkInitialUser(): BehaviorSubject<User> {
     if (!!localStorage.getItem('CurrentUser')) {
@@ -25,25 +30,26 @@ export class UserService {
         this.user = JSON.parse(localStorage.getItem(user.name));
       } else {
         localStorage.setItem(user.name, JSON.stringify(user));
+        this.user = user;
       }
     }
     this.LoggedUser.next(this.user);
   }
 
   logout (): void {
+    // localStorage.removeItem(this.user.name); // We need to delete the user info from localStorage
+    // no, we need it in localstorage to track user progress
     localStorage.removeItem('CurrentUser');
   }
 
   updateProgress (journeyid: number, dishid: number): void {
-    this.LoggedUser.pipe(last()).subscribe(user => (this.user = user));
-    this.user['journey' + journeyid][dishid - 1] = !this.user['journey' + journeyid][dishid - 1];
-    this.LoggedUser.next(this.user);
-    localStorage.setItem(this.user.name, JSON.stringify(this.user));
-    console.log('Changed journey ' + journeyid + ' , dish ' + dishid + ' to value: ' + this.user['journey' + journeyid][dishid - 1]);
+      this.LoggedUser.value.journeys[journeyid][dishid] = !this.LoggedUser.value.journeys[journeyid][dishid];
+      localStorage.setItem(this.LoggedUser.value.name, JSON.stringify(this.LoggedUser.value));
+      this.LoggedUser.next(this.LoggedUser.value);
   }
 
-  checkProgress (journeyid: number): number {
-    return this.LoggedUser.value['journey' + journeyid].filter( x => x === true).length;
+  checkProgress (journey: number): number {
+    return this.LoggedUser.value.journeys[journey].filter(x => x === true).length;
   }
 
 }

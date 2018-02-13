@@ -8,7 +8,7 @@ app-login {
   /* Keeps box on top navbar when expanded on mobile. */
   z-index: 1030;
 
-  position: absolute;
+  position: fixed;
   /* Keeps like-a-margin of 3 pixels horizontally (margin not used because it overflows outside page when applied with 100% width) */
   right: 3px;
   width: calc(100% - 6px);

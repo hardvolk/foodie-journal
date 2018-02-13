@@ -1,5 +1,7 @@
 // tslint:disable:max-line-length
 import { Component, OnInit } from '@angular/core';
+import { journeys } from '../../../shared/interfaces/journeys';
+import { Journey } from '../../../shared/interfaces/journey';
 
 @Component({
   selector: 'app-tracks',
@@ -8,48 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TracksListComponent implements OnInit {
 
-  public tracks = [
-    {
-      id: 1,
-      unitsCompleted: 1,
-      unitsTotal: 10,
-      iconUrl: '../../../assets/icons/tracks/burger.png',
-      title: 'American',
-      description: 'One characteristic of American cooking is the fusion of multiple ethnic or regional approaches into completely new cooking styles.',
-      duration: '3 weeks',
-    },
-    {
-      id: 2,
-      unitsCcompleted: 0,
-      unitsTotal: 4,
-      iconUrl: '../../../assets/icons/tracks/pizza.png',
-      title: 'Italian',
-      description: 'An Italian meal is famous for its structure into several sections: the appetiser, pasta or rice dish, a meat course and dolce dessert.',
-      duration: '1 week',
-    },
-    {
-      id: 3,
-      unitsCcompleted: 0,
-      unitsTotal: 7,
-      iconUrl: '../../../assets/icons/tracks/taco.png',
-      title: 'Mexican',
-      description: 'Known for its varied flavours and spices, the food of Mexico is a result of the Spanish conquistadores’ interaction with the Aztec culture.',
-      duration: '2 weeks',
-    },
-    {
-      id: 4,
-      unitsCcompleted: 0,
-      unitsTotal: 8,
-      iconUrl: '../../../assets/icons/tracks/sushi.png',
-      title: 'Japanese',
-      description: 'In 2014, 14 restaurants in Tokyo and Shonan maintain a Michelin three-stars rating, the ultimate international recognition in the culinary world.',
-      duration: '3 weeks',
-    },
-  ];
+  journeylist: Journey[];
 
   constructor() { }
 
   ngOnInit() {
+    this.journeylist = journeys;
   }
 
 }

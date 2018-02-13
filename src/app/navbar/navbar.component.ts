@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,25 +9,32 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  userLogged: boolean;
+  showAccountLogin = false;
+  userName: string;
+
   // Router used in template logic.
   // noinspection JSUnusedLocalSymbols
-  constructor(private router: Router) { }
+  constructor(private router: Router, private _userService: UserService) { }
 
-  show = false;
-  showHamburguer = false;
+  ngOnInit() {
+    this.userLogged = this._userService.isAuthenticated();
 
-  toggleShowLogin() {
-    this.show = !this.show;
-  }
-
-  toggleShowHamburguer() {
-    if (!!localStorage.getItem('CurrentUser')) {
-      this.showHamburguer = true;
+    if (this.userLogged) {
+      this._userService.checkInitialUser().subscribe(user => this.userName = user.name);
     }
   }
 
-  ngOnInit() {
-    this.toggleShowHamburguer();
+  toggleShowLogin() {
+    this.showAccountLogin = !this.showAccountLogin;
+  }
+
+  updateAccountPanel() {
+    this.showAccountLogin = false;
+    this.userLogged = this._userService.isAuthenticated();
+    if (this.userLogged) {
+      this._userService.checkInitialUser().subscribe(user => this.userName = user.name);
+    }
   }
 
 }
