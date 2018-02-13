@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA} from '@angular/core/';
 import { TracksListComponent } from './tracks-list.component';
 
 describe('TracksListComponent', () => {
@@ -7,8 +7,14 @@ describe('TracksListComponent', () => {
   let fixture: ComponentFixture<TracksListComponent>;
 
   beforeEach(async(() => {
+    const TracksListComponentMock = {};
+
     TestBed.configureTestingModule({
-      declarations: [ TracksListComponent ]
+      declarations: [ TracksListComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [
+        {provide: TracksListComponent, useValue: TracksListComponentMock}
+      ]
     })
     .compileComponents();
   }));

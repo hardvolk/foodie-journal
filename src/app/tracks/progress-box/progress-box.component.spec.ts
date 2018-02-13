@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA} from '@angular/core/';
 import { ProgressBoxComponent } from './progress-box.component';
 
 describe('ProgressBoxComponent', () => {
@@ -7,8 +7,14 @@ describe('ProgressBoxComponent', () => {
   let fixture: ComponentFixture<ProgressBoxComponent>;
 
   beforeEach(async(() => {
+    const ProgressBoxComponentMock = {};
+
     TestBed.configureTestingModule({
-      declarations: [ ProgressBoxComponent ]
+      declarations: [ ProgressBoxComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [
+        {provide: ProgressBoxComponent, useValue: ProgressBoxComponentMock}
+      ]
     })
     .compileComponents();
   }));

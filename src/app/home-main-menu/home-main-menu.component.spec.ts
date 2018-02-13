@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA} from '@angular/core/';
 import { HomeMainMenuComponent } from './home-main-menu.component';
 
 describe('HomeMainMenuComponent', () => {
@@ -7,8 +7,14 @@ describe('HomeMainMenuComponent', () => {
   let fixture: ComponentFixture<HomeMainMenuComponent>;
 
   beforeEach(async(() => {
+    const HomeMainMenuComponentMock = {};
+
     TestBed.configureTestingModule({
-      declarations: [ HomeMainMenuComponent ]
+      declarations: [ HomeMainMenuComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [
+        {provide: HomeMainMenuComponent, useValue: HomeMainMenuComponentMock}
+      ]
     })
     .compileComponents();
   }));

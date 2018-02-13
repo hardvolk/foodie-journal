@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA} from '@angular/core/';
 import { ProgressCircleComponent } from './progress-circle.component';
 
 describe('ProgressCircleComponent', () => {
@@ -7,8 +7,14 @@ describe('ProgressCircleComponent', () => {
   let fixture: ComponentFixture<ProgressCircleComponent>;
 
   beforeEach(async(() => {
+    const ProgressCircleComponentMock = {};
+
     TestBed.configureTestingModule({
-      declarations: [ ProgressCircleComponent ]
+      declarations: [ ProgressCircleComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [
+        {provide: ProgressCircleComponent, useValue: ProgressCircleComponentMock}
+      ]
     })
     .compileComponents();
   }));

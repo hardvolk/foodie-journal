@@ -9,6 +9,7 @@ import { journeys } from '../../../shared/interfaces/journeys';
 import { users } from '../../../shared/interfaces/mockusers';
 import { User } from '../../../shared/interfaces/user';
 import { Review } from '../../../shared/interfaces/review';
+import { SafePipe } from '../../../shared/pipes/safe.pipe';
 
 @Component({
   selector: 'app-dish-detail',

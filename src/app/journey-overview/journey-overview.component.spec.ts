@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA} from '@angular/core/';
 import { JourneyOverviewComponent } from './journey-overview.component';
 
 describe('JourneyOverviewComponent', () => {
@@ -7,8 +7,14 @@ describe('JourneyOverviewComponent', () => {
   let fixture: ComponentFixture<JourneyOverviewComponent>;
 
   beforeEach(async(() => {
+    const JourneyOverviewComponentMock = {};
+
     TestBed.configureTestingModule({
-      declarations: [ JourneyOverviewComponent ]
+      declarations: [ JourneyOverviewComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [
+        {provide: JourneyOverviewComponent, useValue: JourneyOverviewComponentMock}
+      ]
     })
     .compileComponents();
   }));
