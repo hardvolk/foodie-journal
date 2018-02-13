@@ -3,7 +3,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand" href="#">Foodie Journal</a>
+    <a class="navbar-brand" id="color">Foodie Journal</a>
     <a id="btn-login" class="btn-primary" (click)="toggleShowLogin()">{{ userLogged ? 'Hi, ' + userName : 'Login' }}</a>
 
     <div *ngIf="userLogged" class="collapse navbar-collapse" id="navbarsExampleDefault">

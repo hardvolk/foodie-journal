@@ -48,6 +48,12 @@ export class UserService {
       this.LoggedUser.next(this.LoggedUser.value);
   }
 
+  setCurrentJourney(journeyName: string): void {
+    this.LoggedUser.value.currentJourney = journeyName;
+    localStorage.setItem(this.LoggedUser.value.name, JSON.stringify(this.LoggedUser.value));
+    this.LoggedUser.next(this.LoggedUser.value);
+  }
+
   checkProgress (journey: number): number {
     return this.LoggedUser.value.journeys[journey].filter(x => x === true).length;
   }

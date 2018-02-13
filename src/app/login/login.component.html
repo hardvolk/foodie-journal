@@ -20,7 +20,7 @@
     </div>
     <div id="account-container" class="col-6 col-md-4" *ngIf="isLoggedIn">
         <ul class="list-group">
-            <li class="list-group-item">My Account</li>
+            <li class="list-group-item" [routerLink]="['./tracks']" >My Account</li>
             <li class="list-group-item" (click)="logoutUser()">Logout</li>
         </ul>
     </div>
