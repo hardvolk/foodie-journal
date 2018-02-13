@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeMainMenuComponent } from './home-main-menu.component';
+import { ProgressCircleComponent } from './progress-circle.component';
 
-describe('HomeMainMenuComponent', () => {
-  let component: HomeMainMenuComponent;
-  let fixture: ComponentFixture<HomeMainMenuComponent>;
+describe('ProgressCircleComponent', () => {
+  let component: ProgressCircleComponent;
+  let fixture: ComponentFixture<ProgressCircleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeMainMenuComponent ]
+      declarations: [ ProgressCircleComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeMainMenuComponent);
+    fixture = TestBed.createComponent(ProgressCircleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

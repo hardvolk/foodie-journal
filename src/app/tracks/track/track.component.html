@@ -1,21 +1,25 @@
-<app-progress-box [value]="(track.unitsCcompleted / track.unitsTotal) * 100">
-  <div class="row row-title justify-content-center align-items-end mx-auto">
-    <div class="col-2 text-center">
-      <img class="icon" [src]="track.iconUrl" [alt]="track.title" />
+<a [routerLink]="['./', journey.name ]">
+
+  <app-progress-box [value]='(checkProgress(journey.name) / 10) * 100'>
+    <div class="row row-title justify-content-center align-items-end mx-auto">
+      <div class="col-2 text-center">
+        <img class="icon" [src]="journey.iconUrl" [alt]="journey.name" />
+      </div>
+      <div class="col-6 text-left">
+        <span class="country h4 d-block"> {{journey.name}}</span>
+      </div>
     </div>
 
-    <div class="col-6 text-left">
-      <span class="country h4 d-block">{{track.title}}</span>
+    <div class="row row-percentage justify-content-center align-items-start">
+      <span class="col percentage h5 d-block text-center" *ngIf="checkProgress(journey.name) > 0">
+        {{checkProgress(journey.name) / 10 | percent}}
+      </span>
     </div>
-  </div>
-  <div class="row row-percentage justify-content-center align-items-start">
-    <span class="col percentage h5 d-block text-center" *ngIf="track.unitsCcompleted > 0">
-      {{track.unitsCcompleted / track.unitsTotal | percent}}
-    </span>
-  </div>
-</app-progress-box>
+  </app-progress-box>
+
+</a>
 
 <div class="card-body">
-  <p class="description">{{track.description}}</p>
-  <p class="duration font-weight-bold">Duration: {{track.duration}}</p>
+  <p class="description">{{journey.description}}</p>
+  <p class="duration font-weight-bold">Duration: {{journey.duration}}</p>
 </div>

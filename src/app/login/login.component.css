@@ -1,27 +1,30 @@
- .container-right {
-    right: 0;
-    position: absolute;
- }
+:host {
+  display: block;
 
- button {
-    margin-bottom: 5px;
- }
+  /* Custom style the login box. */
+  border-style: groove;
+  background-color: white;
+  padding: 20px;
+  margin: 3px;
+}
 
- input {
-    margin-bottom: 5px;
-    }
+button {
+  margin-bottom: 5px;
+}
 
- .background {
-     background-color: #fc634b;
-     color: white;
- }
+input {
+  margin-bottom: 5px;
+}
 
- p {
-     text-align: center;
- }
+.background {
+  background-color: #fc634b;
+  color: white;
+}
 
- .groove-border {
-    border-style: groove;
-    background-color: white;
-    padding: 20px;  
- }
+p {
+  text-align: center;
+}
+
+.my-account-btn {
+  margin-bottom: 0.6em;
+}

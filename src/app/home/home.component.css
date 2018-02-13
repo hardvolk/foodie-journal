@@ -1,3 +1,7 @@
+:host {
+  display: block;
+}
+
 /* .container-fluid {
     position: relative;
     height: 100%;
@@ -71,7 +75,7 @@
 footer{
     padding: 5%;
     text-align: center;
-    color: #BCBCBC;   
+    color: #BCBCBC;
 }
     footer img{
         margin: 0 15px;
@@ -88,5 +92,5 @@ footer{
     .home-header-description *{
         margin-bottom: 40px;
     }
-    
+
 }

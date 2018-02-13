@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { users } from '../../shared/interfaces/mockusers';
 import { User } from '../../shared/interfaces/user';
 import { UserService } from '../../shared/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +14,12 @@ import { UserService } from '../../shared/services/user.service';
 export class LoginComponent implements OnInit {
 
   user: User;
+  isLoggedIn: boolean = this._userService.isAuthenticated();
+  @Output() loginSuccess: EventEmitter<any> = new EventEmitter();
+  @Output() logoutSuccess: EventEmitter<any> = new EventEmitter();
 
-  constructor(private _userService: UserService) { }
+  constructor(private _userService: UserService, private _router: Router) { }
+
 
   verifyPassword(query: string, pwd: string): boolean {
     if (users.find(x => x.email === query || x.name === query)) {
@@ -27,12 +32,17 @@ export class LoginComponent implements OnInit {
     if (this.verifyPassword(query, pwd)) {
       console.log('password verified');
       this._userService.login(users.find(x => x.email === query || x.name === query));
+      this.isLoggedIn = true;
+      this.loginSuccess.emit(null);
+      this._router.navigate(['tracks']);
       return true;
     } else { console.log('failed to log in'); return false; }
   }
 
   logoutUser(): void {
     this._userService.logout();
+    this.logoutSuccess.emit(null);
+    this._router.navigate(['home']);
   }
 
   ngOnInit() {

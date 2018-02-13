@@ -1,3 +1,7 @@
+:host {
+  display: block;
+}
+
 /* Needed classes to make the progressbar act as the background. */
 .parent-container {
   position: relative;
