@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProgressBoxComponent } from './progress-box.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('ProgressBoxComponent', () => {
   let component: ProgressBoxComponent;
@@ -8,7 +9,8 @@ describe('ProgressBoxComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProgressBoxComponent ]
+      declarations: [ ProgressBoxComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));
