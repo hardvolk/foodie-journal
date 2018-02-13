@@ -221,7 +221,7 @@
     }
 
     .detail-contact {
-        background-color: lightgray;
+        background-color: #ebebeb
      }
     
     .detail-available {
@@ -232,17 +232,13 @@
     }
     
     .detail-telephone {
-        color: aquamarine;
+        color: blue;
         padding-top: 0;
         margin-bottom: 7px;
     }
     
-    hr {
-        margin: 5px 5px;
-    }
-    
     .detail-email {
-        color: aquamarine;
+        color: blue;
         margin-top: 7px;
         margin-bottom: 7px;
     }
@@ -252,4 +248,26 @@
         font-size: 15px;
         padding-left: 12px;
         padding-top: 35px;
+    }
+
+    .blue {
+        background-color: lightskyblue !important;
+    }
+
+    .orange {
+        background-color: #fe5240 !important;
+    }
+    
+    .circled {
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        padding: 0;
+        text-align: center;
+        line-height: 25px;
+        vertical-align: middle;
+        font-size: 14px;
+        display: inline-block;
+        background-color: black;
+        color: white;
     }

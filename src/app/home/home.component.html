@@ -8,11 +8,11 @@
       <!-- Must redirects to Path Selection -->
       <a [routerLink]="tracks" class="btn btn-primary">Get Started</a>
   </div>   
-  <div class="down">
+  <div class="down" (click)="scroll(middle)">
     Discover More <i class="fas fa-chevron-down"></i>
   </div>
 </section>
-<section class="home-discover">
+<section #middle class="home-discover">
   <div class="container">
       <div class="row">
           <div class="col-xs-12 col-md-4 item-discover text-center">

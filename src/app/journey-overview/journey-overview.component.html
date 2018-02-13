@@ -29,8 +29,12 @@
     </div>
   </div>
   <div class="row follow ">
-      <button class="col-6 btn"> Duration: 3 weeks </button>
-      <button class="col-6 btn-primary inside-follow"> Follow </button>
+      <button class="col-6 btn"> {{journey.duration}} </button>
+      <button class="col-6 inside-follow" 
+              [ngClass]="user.currentJourney === journey.name ? 'blue' : 'orange'" 
+              (click)="setCurrentJourney(journey.name)"> 
+          {{user.currentJourney === journey.name ? 'Following' : 'Follow'}} 
+      </button>
   </div>
 </div>
 
@@ -39,28 +43,26 @@
         <accordion>
           <accordion-group id="accordion-design">
               <div accordion-heading class="clearfix" (click)="getDishDetail(journey.name,i)">
+                  <span class="circled" *ngIf="!user.journeys[journeyId][i]">{{(1 + i)}}</span>
+                  <span class="circled blue" *ngIf="user.journeys[journeyId][i]">&#10003;</span> 
                   {{journey.dish[i]}}
                 </div>
-              <div class="row detail">
+              <div class="row detail" *ngIf="loading[i]">
                     <div class="col-6">
-                      <div *ngIf="loading[i]">
                       <p class="detail-name" [routerLink]="['./', journey.dish[i]]">{{res[i].name}}</p>
-                      <p class="detail-rating"><img [src]=[getYelpStars(i)]> 1256 reviews</p>
-                      <p class="detail-price">$$ - Burgers</p>
-                      <p class="detail-address">66 Mint St,</p>
-                      <p class="detail-direction">San Francisco, CA 94103</p>
+                      <p class="detail-rating"><img [src]=[getYelpStars(i)]></p>
+                      <p class="detail-address"> {{res[i].review_count}} reviews</p>
+                      <p class="detail-price">{{ res[i].price }} - {{ res[i].categories[0].title }}</p>
+                      <p class="detail-address">{{res[i].location.address1}}</p>
+                      <p class="detail-direction">{{res[i].location.city}}</p>
                     </div>
-                  </div>
                 
-                    <div class="col-5 detail-contact">
+                    <div class="col-6 detail-contact">
                       <p class="detail-available">Open Now</p>
-                      <hr>
-                      <p class="detail-telephone">(510) 653-3394</p>
-                      <p class="detail-email">frankiesburgers.com</p>
+                      <p class="detail-phone" *ngIf="res[i].phone.length > 0">{{res[i].phone}}</p>
+                      <p class="detail-email">www.google.com</p>
                     </div>
-                  <div class="col-1 detail-next">
-                </div>
-            </div>
+              </div>
           </accordion-group>
         </accordion>
       </div>
