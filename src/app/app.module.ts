@@ -13,7 +13,6 @@ import { HomeMainMenuComponent } from './home-main-menu/home-main-menu.component
 import { AppRoutingModule, routingComponents } from './app.routing.module';
 import { AccordionModule } from 'ngx-bootstrap';
 
-
 @NgModule({
   declarations: [
     HomeMainMenuComponent,
@@ -32,6 +31,9 @@ import { AccordionModule } from 'ngx-bootstrap';
     ApiService,
     UserService
   ],
-  bootstrap: [ HomeMainMenuComponent ]
+  bootstrap: [
+    HomeMainMenuComponent
+  ]
 })
+
 export class AppModule { }
