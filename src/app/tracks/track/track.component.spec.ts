@@ -3,6 +3,8 @@ import { NO_ERRORS_SCHEMA} from '@angular/core/';
 import { TrackComponent } from './track.component';
 import { UserService } from '../../../shared/services/user.service';
 import { journeys } from '../../../shared/interfaces/journeys';
+import { ActivatedRoute } from '@angular/router/';
+import { RouterTestingModule } from '@angular/router/testing';
 
 fdescribe('TrackComponent', () => {
   let component: TrackComponent;
@@ -11,8 +13,12 @@ fdescribe('TrackComponent', () => {
   beforeEach(async(() => {
     const TrackComponentMock = {};
     const UserServiceMock = {};
+    const RouterMock = {};
 
     TestBed.configureTestingModule({
+      imports: [
+      RouterTestingModule.withRoutes([{path: 'tracks/:trackId/:dishId', component: TrackComponent}])
+      ],
       declarations: [ TrackComponent ],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [
