@@ -1,13 +1,8 @@
-<div class="charts-container">
-  <div class="pie-wrapper"
-      style="
-          --bg-color: #fe5240;
-          --cover-color: #f86a5a;
-          --rotation: 118deg
-      ">
-      
+<div class="charts-container" 
+    [attr.style]="this._sanitizer.bypassSecurityTrustStyle('--bg-color:' + bgColor + '; --cover-color: ' + coverColor + '; --progress-color: ' + progressColor +  '; --rotation:' + rotation + 'deg' )">
+  <div class="pie-wrapper">      
       <span class="label">
-          <img id="contain-image" src="/assets/icons/burger.svg">  
+          <img id="contain-image" src="{{ iconUrl }}">  
       </span>
   </div>
 </div>

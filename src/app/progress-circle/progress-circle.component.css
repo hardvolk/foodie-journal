@@ -34,8 +34,8 @@
         height: 100%;
         margin-left: 50%;
         transform-origin: left;
-        background: #f86a5a;
         transform: rotate(var(--rotation));
+        background: var(--progress-color);
     }
 
     .pie-wrapper .label img {
