@@ -9,7 +9,11 @@ import { journeys } from '../../../shared/interfaces/journeys';
 import { users } from '../../../shared/interfaces/mockusers';
 import { User } from '../../../shared/interfaces/user';
 import { Review } from '../../../shared/interfaces/review';
+<<<<<<< HEAD
 import { SafePipe } from '../../../shared/pipes/safe.pipe';
+=======
+import { Journey } from '../../../shared/interfaces/journey';
+>>>>>>> c9a21e8e2730e494b32db5c5d822af5dc72d3c50
 
 @Component({
   selector: 'app-dish-detail',
@@ -20,9 +24,9 @@ export class DishDetailComponent implements OnInit {
 
   trackId: number;
   dishId: number;
-  journeylist = journeys;
   rest: Restaurant;
   review: Review;
+  journeylist = journeys;
   loading = true;
   loadingreview = true;
   user: User = this._userService.LoggedUser.value;
@@ -32,13 +36,13 @@ export class DishDetailComponent implements OnInit {
     private _activatedRoute: ActivatedRoute, private _router: Router) { }
 
   getDishDetail(journey: number, dish: number) {
-    this._apiService.getRestaurantInfo(journeys[journey].dishrest[dish]).subscribe(x => {
+    this._apiService.getRestaurantInfo(this.journeylist[journey].dishrest[dish]).subscribe(x => {
       this.rest = x as Restaurant;
       this.loading = false; });
   }
 
   getReview(journey: number, dish: number) {
-    const obs2 = this._apiService.getRestaurantReview(journeys[journey].dishrest[dish]).subscribe( x => {
+    const obs2 = this._apiService.getRestaurantReview(this.journeylist[journey].dishrest[dish]).subscribe( x => {
       this.review = x as Review;
       if (this.review.reviews[0] !== undefined) { this.loadingreview = false; }
     });
@@ -53,9 +57,10 @@ export class DishDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.journeylist = journeys;
     this._activatedRoute.params.subscribe(params => {
-      this.trackId = journeys.findIndex(x => x.name === params.trackId);
-      this.dishId = journeys[this.trackId].dish.findIndex(x => x === params.dishId);
+      this.trackId = this.journeylist.findIndex(x => x.name === params.trackId);
+      this.dishId = this.journeylist[this.trackId].dish.findIndex(x => x === params.dishId);
       if (this.trackId === -1 || this.dishId === -1 ) { this._router.navigateByUrl('/tracks'); return; }
       this.getDishDetail(this.trackId, this.dishId);
       this.getReview(this.trackId, this.dishId);

@@ -37,8 +37,6 @@ export class UserService {
   }
 
   logout (): void {
-    // localStorage.removeItem(this.user.name); // We need to delete the user info from localStorage
-    // no, we need it in localstorage to track user progress
     localStorage.removeItem('CurrentUser');
   }
 
