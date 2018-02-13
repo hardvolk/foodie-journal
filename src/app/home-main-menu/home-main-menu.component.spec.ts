@@ -13,7 +13,7 @@ describe('HomeMainMenuComponent', () => {
       declarations: [ HomeMainMenuComponent ],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [
-        {provide: HomeMainMenuComponent, useValue: HomeMainMenuComponentMock}
+        {provide: HomeMainMenuComponent, useValue: HomeMainMenuComponentMock},
       ]
     })
     .compileComponents();
