@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -26,6 +26,8 @@ export class DishDetailComponent implements OnInit {
   loadingreview = true;
   user: User = this._userService.LoggedUser.value;
   dishstatus = false;
+  dishStarted = false;
+  dishCompleted = false;
 
   constructor(private _apiService: ApiService, private _userService: UserService,
     private _activatedRoute: ActivatedRoute, private _router: Router) { }
@@ -61,4 +63,24 @@ export class DishDetailComponent implements OnInit {
       this.checkDishStatus(this.trackId, this.dishId);
     });
   }
+
+  @HostListener('swipe',  ['$event'])
+  onSwipe(event): void {
+    if (this.dishCompleted) {
+      this.gotToNextDish();
+    }
+  }
+
+  setDishStarted(): void {
+    this.dishStarted = true;
+  }
+
+  setDishCompleted(): void {
+    this.dishCompleted = true;
+  }
+
+  gotToNextDish(): void {
+    console.log('TODO: navigate to next dish');
+  }
+
 }
