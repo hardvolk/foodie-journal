@@ -1,0 +1,48 @@
+.pie-wrapper {
+    height: 1em;
+    width: 1em;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(to right, var(--bg-color) 50%, var(--cover-color) 50%);
+    }
+    .pie-wrapper .label {
+        border-radius: 50%;
+        bottom: 0.4em;
+        color: #ecf0f1;
+        cursor: default;
+        display: block;
+        font-size: 0.25em;
+        left: 0.4em;
+        line-height: 2.6em;
+        position: absolute;
+        right: 0.4em;
+        text-align: center;
+        top: 0.4em;
+    }
+    .pie-wrapper .label .smaller {
+        color: #bdc3c7;
+        font-size: .45em;
+        padding-bottom: 20px;
+        vertical-align: super;
+    }
+    
+    .pie-wrapper:before {
+        border-radius: 0 100% 100% 0%;
+        content: '';
+        display: block;
+        height: 100%;
+        margin-left: 50%;
+        transform-origin: left;
+        transform: rotate(var(--rotation));
+        background: var(--progress-color);
+    }
+
+    .pie-wrapper .label img {
+        height: 40%;
+        width: 40%;
+     }
+    
+.charts-container{
+    font-size: 5em;
+}
