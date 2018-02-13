@@ -6,6 +6,10 @@
     z-index: 100;
 }
 
+#letter-color {
+    color: gray;
+}
+
 #footer {
     position: fixed;
     bottom: -1px;
@@ -24,7 +28,7 @@
 }
 
 #navigation {
-    background-color: lightgrey;
+    background-color: lightgray;
     padding: 10px;
 }
 

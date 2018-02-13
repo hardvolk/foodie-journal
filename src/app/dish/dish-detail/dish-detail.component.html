@@ -1,7 +1,7 @@
 <div class="container-fluid" id="header" *ngIf="!loading">
     <div id="navigation">
-      <a [routerLink]="['../../']">Journeys</a> / 
-      <a [routerLink]="['../../', journeylist[trackId].name ]">{{journeylist[trackId].name}}</a>
+      <a id="letter-color" [routerLink]="['../../']">←Journeys</a> / 
+      <a id="letter-color" [routerLink]="['../../', journeylist[trackId].name ]">{{journeylist[trackId].name}}</a>
     </div>
     <div id="dish-title">
       <div id="dish-name">

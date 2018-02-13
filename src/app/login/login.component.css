@@ -1,5 +1,12 @@
- #login-container, #account-container{
-    z-index: 1;
+ #login-container {
+    z-index: 1031;
+    right: 0;
+    position: fixed;
+ }
+
+ #account-container {
+    padding-top: 10px;
+    z-index: 1031;
     right: 0;
     position: fixed;
  }
