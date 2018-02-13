@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/delay';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { last } from 'rxjs/operators/last';
 import { User } from '../interfaces/user';
+import { map } from 'rxjs/operator/map';
 
 @Injectable()
 export class UserService {
-  LoggedUser = new ReplaySubject<User>();
-  user: User;
+  LoggedUser = new BehaviorSubject<User>({name: '', email: '', password: ''});
+  user: User = {name: '', email: '', password: ''};
 
   constructor() {}
 
-  checkInitialUser() {
+  isAuthenticated(): boolean {
+    return localStorage.getItem('CurrentUser') !== null;
+  }
+
+  checkInitialUser(): BehaviorSubject<User> {
     if (!!localStorage.getItem('CurrentUser')) {
       this.login(JSON.parse(localStorage.getItem(localStorage.getItem('CurrentUser'))));
       } else { this.LoggedUser.next({name: '', email: '', password: ''}); }
+    return this.LoggedUser;
   }
 
   login (user: User) {
@@ -25,23 +30,26 @@ export class UserService {
         this.user = JSON.parse(localStorage.getItem(user.name));
       } else {
         localStorage.setItem(user.name, JSON.stringify(user));
+        this.user = user;
       }
-      console.log('User ' + user.name + ' has logged in.');
     }
     this.LoggedUser.next(this.user);
   }
 
   logout (): void {
+    // localStorage.removeItem(this.user.name); // We need to delete the user info from localStorage
+    // no, we need it in localstorage to track user progress
     localStorage.removeItem('CurrentUser');
-    console.log('User has logged out.');
   }
 
   updateProgress (journeyid: number, dishid: number): void {
-    this.LoggedUser.subscribe(user => (this.user = user));
-    this.user['journey' + journeyid][dishid - 1] = !this.user['journey' + journeyid][dishid - 1];
-    this.LoggedUser.next(this.user);
-    localStorage.setItem(this.user.name, JSON.stringify(this.user));
-    console.log('Changed journey ' + journeyid + ' , dish ' + dishid + ' to value: ' + this.user['journey' + journeyid][dishid - 1]);
+      this.LoggedUser.value.journeys[journeyid][dishid] = !this.LoggedUser.value.journeys[journeyid][dishid];
+      localStorage.setItem(this.LoggedUser.value.name, JSON.stringify(this.LoggedUser.value));
+      this.LoggedUser.next(this.LoggedUser.value);
+  }
+
+  checkProgress (journey: number): number {
+    return this.LoggedUser.value.journeys[journey].filter(x => x === true).length;
   }
 
 }

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { users } from '../../shared/interfaces/mockusers';
 import { User } from '../../shared/interfaces/user';
 import { UserService } from '../../shared/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,49 +13,40 @@ import { UserService } from '../../shared/services/user.service';
 
 export class LoginComponent implements OnInit {
 
-  username: string;
-  password: string;
   user: User;
+  isLoggedIn: boolean = this._userService.isAuthenticated();
+  @Output() loginSuccess: EventEmitter<any> = new EventEmitter();
+  @Output() logoutSuccess: EventEmitter<any> = new EventEmitter();
 
-  constructor(private _userService: UserService) { }
+  constructor(private _userService: UserService, private _router: Router) { }
 
-  ngOnInit() {
-    this._userService.checkInitialUser();
-    this._userService.LoggedUser.subscribe(user => this.user = user);
-    if (this.user.name.length > 0) {
-      console.log('Currently logged in as: ' + this.user.name);
-    } else {
-      console.log('Currently not logged in.');
-    }
-  }
 
   verifyPassword(query: string, pwd: string): boolean {
     if (users.find(x => x.email === query || x.name === query)) {
       console.log('user found');
       return pwd === users.find(x => x.email === query || x.name === query).password;
-    } else {
-      console.log('user not found');
-      return false;
-    }
-  }
-
-  logoutUser(): void {
-    this._userService.logout();
+    } else { console.log('user not found'); return false; }
   }
 
   loginUser(query: string, pwd: string): boolean {
     if (this.verifyPassword(query, pwd)) {
       console.log('password verified');
       this._userService.login(users.find(x => x.email === query || x.name === query));
+      this.isLoggedIn = true;
+      this.loginSuccess.emit(null);
+      this._router.navigate(['tracks']);
       return true;
-    } else {
-      console.log('failed to log in');
-      return false;
-    }
+    } else { console.log('failed to log in'); return false; }
   }
 
-  changeDish(journey: number, dish: number) {
-    this._userService.updateProgress(journey, dish);
+  logoutUser(): void {
+    this._userService.logout();
+    this.logoutSuccess.emit(null);
+    this._router.navigate(['home']);
   }
 
+  ngOnInit() {
+    this._userService.checkInitialUser().subscribe(user => this.user = user);
+    this.user.name.length > 0 ? console.log('Currently logged in as: ' + this.user.name) : console.log('Currently not logged in.');
+  }
 }

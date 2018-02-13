@@ -1,0 +1,15 @@
+<div class="container-fluid"> 
+    <div class="row justify-content-center">
+      <div class="col-xs-8">
+        <p class="principal">Welcome!</p>
+        <p class="secondary">Choose a track to get started.</p>
+      </div>
+      
+    <!-- NOTE: the h-100 makes all tracks of the same height on the same row. Remove if not desired -->
+    <div class="mx-md-5 mx-lg-3">
+      <div class="row">
+        <div class="col-md-6 col-lg-4 col-xl-3  mb-3 mb-md-4" *ngFor="let journey of journeylist">
+          <app-track class="h-100" [journey]="journey"></app-track>
+        </div>
+    </div>
+</div>

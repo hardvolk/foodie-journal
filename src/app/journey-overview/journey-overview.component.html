@@ -1,35 +1,37 @@
-<div class="dropdown" id="div-containing-header">
-  <button id="inside-dropdown-button" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-    American
-  </button>
-  <div class="dropdown-menu" id="dropdown-menu-width">
-    <a class="dropdown-item" id="elements-inside-dropdown" href="#">Link 1</a>
-    <a class="dropdown-item" id="elements-inside-dropdown" href="#">Link 2</a>
-    <a class="dropdown-item" id="elements-inside-dropdown" href="#">Link 3</a>
-  </div>
-</div>
-  <!-- <div class="row food">
-    <div class="col-1 offset-1 circle">
-      <p class="ranked">1</p>
-    </div>
-    <div class="col-9">
-      <p class="name">All-American Bacon Cheese Burger</p>
+<div class="container">
+  <div class="white">
+  <div class="dropdown" id="div-containing-header">
+    <div class="row border-bottom-1" id="div-dropdown-row">
+      <button id="inside-dropdown-button" type="button" class="btn btn-primary dropdown-toggle col-5" data-toggle="dropdown">
+        {{journey.name}}
+      </button>
+      <div class="dropdown-menu">
+        <div *ngFor="let journey of viajes; let i = index">
+          <a class="dropdown-item" id="elements-inside-dropdown" [routerLink]="['../', journey.name ]">
+            {{journey.name}}
+          </a>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="row detail">
-    <div class="col-5 offset-1 ">
-      <p class="detail-name">Frankie's</p>
-      <p class="detail-rating">1 2 3 4 5 1256 reviews</p>
-      <p class="detail-address">66 Mint St,</p>
-      <p class="detail-direction">San Francisco, CA 94103</p>
-    </div>
 
-    <div class="col-5 detail-contact">
-      <p class="detail-available">Open Now</p>
-      <span class="line">_________________</span>
-      <p class="detail-telephone">(510) 653-3394</p>
-      <p class="detail-email">frankiesburgers.com</p>
+  <div class="row" id="move-row">
+    <div class="col-3">
+      <div class="charts-container">
+          <div class="pie-wrapper"
+              style="
+                  --bg-color: #fe5240;
+                  --cover-color: #f86a5a;
+                  --rotation: 118deg
+              ">
+              
+              <span class="label">
+                  <img id="contain-image" [src]="journey.iconUrl">  
+              </span>
+          </div>
+      </div>
     </div>
+<<<<<<< HEAD
   </div> -->
 <div class="container-fluid">
   <div class="row detail">
@@ -62,30 +64,51 @@
               </ng-template>
             </ngb-panel>
         </ngb-accordion>
+=======
+    <div class="col-9">
+      <header>
+        {{journey.name}}
+      </header>
+      <main>
+        {{journey.description}}
+      </main>
+>>>>>>> a901a7e6e7dfd4f6255ee6b521e6ebf4f60431c3
     </div>
-    
+  </div>
+  <div class="row follow ">
+      <button class="col-6 btn"> Duration: 3 weeks </button>
+      <button class="col-6 btn-primary inside-follow"> Follow </button>
   </div>
 </div>
 
-  <!-- <ngb-accordion #acc="ngbAccordion">
-      <ngb-panel id="toggle-1" title="First panel">
-        <ng-template ngbPanelContent>
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-          aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-          sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-          craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-          occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-          labore sustainable VHS.
-        </ng-template>
-      </ngb-panel>
-      <ngb-panel id="toggle-2" title="Second">
-        <ng-template ngbPanelContent>
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-          aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-          sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-          craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-          occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-          labore sustainable VHS.
-        </ng-template>
-      </ngb-panel>
-    </ngb-accordion> -->
+
+      <div *ngFor="let journeys of journey.dish; let i = index">
+        <accordion>
+          <accordion-group id="accordion-design">
+              <div accordion-heading class="clearfix" (click)="getDishDetail(journey.name,i)">
+                  {{journey.dish[i]}}
+                </div>
+              <div class="row detail">
+                    <div class="col-6">
+                      <div *ngIf="loading[i]">
+                      <p class="detail-name" [routerLink]="['./', journey.dish[i]]">{{res[i].name}}</p>
+                      <p class="detail-rating"><img [src]=[getYelpStars(i)]> 1256 reviews</p>
+                      <p class="detail-price">$$ - Burgers</p>
+                      <p class="detail-address">66 Mint St,</p>
+                      <p class="detail-direction">San Francisco, CA 94103</p>
+                    </div>
+                  </div>
+                
+                    <div class="col-5 detail-contact">
+                      <p class="detail-available">Open Now</p>
+                      <hr>
+                      <p class="detail-telephone">(510) 653-3394</p>
+                      <p class="detail-email">frankiesburgers.com</p>
+                    </div>
+                  <div class="col-1 detail-next">
+                </div>
+            </div>
+          </accordion-group>
+        </accordion>
+      </div>
+</div>

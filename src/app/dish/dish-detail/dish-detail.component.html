@@ -1,0 +1,55 @@
+<div class="container-fluid" id="header" *ngIf="!loading">
+    <div id="navigation">
+      <a [routerLink]="['../../']">Journeys</a> / 
+      <a [routerLink]="['../../', journeylist[trackId].name ]">{{journeylist[trackId].name}}</a>
+    </div>
+    <div id="dish-title">
+      <div id="dish-name"> {{journeylist[trackId].dish[dishId]}}</div>
+      <div id="dish-status" *ngIf="dishstatus">
+        <button>Leave Feedback</button>
+      </div>
+    </div>
+</div>
+<div class="container-fluid" id="dish-details" *ngIf="!loading">
+  <div class="row">
+      <div class="col-6 text-left" id="restaurant-info"> 
+        <div id="restaurant-img"><img [src]=[rest.image_url]></div>
+        <span id="restaurant-name">{{ rest.name }}</span>
+        <span id="restaurant-line-1"><img [src]=[getYelpStars()]> {{ rest.review_count }} reviews</span>
+        <span id="restaurant-line-2">{{ rest.price }} - {{ rest.categories[0].title }}</span>
+        <span id="yelp-link"><a [href]="'https://www.yelp.com/biz_photos/'+[rest.id]" target="_blank" rel="noopener noreferrer">See more photos on Yelp</a></span>
+      </div>
+      <div class="col-6 text-right">
+        <iframe id="google-map" [src]="[rest.gmapsurl] | safe"></iframe>
+      </div>
+  </div>
+  <div class="row" id="description">
+    <div class="col-12">
+      <span id="instructions"><b>Instructions:</b> Order the {{journeylist[trackId].dish[dishId]}}!</span> <br>
+      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+    </div>
+  </div>
+  <div id="hours-container" class="row">
+    <div class="col-6">  
+      <span id="restaurant-hours"><b>Today:</b> 8:00 AM - 9:00 PM</span><br>
+      <span id="is-open" [style.color]="rest.is_closed ? 'red' : 'green'"><b></b> {{rest.is_closed ? 'Closed now' : 'Open now'}}</span>
+    </div>
+    <div id="phone-website" class="col-6">
+      <span *ngIf="rest.phone.length > 0"><b>Phone:</b> {{rest.phone}}<br></span>
+      <span><b>Website:</b> www.google.com</span><br>
+    </div>
+  </div>
+  <div class="row" *ngIf="!loadingreview">
+    <div class="col-5 text-right" id="review-img">
+      <img [src]=[review.reviews[0].user.image_url]>
+    </div>
+    <div class="col-7" id="review-text">
+      <span>" {{ review.reviews[0].text }} "</span>
+    </div>
+  </div>
+</div>
+<div id="spacer">&nbsp;</div>
+<div class="container-fluid" id="footer">
+  <div [ngClass]="dishstatus ? 'blue' : 'orange'" id="dish-status-button" (click)="this._userService.updateProgress(trackId, dishId)">
+    {{dishstatus ? 'Way to go! Swipe left to take the next challenge' : 'Mark Completed'}} </div>
+</div>

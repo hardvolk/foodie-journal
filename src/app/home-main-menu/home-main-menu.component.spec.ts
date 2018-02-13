@@ -1,11 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HomeMainMenuComponent } from './home-main-menu.component';
 
 describe('HomeMainMenuComponent', () => {
   let component: HomeMainMenuComponent;
   let fixture: ComponentFixture<HomeMainMenuComponent>;
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ HomeMainMenuComponent ]
@@ -19,7 +17,9 @@ describe('HomeMainMenuComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('Should verify if toggle login is false', () => {
+    component.toggleShowLogin();
+    expect(component).toBeFalsy();
   });
+
 });
