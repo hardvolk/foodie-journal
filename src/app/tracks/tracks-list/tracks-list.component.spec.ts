@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA} from '@angular/core/';
 import { TracksListComponent } from './tracks-list.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
@@ -8,6 +8,8 @@ describe('TracksListComponent', () => {
   let fixture: ComponentFixture<TracksListComponent>;
 
   beforeEach(async(() => {
+    const TracksListComponentMock = {};
+
     TestBed.configureTestingModule({
       declarations: [ TracksListComponent ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

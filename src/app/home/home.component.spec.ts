@@ -7,6 +7,8 @@ describe('HomeComponent', () => {
   let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async(() => {
+    const HomeComponentMock = {};
+
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule.withRoutes([{path: 'home', component: HomeComponent}])

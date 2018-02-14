@@ -10,6 +10,8 @@ describe('LoginComponent', () => {
   let fixture: ComponentFixture<LoginComponent>;
 
   beforeEach(async(() => {
+    const LoginComponentMock = {};
+
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [ LoginComponent, NgModel ],

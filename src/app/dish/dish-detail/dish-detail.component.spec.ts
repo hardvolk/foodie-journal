@@ -16,6 +16,13 @@ describe('DishDetailComponent', () => {
   let fixture: ComponentFixture<DishDetailComponent>;
 
   beforeEach(async(() => {
+    const SafePipeMock = {};
+    const ApiServiceMock = {};
+    const UserServiceMock = {};
+    const ActivatedRouteMock = {};
+    const RouterMock = {};
+    const DishDetailComponentMock = {};
+
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule.withRoutes([{path: 'tracks/:trackId/:dishId', component: DishDetailComponent}]),
@@ -46,4 +53,10 @@ describe('DishDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should return a Restaurant in rest.name', () => {
+    const checkGetDish = component.getDishDetail(0, 0);
+    expect(component.rest.name).toBe('example');
+  });
+
 });

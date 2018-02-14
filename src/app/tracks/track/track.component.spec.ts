@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA} from '@angular/core/';
 import { TrackComponent } from './track.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -11,6 +11,10 @@ describe('TrackComponent', () => {
   let fixture: ComponentFixture<TrackComponent>;
 
   beforeEach(async(() => {
+    const TrackComponentMock = {};
+    const UserServiceMock = {};
+    const RouterMock = {};
+
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule.withRoutes([{path: './', component: TrackComponent}])
