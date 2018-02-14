@@ -1,7 +1,7 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { User } from '../interfaces/user';
 
-const MockUser: User = {name: 'exampleone', email: 'example1', password: 'example1', journeys: {
+const MockUser: User = {name: 'exampleone', email: 'example1', password: 'example1', currentJourney: 'example' , journeys: {
     0: [false, false, false, false, false, false, false, false, false, false],
     1: [false, false, false, false, false, false, false, false, false, false],
     2: [false, false, false, false, false, false, false, false, false, false],

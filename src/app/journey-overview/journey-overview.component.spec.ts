@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NO_ERRORS_SCHEMA} from '@angular/core/';
+import { NO_ERRORS_SCHEMA } from '@angular/core/';
 import { JourneyOverviewComponent } from './journey-overview.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ApiService } from '../../shared/services/api.service';
@@ -15,7 +15,7 @@ describe('JourneyOverviewComponent', () => {
     const JourneyOverviewComponentMock = {};
 
     TestBed.configureTestingModule({
-      imports: [ RouterTestingModule],
+      imports: [ RouterTestingModule ],
       declarations: [ JourneyOverviewComponent ],
       schemas: [ NO_ERRORS_SCHEMA ],
       providers: [
@@ -35,4 +35,21 @@ describe('JourneyOverviewComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should run Dish and give res a value Object', () => {
+    const checkGetDish = component.getDishDetail('American', 1);
+    expect(component.res[1].name).toBe('example');
+  });
+
+  it('should return stars from api mock', () => {
+    component.getDishDetail('American', 0);
+    const checkGetYelpStars = component.getYelpStars(0);
+    expect(checkGetYelpStars).toBe('/assets/images/yelp-stars/' + String(4.5 + '.png'));
+  });
+
+  // it('should set the current journey of the app', () => {
+  //   const checkSetCurrentJourney = component.setCurrentJourney('Japanese');
+  //   expect(this.user).toBe(this.UserService.LoggedUser.value);
+  // });
+
 });
