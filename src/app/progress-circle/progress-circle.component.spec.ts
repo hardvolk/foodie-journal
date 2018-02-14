@@ -28,4 +28,11 @@ describe('ProgressCircleComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // describe('functions inside progress cirle', () => {
+  //   it('', () => {
+  //     const checkSetStyleValues = component.rotation;
+  //     expect(component.setStyleValues).toHaveBeenCalled();
+  //   });
+  // });
 });

@@ -1,12 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'app-progress-circle',
   templateUrl: './progress-circle.component.html',
   styleUrls: ['./progress-circle.component.css']
 })
-export class ProgressCircleComponent implements OnInit {
+export class ProgressCircleComponent implements OnInit, OnChanges {
 
   @Input() bgColor: string;
   @Input() coverColor: string;
@@ -16,6 +17,10 @@ export class ProgressCircleComponent implements OnInit {
   private progressColor: string;
 
   constructor(private _sanitizer: DomSanitizer) { }
+
+  ngOnChanges() {
+    this.setStyleValues();
+  }
 
   ngOnInit() {
     this.setStyleValues();

@@ -35,4 +35,11 @@ describe('TrackComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('Progress tests', () => {
+    it('should return a progress number', () => {
+      const checkCheckProgress = component.checkProgress('American');
+      expect(checkCheckProgress).toBe(1);
+    });
+  });
 });

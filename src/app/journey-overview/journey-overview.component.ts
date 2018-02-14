@@ -21,8 +21,10 @@ export class JourneyOverviewComponent implements OnInit {
   viajes = journeys;
   dish: number;
   loading: boolean[] = [false, false, false, false, false, false, false, false, false, false];
+  paramLoading = true;
   journeyId: number;
   user: User = this._userService.LoggedUser.value;
+  progress: number;
 
   getDishDetail(journey: String, dish: number) {
       this.loading[dish] = false;
@@ -46,7 +48,7 @@ export class JourneyOverviewComponent implements OnInit {
       this.journeyParams = params;
       this.journey = JourneyDS.find( j => j.name === params.trackId);
       this.journeyId = JourneyDS.findIndex( j => j.name === params.trackId);
+      this.progress = this._userService.checkProgress(this.journeyId) * 10;
     });
-
   }
 }
