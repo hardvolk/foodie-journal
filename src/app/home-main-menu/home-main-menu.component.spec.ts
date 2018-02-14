@@ -1,36 +1,3 @@
-<<<<<<< HEAD
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NO_ERRORS_SCHEMA} from '@angular/core/';
-import { HomeMainMenuComponent } from './home-main-menu.component';
-
-describe('HomeMainMenuComponent', () => {
-  let component: HomeMainMenuComponent;
-  let fixture: ComponentFixture<HomeMainMenuComponent>;
-
-  beforeEach(async(() => {
-    const HomeMainMenuComponentMock = {};
-
-    TestBed.configureTestingModule({
-      declarations: [ HomeMainMenuComponent ],
-      schemas: [NO_ERRORS_SCHEMA],
-      providers: [
-        {provide: HomeMainMenuComponent, useValue: HomeMainMenuComponentMock},
-      ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HomeMainMenuComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
-=======
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgModel } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -65,4 +32,3 @@ describe('HomeMainMenuComponent', () => {
     expect(component).toBeTruthy();
   });
 });
->>>>>>> af3b9309ef8c6d1b426cae8ff335123b04abe068

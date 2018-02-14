@@ -12,14 +12,7 @@ describe('TracksListComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [ TracksListComponent ],
-<<<<<<< HEAD
-      schemas: [NO_ERRORS_SCHEMA],
-      providers: [
-        {provide: TracksListComponent, useValue: TracksListComponentMock}
-      ]
-=======
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
->>>>>>> af3b9309ef8c6d1b426cae8ff335123b04abe068
     })
     .compileComponents();
   }));
