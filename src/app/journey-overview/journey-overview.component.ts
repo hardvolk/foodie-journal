@@ -20,6 +20,7 @@ export class JourneyOverviewComponent implements OnInit {
   journeyId: number;
   journeycompleted = false;
   user: User = this._userService.LoggedUser.value;
+  progress: number;
 
   constructor(private _activatedRoute: ActivatedRoute, private _apiService: ApiService, private _userService: UserService) { }
 
@@ -48,7 +49,7 @@ export class JourneyOverviewComponent implements OnInit {
     this._activatedRoute.params.subscribe(params => {
       this.journeyId = JourneyDS.findIndex( j => j.name === params.trackId);
       this.journey = JourneyDS[this.journeyId];
-      this.journeycompleted = this._userService.checkProgress(this.journeyId) >= 10;
+      this.progress = this._userService.checkProgress(this.journeyId) * 10;
     });
   }
 }

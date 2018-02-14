@@ -30,10 +30,10 @@
   </div>
   <div class="row follow ">
       <button class="col-6 btn"> {{journey?.duration}} </button>
-      <button class="col-6 inside-follow blue" *ngIf="journeycompleted">
-          Completed! 
+      <button class="col-6 inside-follow blue" *ngIf="progress >= 100">
+          Completed!
       </button>
-      <button class="col-6 inside-follow" *ngIf="!journeycompleted"
+      <button class="col-6 inside-follow" *ngIf="100 > progress"
               [ngClass]="user?.currentJourney === journey?.name ? 'blue' : 'orange'" 
               (click)="setCurrentJourney(journey?.name)"> 
           {{user.currentJourney === journey?.name ? 'Following' : 'Follow'}} 
