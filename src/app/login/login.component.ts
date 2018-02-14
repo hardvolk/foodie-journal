@@ -24,7 +24,9 @@ export class LoginComponent implements OnInit {
   verifyPassword(query: string, pwd: string): boolean {
     if (users.find(x => x.email === query || x.name === query)) {
       return pwd === users.find(x => x.email === query || x.name === query).password;
-    } else { console.log('user not found'); return false; }
+    } else {
+      return false;
+    }
   }
 
   loginUser(query: string, pwd: string): boolean {
@@ -34,7 +36,9 @@ export class LoginComponent implements OnInit {
       this.loginSuccess.emit(null);
       this._router.navigate(['tracks']);
       return true;
-    } else { console.log('failed to log in'); return false; }
+    } else {
+      return false;
+    }
   }
 
   logoutUser(): void {

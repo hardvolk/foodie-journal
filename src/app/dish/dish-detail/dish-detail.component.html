@@ -9,9 +9,6 @@
       <span class="circled blue" *ngIf="dishstatus">&#10003;</span> 
       {{journeylist[trackId].dish[dishId]}}
     </div>
-    <div id="dish-status" *ngIf="dishstatus">
-      <button>Leave Feedback</button>
-    </div>
   </div>
 </div>
 <div class="container-fluid" id="loading-message" *ngIf="loading">Loading, please wait...</div>
@@ -58,7 +55,7 @@
   <div *ngIf="!dishstatus" class="orange" (click)="setDishCompleted()">
     Mark as Completed
   </div>
-  <div *ngIf="dishstatus" class="blue">
-    Way to go! Swipe left to take the next challenge
+  <div *ngIf="dishstatus" class="blue" (click)="setDishCompleted()">
+    Way to go! Completed!
   </div>
 </div>

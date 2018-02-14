@@ -70,16 +70,13 @@ export class DishDetailComponent implements OnInit {
     this._userService.updateProgress(this.trackId, this.dishId);
   }
 
-/*   @HostListener('swipe',  ['$event'])
+  /* @HostListener('swipe',  ['$event'])
   onSwipe(event): void {
     if (this.dishstatus) {
       this.gotToNextDish();
     }
-  } */
+  }
 
-  /**
-   * Goes to next idsh or to the joruney overview screen if is the last one.
-   */
   gotToNextDish(): void {
     const dishList = this.journeylist[this.trackId].dish;
     const isLastDish = dishList.length <= this.dishId + 1;
@@ -95,3 +92,4 @@ export class DishDetailComponent implements OnInit {
   }
 
 }
+ */
