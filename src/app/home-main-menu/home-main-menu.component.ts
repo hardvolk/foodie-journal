@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../shared/services/user.service';
+
 @Component({
   selector: 'app-home-main-menu',
   templateUrl: './home-main-menu.component.html',
@@ -7,27 +7,23 @@ import { UserService } from '../../shared/services/user.service';
 })
 export class HomeMainMenuComponent implements OnInit {
 
-  constructor(private _userService: UserService) { }
-  userLogged: boolean = this._userService.isAuthenticated();
-  showAccountLogin = false;
-  userName: string;
+  constructor() { }
+
+  show = false;
+  showHamburguer = false;
 
   toggleShowLogin() {
-    this.showAccountLogin = !this.showAccountLogin;
+    this.show = !this.show;
   }
 
-  updateAccountPanel() {
-    this.showAccountLogin = false;
-    this.userLogged = this._userService.isAuthenticated();
-    if (this.userLogged) {
-      this._userService.checkInitialUser().subscribe(user => this.userName = user.name);
+  toggleShowHamburguer() {
+    if (!!localStorage.getItem('CurrentUser')) {
+      this.showHamburguer = true;
     }
   }
 
   ngOnInit() {
-    if (this.userLogged) {
-      this._userService.checkInitialUser().subscribe(user => this.userName = user.name);
-    }
+    this.toggleShowHamburguer();
   }
 
 }

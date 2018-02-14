@@ -1,7 +1,6 @@
- #login-container, #account-container{
-    z-index: 1;
+ .container-right {
     right: 0;
-    position: fixed;
+    position: absolute;
  }
 
  button {
@@ -26,7 +25,3 @@
     background-color: white;
     padding: 20px;  
  }
-
-.list-group-item{
-    border-radius: 0;
-}
