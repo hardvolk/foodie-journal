@@ -41,12 +41,8 @@ export class UserService {
     localStorage.removeItem('CurrentUser');
   }
 
-  updateProgress (journeyid: number, dishid: number, completed?: boolean): void {
-    if (isUndefined(completed)) {
-      this.LoggedUser.value.journeys[journeyid][dishid] = !this.LoggedUser.value.journeys[journeyid][dishid];
-    } else {
-      this.LoggedUser.value.journeys[journeyid][dishid] = completed;
-    }
+  updateProgress (journeyid: number, dishid: number): void {
+    this.LoggedUser.value.journeys[journeyid][dishid] = !this.LoggedUser.value.journeys[journeyid][dishid];
     localStorage.setItem(this.LoggedUser.value.name, JSON.stringify(this.LoggedUser.value));
     this.LoggedUser.next(this.LoggedUser.value);
   }

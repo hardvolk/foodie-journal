@@ -42,14 +42,10 @@ describe('ApiService', () => {
       }
     };
 
-  spyOn(localStorage, 'getItem')
-    .and.callFake(mockLocalStorage.getItem);
-  spyOn(localStorage, 'setItem')
-    .and.callFake(mockLocalStorage.setItem);
-  spyOn(localStorage, 'removeItem')
-    .and.callFake(mockLocalStorage.removeItem);
-  spyOn(localStorage, 'clear')
-    .and.callFake(mockLocalStorage.clear);
+    spyOn(localStorage, 'getItem').and.callFake(mockLocalStorage.getItem);
+    spyOn(localStorage, 'setItem').and.callFake(mockLocalStorage.setItem);
+    spyOn(localStorage, 'removeItem').and.callFake(mockLocalStorage.removeItem);
+    spyOn(localStorage, 'clear').and.callFake(mockLocalStorage.clear);
   });
 
   it('should be created', inject([ApiService], (service: ApiService) => {
@@ -63,13 +59,13 @@ describe('ApiService', () => {
       expect(localStorage.getItem).toHaveBeenCalledWith('example');
     }));
 
-/*     it('should get info from API if does not exist in Local Storage',
+    /* it('should get info from API if does not exist in Local Storage',
       inject([ApiService, HttpClient, HttpClientTestingModule],
       (service: ApiService, http: HttpClient, backend: HttpClientTestingModule) => {
         service.getRestaurantInfo('example');
 
-    }));
- */
+    })); */
+
   });
 
 });
