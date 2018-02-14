@@ -29,4 +29,14 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call the scroll function', () => {
+    const el = document.createElement('div');
+    spyOn(el, 'scrollIntoView');
+    spyOn(window, 'scrollBy');
+    component.scroll(el);
+    expect(el.scrollIntoView).toHaveBeenCalled();
+    expect(window.scrollBy).toHaveBeenCalledWith(0, -40);
+  });
+
 });

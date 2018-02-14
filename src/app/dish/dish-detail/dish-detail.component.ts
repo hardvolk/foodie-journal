@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Host } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -68,6 +68,13 @@ export class DishDetailComponent implements OnInit {
 
   setDishCompleted(): void {
     this._userService.updateProgress(this.trackId, this.dishId, true);
+  }
+
+  @HostListener('swipe',  ['$event'])
+  onSwipe(event): void {
+    if (this.dishstatus) {
+      this.gotToNextDish();
+    }
   }
 
   /**

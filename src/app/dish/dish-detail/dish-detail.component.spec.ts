@@ -10,6 +10,7 @@ import { journeys } from '../../../shared/interfaces/journeys';
 import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router/';
+import 'hammerjs';
 
 describe('DishDetailComponent', () => {
   let component: DishDetailComponent;

@@ -10,7 +10,6 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   scroll(el) {
-    console.log(el);
     el.scrollIntoView(true, {behavior: 'smooth' });
     window.scrollBy(0, -40);
   }

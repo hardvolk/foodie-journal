@@ -50,6 +50,5 @@ export class JourneyOverviewComponent implements OnInit {
       this.journey = JourneyDS[this.journeyId];
       this.journeycompleted = this._userService.checkProgress(this.journeyId) >= 10;
     });
-
   }
 }

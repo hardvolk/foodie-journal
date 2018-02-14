@@ -31,4 +31,17 @@ describe('HomeMainMenuComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should toggle the account login status', () => {
+    component.showAccountLogin = false;
+    component.toggleShowLogin();
+    expect(component.showAccountLogin).toBe(true);
+  });
+
+  it('should update the account panel', ()  => {
+    component.updateAccountPanel();
+    expect(component.userName).toBe('exampleone');
+  });
+
 });
+
