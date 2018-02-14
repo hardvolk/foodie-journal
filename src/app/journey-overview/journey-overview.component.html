@@ -30,7 +30,10 @@
   </div>
   <div class="row follow ">
       <button class="col-6 btn"> {{journey?.duration}} </button>
-      <button class="col-6 inside-follow" 
+      <button class="col-6 inside-follow blue" *ngIf="journeycompleted">
+          Completed! 
+      </button>
+      <button class="col-6 inside-follow" *ngIf="!journeycompleted"
               [ngClass]="user?.currentJourney === journey?.name ? 'blue' : 'orange'" 
               (click)="setCurrentJourney(journey?.name)"> 
           {{user.currentJourney === journey?.name ? 'Following' : 'Follow'}} 
@@ -47,6 +50,9 @@
                   <span class="circled blue" *ngIf="user?.journeys[journeyId][i]">&#10003;</span> 
                   {{journey?.dish[i]}}
                 </div>
+              <div *ngIf="!loading[i]">
+                Loading, please wait...
+              </div>  
               <div class="row detail" *ngIf="loading[i]">
                     <div class="col-6">
                       <p class="detail-name" [routerLink]="['./', journey?.dish[i]]">{{res[i]?.name}}</p>

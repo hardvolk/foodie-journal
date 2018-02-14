@@ -13,23 +13,21 @@ import { User } from '../../shared/interfaces/user';
 })
 export class JourneyOverviewComponent implements OnInit {
 
-  constructor(private _activatedRoute: ActivatedRoute, private _apiService: ApiService, private _userService: UserService) { }
-  journeyParams: any;
   journey: any;
   res: Restaurant[] = new Array<Restaurant>();
-  rest: Restaurant;
   viajes = journeys;
-  dish: number;
   loading: boolean[] = [false, false, false, false, false, false, false, false, false, false];
   journeyId: number;
+  journeycompleted = false;
   user: User = this._userService.LoggedUser.value;
+
+  constructor(private _activatedRoute: ActivatedRoute, private _apiService: ApiService, private _userService: UserService) { }
 
   getDishDetail(journey: String, dish: number) {
       this.loading[dish] = false;
       this._apiService.getRestaurantInfo(journeys.find(x => x.name === journey).dishrest[dish]).subscribe(x => {
       this.res[dish] = x as Restaurant;
       this.loading[dish] = true;
-      console.log(this.res);
      });
     }
 
@@ -42,12 +40,15 @@ export class JourneyOverviewComponent implements OnInit {
     this.user = this._userService.LoggedUser.value;
   }
 
+  checkProgress(journeyname: string): number {
+    return this._userService.checkProgress(journeys.findIndex(x => x.name === journeyname));
+  }
+
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
-      this.journeyParams = params;
-      this.journey = JourneyDS.find( j => j.name === params.trackId);
       this.journeyId = JourneyDS.findIndex( j => j.name === params.trackId);
-      console.log('Current Journey: ', this.journey);
+      this.journey = JourneyDS[this.journeyId];
+      this.journeycompleted = this._userService.checkProgress(this.journeyId) >= 10;
     });
 
   }

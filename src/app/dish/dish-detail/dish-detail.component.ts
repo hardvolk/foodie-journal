@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Host } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -32,12 +32,14 @@ export class DishDetailComponent implements OnInit {
     private _activatedRoute: ActivatedRoute, private _router: Router) { }
 
   getDishDetail(journey: number, dish: number) {
+    this.loading = true;
     this._apiService.getRestaurantInfo(this.journeylist[journey].dishrest[dish]).subscribe(x => {
       this.rest = x as Restaurant;
       this.loading = false; });
   }
 
   getReview(journey: number, dish: number) {
+    this.loadingreview = true;
     const obs2 = this._apiService.getRestaurantReview(this.journeylist[journey].dishrest[dish]).subscribe( x => {
       this.review = x as Review;
       if (this.review.reviews[0] !== undefined) { this.loadingreview = false; }
@@ -64,13 +66,6 @@ export class DishDetailComponent implements OnInit {
     });
   }
 
-  @HostListener('swipe',  ['$event'])
-  onSwipe(event): void {
-    if (this.dishstatus) {
-      this.gotToNextDish();
-    }
-  }
-
   setDishCompleted(): void {
     this._userService.updateProgress(this.trackId, this.dishId, true);
   }
@@ -80,10 +75,13 @@ export class DishDetailComponent implements OnInit {
    */
   gotToNextDish(): void {
     const dishList = this.journeylist[this.trackId].dish;
-    const isLastDish = dishList.length >= this.dishId + 1;
+    const isLastDish = dishList.length <= this.dishId + 1;
+    console.log(dishList.length);
     if (isLastDish) {
+      console.log(isLastDish);
       this._router.navigate(['../'], {relativeTo: this._activatedRoute});
     } else {
+      console.log(isLastDish);
       const nextTrackId = dishList[this.dishId + 1];
       this._router.navigate(['../', nextTrackId], {relativeTo: this._activatedRoute});
     }
