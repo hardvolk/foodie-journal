@@ -29,7 +29,6 @@ export class JourneyOverviewComponent implements OnInit {
       this._apiService.getRestaurantInfo(journeys.find(x => x.name === journey).dishrest[dish]).subscribe(x => {
       this.res[dish] = x as Restaurant;
       this.loading[dish] = true;
-      console.log(this.res);
      });
     }
 
@@ -47,7 +46,6 @@ export class JourneyOverviewComponent implements OnInit {
       this.journeyParams = params;
       this.journey = JourneyDS.find( j => j.name === params.trackId);
       this.journeyId = JourneyDS.findIndex( j => j.name === params.trackId);
-      console.log('Current Journey: ', this.journey);
     });
 
   }

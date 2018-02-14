@@ -29,4 +29,28 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('login should work with right user and password', () => {
+    const checkLogin = component.verifyPassword('exampleone', 'example1');
+    expect(checkLogin).toBe(true);
+  });
+
+  it('login password incorrect returns false', () => {
+    const checkLogin = component.verifyPassword('exampleone', 'wrongPass');
+    expect(checkLogin).toBe(false);
+  });
+
+  it('login username returns true when correct', () => {
+    const checkLogin = component.loginUser('exampleone', 'example1');
+    expect(checkLogin).toBe(true);
+  });
+
+  it('login username incorrect returns false', () => {
+    const checkLogin = component.loginUser('WrongUser', 'example1');
+    expect(checkLogin).toBe(false);
+  });
+
+  // it('checking logout functions', () => {
+  // });
+
 });
