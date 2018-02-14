@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { last } from 'rxjs/operators/last';
 import { User } from '../interfaces/user';
 import { map } from 'rxjs/operator/map';
+import { isUndefined } from 'util';
 
 @Injectable()
 export class UserService {
@@ -42,10 +43,14 @@ export class UserService {
     localStorage.removeItem('CurrentUser');
   }
 
-  updateProgress (journeyid: number, dishid: number): void {
+  updateProgress (journeyid: number, dishid: number, completed?: boolean): void {
+    if (isUndefined(completed)) {
       this.LoggedUser.value.journeys[journeyid][dishid] = !this.LoggedUser.value.journeys[journeyid][dishid];
-      localStorage.setItem(this.LoggedUser.value.name, JSON.stringify(this.LoggedUser.value));
-      this.LoggedUser.next(this.LoggedUser.value);
+    } else {
+      this.LoggedUser.value.journeys[journeyid][dishid] = completed;
+    }
+    localStorage.setItem(this.LoggedUser.value.name, JSON.stringify(this.LoggedUser.value));
+    this.LoggedUser.next(this.LoggedUser.value);
   }
 
   checkProgress (journey: number): number {

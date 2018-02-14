@@ -26,8 +26,6 @@ export class DishDetailComponent implements OnInit {
   loadingreview = true;
   user: User = this._userService.LoggedUser.value;
   dishstatus = false;
-  dishStarted = false;
-  dishCompleted = false;
 
   constructor(private _apiService: ApiService, private _userService: UserService,
     private _activatedRoute: ActivatedRoute, private _router: Router) { }
@@ -49,8 +47,8 @@ export class DishDetailComponent implements OnInit {
     return '/assets/images/yelp-stars/' + String(Math.round(this.rest.rating * 2) / 2) + '.png';
   }
 
-  checkDishStatus(journey: number, dish: number) {
-    this._userService.LoggedUser.subscribe(x => this.dishstatus = x.journeys[journey][dish]);
+  checkDishStatus() {
+    this._userService.LoggedUser.subscribe(x => this.dishstatus = x.journeys[this.trackId][this.dishId]);
   }
 
   ngOnInit() {
@@ -60,27 +58,33 @@ export class DishDetailComponent implements OnInit {
       if (this.trackId === -1 || this.dishId === -1 ) { this._router.navigateByUrl('/tracks'); return; }
       this.getDishDetail(this.trackId, this.dishId);
       this.getReview(this.trackId, this.dishId);
-      this.checkDishStatus(this.trackId, this.dishId);
+      this.checkDishStatus();
     });
   }
 
   @HostListener('swipe',  ['$event'])
   onSwipe(event): void {
-    if (this.dishCompleted) {
+    if (this.dishstatus) {
       this.gotToNextDish();
     }
   }
 
-  setDishStarted(): void {
-    this.dishStarted = true;
-  }
-
   setDishCompleted(): void {
-    this.dishCompleted = true;
+    this._userService.updateProgress(this.trackId, this.dishId, true);
   }
 
+  /**
+   * Goes to next idsh or to the joruney overview screen if is the last one.
+   */
   gotToNextDish(): void {
-    console.log('TODO: navigate to next dish');
+    const dishList = this.journeylist[this.trackId].dish;
+    const isLastDish = dishList.length >= this.dishId + 1;
+    if (isLastDish) {
+      this._router.navigate(['../'], {relativeTo: this._activatedRoute});
+    } else {
+      const nextTrackId = dishList[this.dishId + 1];
+      this._router.navigate(['../', nextTrackId], {relativeTo: this._activatedRoute});
+    }
   }
 
 }

@@ -50,13 +50,10 @@
 </div>
 <div id="spacer">&nbsp;</div>
 <div class="container-fluid" id="footer">
-  <div *ngIf="!dishStarted" class="orange" (click)="setDishStarted()">
-    Mark as Started
-  </div>
-  <div *ngIf="dishStarted && !dishCompleted" class="blue" (click)="setDishCompleted()">
+  <div *ngIf="!dishstatus" class="orange" (click)="setDishCompleted()">
     Mark as Completed
   </div>
-  <div *ngIf="dishCompleted" class="">
+  <div *ngIf="dishstatus" class="blue">
     Way to go! Swipe left to take the next challenge
   </div>
 </div>
