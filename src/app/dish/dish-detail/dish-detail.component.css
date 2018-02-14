@@ -1,3 +1,9 @@
+:host {
+  /* Permits the swipe event to be inside the component when its height is smaller that the screen height. */
+  display: block;
+  min-height: 100%;
+}
+
 #header {
     position: sticky;
     top: 56px;
@@ -55,8 +61,8 @@
 }
 
 #google-map {
-    width: 43vw; 
-    height: 43vw; 
+    width: 43vw;
+    height: 43vw;
     border: 0;
     box-shadow: 0px 3px 3px lightgrey;
 }
@@ -114,10 +120,10 @@
 }
 
 #review-img img{
-    width: 30vw; 
+    width: 30vw;
     height: 30vw;
     display: inline-block;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 #hours-container {
